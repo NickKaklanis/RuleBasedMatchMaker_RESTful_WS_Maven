@@ -1,1 +1,11 @@
-/target/
+### Maven ###
+target/
+
+### JAVA ###
+.classpath
+.project
+.settings/
+bin/
+
+### RBMM Debug Folder ###
+src/main/webapp/WEB-INF/debug/
