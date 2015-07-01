@@ -15,7 +15,7 @@
           }
         },
         "org.chrome.cloud4chrome" : {
-          "active" : true,
+          "active" : false,
           "settings" : {
             "http://registry.gpii.net/applications/org.chrome.cloud4chrome" : {
               "fontSize" : "medium"
@@ -45,7 +45,7 @@
           }
         },
         "org.chrome.cloud4chrome" : {
-          "active" : true,
+          "active" : false,
           "settings" : {
             "http://registry.gpii.net/applications/org.chrome.cloud4chrome" : {
               "fontSize" : "medium",
