@@ -16,7 +16,8 @@ public class RBMM_WebServiceIT extends TestCase
 		if(JsonLDManager.getInstance().PERFORM_INTEGRATION_TESTS)
         {
 			// core  
-			_basicAlignment();
+			//_basicAlignment();
+			_MMTest1a();
 			//_resolveMSC_MultiSolutionPreffered();
 			//_resolveMSC_OneSolutionPreffered();
 			
@@ -54,6 +55,19 @@ public class RBMM_WebServiceIT extends TestCase
 	
         String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/basicAlignment.json";
         String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/basicAlignmentOUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT, "_BasicAlignment");           
+    }
+    
+    public void _MMTest1a()
+    {
+    	System.out.println("\n**********************************************************************");
+        System.out.println("** Multiple ATs of the same type are locally installed *****************");
+        System.out.println("** and the user has not indicated which AT is preferred. ***************");    	
+    	System.out.println("\n**********************************************************************");    	
+	
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/MMTest1a.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MMTest1aOUT.json";
 	    
 	    performTest(filepathIN, filepathExpectedOUT, "_BasicAlignment");           
     }

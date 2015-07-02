@@ -8,7 +8,7 @@
                     "http://registry.gpii.net/common/speechRate": 350,
                     "http://registry.gpii.net/common/volume": 0.6,
                     "http://registry.gpii.net/common/highContrast": true,
-                    "http://registry.gpii.net/common/highContrastTheme": "white-black"                    
+                    "http://registry.gpii.net/common/highContrastTheme": "white-black",
                     "http://registry.gpii.net/common/auditoryOutLanguage": "en",
                     "http://registry.gpii.net/common/language": "en",
                     "http://registry.gpii.net/applications/com.microsoft.windows.displaySettings": {
@@ -48,10 +48,10 @@
             },
             {
                 "id": "org.chrome.cloud4chrome"
-            }, 
-			{
-				"id": "com.certh.service-synthesis"
-			}
+            },
+            {
+                "id": "com.certh.service-synthesis"
+            }
         ]
     },
     "environmentReporter": {},
