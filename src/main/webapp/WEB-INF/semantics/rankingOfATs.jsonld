@@ -7,9 +7,9 @@
         {
             "@id": "c4a:screenreader",
             "c4a:ranking": {
-                "http://registry.gpii.net/applications/com.freedomscientific.jaws": 0.64,
-                "http://registry.gpii.net/applications/org.nvda-project": 0.51,
-                "http://registry.gpii.net/applications/com.yourdolphin.supernova-as": 0.09
+                "http://registry.gpii.net/applications/com.freedomscientific.jaws": 640,
+                "http://registry.gpii.net/applications/org.nvda-project": 510,
+                "http://registry.gpii.net/applications/com.yourdolphin.supernova-as":90 
             }
         }
     ]

@@ -26,9 +26,9 @@ public class RBMM_WebServiceIT extends TestCase
 			_vladimirLobby();
 			_vladimirSubway();
 			_Mary();
-			_Manuel();
+			_Manuel();*/
 			_ChrisWin();
-			_ChrisAndroid();
+			/*_ChrisAndroid();
 			_LiWindows();
 			_LiAndroid();
 			_Franklin();*/
@@ -61,15 +61,17 @@ public class RBMM_WebServiceIT extends TestCase
     
     public void _MMTest1a()
     {
-    	System.out.println("\n**********************************************************************");
+    	System.out.println("\n******************_MMTest1a ******************************************");
         System.out.println("** Multiple ATs of the same type are locally installed *****************");
         System.out.println("** and the user has not indicated which AT is preferred. ***************");    	
-    	System.out.println("\n**********************************************************************");    	
+        System.out.println("** Resolution based on a expert defined ranking of AT ** ***************");
+        System.out.println("** defined in knowledge set rankingOfATs *******************************");        
+        System.out.println("\n**********************************************************************");    	
 	
         String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/MMTest1a.json";
         String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MMTest1aOUT.json";
 	    
-	    performTest(filepathIN, filepathExpectedOUT, "_BasicAlignment");           
+	    performTest(filepathIN, filepathExpectedOUT, "_MMTest1a");           
     }
     
     private void _resolveMSC_MultiSolutionPreffered()

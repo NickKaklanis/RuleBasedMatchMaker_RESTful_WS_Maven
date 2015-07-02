@@ -1,6 +1,35 @@
 	@prefix c4a: <http://rbmm.org/schemas/cloud4all/0.1/>.
 	@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 
+[MATC_Res_ATRanking:
+	(?conflict rdf:type c4a:Conflict)
+	(?conflict c4a:class ?class)
+	(?conflict c4a:refersTo ?config_a)
+	(?conflict c4a:refersTo ?config_b)
+	(?config_a c4a:isActive "true")
+	(?config_a c4a:refersTo ?sol_a)
+	(?config_b c4a:isActive "true")
+	(?config_b c4a:refersTo ?sol_b)
+	
+	(?if rdf:type c4a:InferredConfiguration)
+	(?if c4a:solPreferred "false")
+	(?if c4a:id ?if_id)	
+	(?if c4a:refersTo ?config_a)
+	(?if c4a:refersTo ?config_b)
+	
+	(?class c4a:ranking ?r)
+	(?r ?sol_a ?r_a)
+	(?r ?sol_b ?r_b)
+	greaterThan(?r_a, ?r_b)
+	notEqual(?config_a, ?config_b)
+	->
+	drop(6)
+	(?config_b c4a:isActive "false")
+	print('****************************')
+	print('**** MATC_Res_ATRanking ****')
+	print('****************************')	
+]
+
 [Res1aJustOnePreferred:
 	(?conflict rdf:type c4a:Conflict)
 	(?conflict c4a:class ?class)
