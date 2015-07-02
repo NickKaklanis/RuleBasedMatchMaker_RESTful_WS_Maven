@@ -19,12 +19,9 @@
 	(?if c4a:refersTo ?config_b)
 	notEqual(?config, ?config_b)
 	noValue(?config c4a:solPreferred)
-	noValue(?conflict c4a:activated ?config_b)
-	noValue(?conflict c4a:activated ?config)
 	->
 	drop(3)
 	(?config c4a:isActive "false")
- 	(?conflict c4a:activated ?config_b)
 	print('***********Resolution A MSC ******************')
 	print('CONTEXT: ' ?if_id)
 	print('conflict: ' ?class)
