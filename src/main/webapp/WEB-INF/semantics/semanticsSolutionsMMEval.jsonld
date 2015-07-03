@@ -5,14 +5,38 @@
     },
     "@graph": [
         {
+            "@id": "http://registry.gpii.net/applications/webinsight.webAnywhere.windows",
+            "@type": "c4a:Solution",
+            "c4a:id": "http://registry.gpii.net/applications/webinsight.webAnywhere.windows",
+            "c4a:name": "webinsight.webAnywhere.windows",
+            "c4a:class": [
+                {
+                    "@id": "c4a:screenreader" 
+                },
+                {
+                    "@id": "c4a:browser" 
+                }
+            ],
+            "c4a:settings": [
+                {
+                    "@type": "c4a:Setting",
+                    "c4a:id": "screenReaderTTSEnabled",
+                    "c4a:refersTo": "http://registry.gpii.net/common/screenReaderTTSEnabled",
+                    "c4a:name": "screenReaderTTSEnabled"
+                }
+            ]
+        },
+        {
             "@id": "http://registry.gpii.net/applications/com.freedomscientific.jaws",
             "@type": "c4a:Solution",
             "c4a:id": "http://registry.gpii.net/applications/com.freedomscientific.jaws",
             "c4a:name": "com.freedomscientific.jaws",
             "c4a:class": [
                 {
-                    "@type": "c4a:AssistiveTechnology",
                     "@id": "c4a:screenreader"
+                },
+                {
+                    "@id": "c4a:os"
                 }
             ],
             "c4a:settings": [
@@ -73,7 +97,6 @@
             "c4a:name": "org.chrome.cloud4chrome",
             "c4a:class": [
                 {
-                    "@type": "c4a:AccessibilitySolution",
                     "@id": "c4a:browser"
                 }
             ],
@@ -129,9 +152,11 @@
             "c4a:name": "com.microsoft.windows.magnifier",
             "c4a:class": [
                 {
-                    "@type": "c4a:AssistiveTechnology",
                     "@id": "c4a:magnifier"
-                }
+                },
+                {
+                    "@id": "c4a:os"
+                }                
             ],
             "c4a:settings": [
                 {
@@ -167,9 +192,11 @@
             "c4a:name": "org.nvda-project",
             "c4a:class": [
                 {
-                    "@type": "c4a:AssistiveTechnology",
                     "@id": "c4a:screenreader"
-                }
+                },
+                {
+                    "@id": "c4a:os"
+                }                
             ],
             "c4a:settings": [
                 {
@@ -253,8 +280,7 @@
             "c4a:name": "com.microsoft.windows.highContrast",
             "c4a:class": [
                 {
-                    "@type": "c4a:AccessibilitySetting",
-                    "@id": "c4a:builtin"
+                    "@id": "c4a:os"
                 }
             ],
             "c4a:settings": [
@@ -273,8 +299,7 @@
             "c4a:name": "com.microsoft.windows.onscreenKeyboard",
             "c4a:class": [
                 {
-                    "@type": "c4a:AccessibilitySetting",
-                    "@id": "c4a:builtin"
+                    "@id": "c4a:os"
                 }
             ],
             "c4a:settings": [
@@ -293,8 +318,7 @@
             "c4a:name": "org.gnome.desktop.a11y.magnifier",
             "c4a:class": [
                 {
-                    "@type": "c4a:AssistiveTechnology",
-                    "@id": "c4a:magnifier"
+                    "@id": "c4a:os"
                 }
             ],
             "c4a:settings": [
@@ -337,8 +361,7 @@
             "c4a:name": "org.gnome.desktop.a11y.applications.onscreen-keyboard",
             "c4a:class": [
                 {
-                    "@type": "c4a:AccessibilitySetting",
-                    "@id": "c4a:builtin"
+                    "@id": "c4a:os"
                 }
             ],
             "c4a:settings": [
@@ -357,8 +380,7 @@
             "c4a:name": "org.gnome.desktop.a11y.keyboard",
             "c4a:class": [
                 {
-                    "@type": "c4a:AccessibilitySetting",
-                    "@id": "c4a:builtin"
+                    "@id": "c4a:os"
                 }
             ],
             "c4a:settings": [
@@ -425,8 +447,7 @@
             "c4a:name": "com.microsoft.windows.mouseTrailing",
             "c4a:class": [
                 {
-                    "@type": "c4a:AccessibilitySetting",
-                    "@id": "c4a:builtin"
+                    "@id": "c4a:os"
                 }
             ],
             "c4a:settings": [
@@ -445,8 +466,7 @@
             "c4a:name": "com.microsoft.windows.cursors",
             "c4a:class": [
                 {
-                    "@type": "c4a:AccessibilitySetting",
-                    "@id": "c4a:builtin"
+                    "@id": "c4a:os"
                 }
             ],
             "c4a:settings": [
@@ -465,13 +485,14 @@
             "c4a:name": "com.yourdolphin.supernova-as",
             "c4a:class": [
                 {
-                    "@type": "c4a:AssistiveTechnology",
                     "@id": "c4a:screenreader"
                 },
                 {
-                    "@type": "c4a:AssistiveTechnology",
                     "@id": "c4a:magnifier"
-                }
+                },
+                {
+                    "@id": "c4a:os"
+                }                
             ],
             "c4a:settings": [
                 {
@@ -543,9 +564,11 @@
             "c4a:name": "com.android.talkback",
             "c4a:class": [
                 {
-                    "@type": "c4a:AssistiveTechnology",
                     "@id": "c4a:screenreader"
-                }
+                },
+                {
+                    "@id": "c4a:os"
+                }                
             ],
             "c4a:settings": [
                 {
@@ -563,8 +586,7 @@
             "c4a:name": "com.android.settings.secure",
             "c4a:class": [
                 {
-                    "@type": "c4a:AccessibilitySetting",
-                    "@id": "c4a:builtin"
+                    "@id": "c4a:os"
                 }
             ],
             "c4a:settings": [
@@ -589,8 +611,7 @@
             "c4a:name": "com.android.persistentConfiguration",
             "c4a:class": [
                 {
-                    "@type": "c4a:AccessibilitySetting",
-                    "@id": "c4a:builtin"
+                    "@id": "c4a:os"
                 }
             ],
             "c4a:settings": [
@@ -615,8 +636,7 @@
             "c4a:name": "com.android.audioManager",
             "c4a:class": [
                 {
-                    "@type": "c4a:AccessibilitySetting",
-                    "@id": "c4a:builtin"
+                    "@id": "c4a:os"
                 }
             ],
             "c4a:settings": [
@@ -641,9 +661,11 @@
             "c4a:name": "es.codefactory.android.app.ma",
             "c4a:class": [
                 {
-                    "@type": "c4a:AssistiveTechnology",
                     "@id": "c4a:screenreader"
-                }
+                },
+                {
+                    "@id": "c4a:os"
+                }                
             ],
             "c4a:settings": [
                 {
@@ -691,8 +713,7 @@
             "c4a:name": "com.microsoft.windows.displaySettings",
             "c4a:class": [
                 {
-                    "@type": "c4a:AccessibilitySetting",
-                    "@id": "c4a:builtin"
+                    "@id": "c4a:os"
                 }
             ]
         },
@@ -703,7 +724,6 @@
             "c4a:name": "com.texthelp.readWriteGold",
             "c4a:class": [
                 {
-                    "@type": "c4a:AccessibilitySolution",
                     "@id": "c4a:os"
                 }
             ]
@@ -719,19 +739,34 @@
             "c4a:name": "Magnifier"
         },
         {
-            "@id": "c4a:builtin",
+            "@id": "c4a:screenEnlargement",
             "@type": "c4a:AccessibilitySetting",
-            "c4a:name": "BuiltinFeatures"
-        },
-        {
-            "@id": "c4a:browser",
-            "@type": "c4a:AccessibilitySolution",
-            "c4a:name": "BrowserFeatures"
-        },
+            "c4a:name": "screenEnlargement"
+        },        
         {
             "@id": "c4a:os",
-            "@type": "c4a:AccessibilitySolution",
-            "c4a:name": "DesktopSoftware"
+            "@type": "c4a:Layer",
+            "c4a:name": "os"
+        },
+        {
+            "@id": "c4a:at",
+            "@type": "c4a:Layer",
+            "c4a:name": "at"
+        },        
+        {
+            "@id": "c4a:browser",
+            "@type": "c4a:Layer",
+            "c4a:name": "browser"
+        },
+        {
+            "@id": "c4a:cloud",
+            "@type": "c4a:Layer",
+            "c4a:name": "cloud"
+        },        
+        {
+            "@id": "c4a:website",
+            "@type": "c4a:Layer",
+            "c4a:name": "website"
         }
     ]
 }

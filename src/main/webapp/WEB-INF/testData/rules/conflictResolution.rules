@@ -30,6 +30,33 @@
 	print('****************************')	
 ]
 
+[MATC_Res_ATLayer:
+	(?if rdf:type c4a:InferredConfiguration)
+	(?if c4a:solPreferred "false")
+	(?if c4a:id ?if_id)	
+	(?if c4a:refersTo ?config_a)
+	(?if c4a:refersTo ?config_b)
+	
+	(?conflict rdf:type c4a:Conflict)
+	(?conflict c4a:refersTo ?config_a)
+	(?conflict c4a:refersTo ?config_b)
+	(?config_a c4a:isActive "true")
+	(?config_b c4a:isActive "true")
+	(?config_a c4a:refersTo ?sol_a)
+	(?config_b c4a:refersTo ?sol_b)
+	
+	(?sol_a c4a:class ?class_a)
+	(?sol_b c4a:class ?class_b)
+	(?class_a c4a:name "os")
+	(?class_b c4a:name "browser")
+	notEqual(?config_a, ?config_b)
+	->
+	drop(4)
+	print('**** MATC_Res_ATLayer ************')
+	print('Configuration removed for: ' ?sol_b)
+	print('**********************************')	
+]
+
 [Res1aJustOnePreferred:
 	(?conflict rdf:type c4a:Conflict)
 	(?conflict c4a:class ?class)
