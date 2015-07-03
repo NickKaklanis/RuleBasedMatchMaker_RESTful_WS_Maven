@@ -77,19 +77,19 @@ public class RBMM_WebServiceIT extends TestCase
     
     public void _MMTest1b()
     {
-    	System.out.println("\n******************_MMTest1b **********************************************");
-        System.out.println("** Multiple ATs of the same type are available, either locally or as *******");
-        System.out.println("** cloud-based solution. The user has not indicated which AT is preferred. *");    	
-        System.out.println("** Resolution based on a expert defined ranking of AT ** *******************");
-        System.out.println("** defined in knowledge set rankingOfATs ***********************************");        
-        System.out.println("\n**************************************************************************");    	
+    	System.out.println("\n******************_MMTest1b **************************************************");
+        System.out.println("** Multiple ATs of the same type are available, either locally or as ***********");
+        System.out.println("** cloud-based solution. The user has not indicated which AT is preferred. *****");    	
+        System.out.println("** Resolution based on the application layer of a solution (os, browser, cloud)*");
+        System.out.println("** OS ATs are prioritized over browser solutions *******************************");        
+        System.out.println("\n******************************************************************************");    	
 	
         String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/MMTest1b.json";
         String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MMTest1bOUT.json";
 	    
 	    performTest(filepathIN, filepathExpectedOUT, "_MMTest1b");           
     }    
-    
+ 
     private void _resolveMSC_MultiSolutionPreffered()
     {
     	System.out.println("\n*************************************************************************");
