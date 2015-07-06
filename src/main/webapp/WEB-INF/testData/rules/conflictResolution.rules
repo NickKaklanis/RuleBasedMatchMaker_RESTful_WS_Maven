@@ -47,8 +47,10 @@
 	
 	(?sol_a c4a:class ?class_a)
 	(?sol_b c4a:class ?class_b)
-	(?class_a c4a:name "os")
-	(?class_b c4a:name "browser")
+	(?class_a rdf:type c4a:AccessibilityLayer)
+	(?class_b rdf:type c4a:AccessibilityLayer)	
+	equal(?class_a,c4a:at)
+	equal(?class_b,c4a:browser)
 	notEqual(?config_a, ?config_b)
 	->
 	drop(4)

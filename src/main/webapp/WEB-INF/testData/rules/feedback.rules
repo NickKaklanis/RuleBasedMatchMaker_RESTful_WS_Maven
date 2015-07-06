@@ -7,7 +7,7 @@
 	(?config c4a:refersTo ?s)
 	(?s c4a:class ?c)
 	(?s c4a:name ?s_name)
-	(?c rdf:type c4a:AssistiveTechnology)
+	(?c rdf:type c4a:AccessibilitySolution)
 	
 	(?if rdf:type c4a:InferredConfiguration)
 	(?if c4a:id ?if_id)

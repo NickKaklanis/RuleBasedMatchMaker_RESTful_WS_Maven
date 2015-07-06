@@ -19,7 +19,7 @@
 	
 	(?s1 c4a:class ?c) 
 	(?s2 c4a:class ?c)
-	(?c rdf:type c4a:AssistiveTechnology)
+	(?c rdf:type c4a:AccessibilitySolution)
 	
 	makeSkolem(?newConflict, ?if, ?c)
 	->
