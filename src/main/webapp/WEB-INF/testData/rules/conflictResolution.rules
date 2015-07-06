@@ -3,12 +3,11 @@
 
 [MATC_Res_ATRanking:
 	(?conflict rdf:type c4a:Conflict)
-	(?conflict c4a:class ?class)
 	(?conflict c4a:refersTo ?config_a)
 	(?conflict c4a:refersTo ?config_b)
 	(?config_a c4a:isActive "true")
-	(?config_a c4a:refersTo ?sol_a)
 	(?config_b c4a:isActive "true")
+	(?config_a c4a:refersTo ?sol_a)
 	(?config_b c4a:refersTo ?sol_b)
 	
 	(?if rdf:type c4a:InferredConfiguration)
@@ -23,20 +22,15 @@
 	greaterThan(?r_a, ?r_b)
 	notEqual(?config_a, ?config_b)
 	->
-	drop(6)
+	drop(4)
 	(?config_b c4a:isActive "false")
 	print('****************************')
 	print('**** MATC_Res_ATRanking ****')
+	print('Configuration deactivated: ' ?sol_b)	
 	print('****************************')	
 ]
 
 [MATC_Res_ATLayer:
-	(?if rdf:type c4a:InferredConfiguration)
-	(?if c4a:solPreferred "false")
-	(?if c4a:id ?if_id)	
-	(?if c4a:refersTo ?config_a)
-	(?if c4a:refersTo ?config_b)
-	
 	(?conflict rdf:type c4a:Conflict)
 	(?conflict c4a:refersTo ?config_a)
 	(?conflict c4a:refersTo ?config_b)
@@ -44,6 +38,12 @@
 	(?config_b c4a:isActive "true")
 	(?config_a c4a:refersTo ?sol_a)
 	(?config_b c4a:refersTo ?sol_b)
+	
+	(?if rdf:type c4a:InferredConfiguration)
+	(?if c4a:solPreferred "false")
+	(?if c4a:id ?if_id)	
+	(?if c4a:refersTo ?config_a)
+	(?if c4a:refersTo ?config_b)
 	
 	(?sol_a c4a:class ?class_a)
 	(?sol_b c4a:class ?class_b)
@@ -54,8 +54,39 @@
 	notEqual(?config_a, ?config_b)
 	->
 	drop(4)
+	(?config_b c4a:isActive "false")	
 	print('**** MATC_Res_ATLayer ************')
-	print('Configuration removed for: ' ?sol_b)
+	print('Configuration deactivated: ' ?sol_b)
+	print('**********************************')	
+]
+
+[MATC_Res_ATContext:
+	(?conflict rdf:type c4a:Conflict)
+	(?conflict c4a:refersTo ?config_a)
+	(?conflict c4a:refersTo ?config_b)
+	(?config_a c4a:isActive "true")
+	(?config_b c4a:isActive "true")
+	(?config_a c4a:refersTo ?sol_a)
+	(?config_b c4a:refersTo ?sol_b)
+	
+	(?if rdf:type c4a:InferredConfiguration)
+	(?if c4a:solPreferred "false")
+	(?if c4a:id ?if_id)	
+	(?if c4a:refersTo ?config_a)
+	(?if c4a:refersTo ?config_b)
+	
+	(?sol_a c4a:class ?class_a)
+	(?sol_b c4a:class ?class_b)
+	(?class_a rdf:type c4a:AccessibilityContext)
+	(?class_b rdf:type c4a:AccessibilityContext)	
+	equal(?class_a,c4a:output)
+	equal(?class_b,c4a:task)
+	notEqual(?config_a, ?config_b)
+	->
+	drop(4)
+	(?config_b c4a:isActive "false")
+	print('**** MATC_Res_ATContext **********')
+	print('Configuration deactivated: ' ?sol_b)
 	print('**********************************')	
 ]
 
