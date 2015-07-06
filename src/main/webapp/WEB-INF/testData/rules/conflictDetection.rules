@@ -39,15 +39,3 @@
 	print('CONTEXT' ?if_id)
 	print('AFFECTED SOLUTION: ' ?s1)
 	]
-	
-	// HACK - Google Chrome Browser plugins schall not be activated per default
-	[DeactivateGoogleChrome:
-	(?if c4a:refersTo ?config_x)
-	(?config_x rdf:type c4a:Configuration)
-	(?config_x c4a:isActive "true")	
-	(?config_x c4a:refersTo http://registry.gpii.net/applications/org.chrome.cloud4chrome)
-	->
-	drop(2)
-	(?config_x c4a:isActive "false")
-	print('************ HACK GOOGLE CHROME HAS BEEN DEACTIVATED ****************')
-	]
