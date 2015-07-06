@@ -103,6 +103,9 @@
             "c4a:name": "org.chrome.cloud4chrome",
             "c4a:class": [
                 {
+                    "@id":"c4a:screenreader"
+                },            
+                {
                     "@id":"c4a:task"
                 },
                 {
