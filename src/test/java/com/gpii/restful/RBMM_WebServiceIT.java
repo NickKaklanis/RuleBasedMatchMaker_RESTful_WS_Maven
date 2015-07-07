@@ -19,7 +19,8 @@ public class RBMM_WebServiceIT extends TestCase
 			//_basicAlignment();
 			_MMTest1a();
 			_MMTest1b();
-			_MMTest1c();			
+			_MMTest1c();
+			_MMTest1d();
 			//_resolveMSC_MultiSolutionPreffered();
 			//_resolveMSC_OneSolutionPreffered();
 			
@@ -28,7 +29,7 @@ public class RBMM_WebServiceIT extends TestCase
 			_vladimirLobby();
 			_vladimirSubway();
 			_Mary();
-			_Manuel();*/
+			_Manuel();
 			_ChrisWin();
 			/*_ChrisAndroid();
 			_LiWindows();
@@ -103,7 +104,21 @@ public class RBMM_WebServiceIT extends TestCase
         String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MMTest1cOUT.json";
 	    
 	    performTest(filepathIN, filepathExpectedOUT, "_MMTest1c");           
-    }        
+    }
+    public void _MMTest1d()
+    {
+    	System.out.println("\n******************_MMTest1d **********************************************");
+        System.out.println("** Multiple ATs and suits of the same type.**************** ****************");
+        System.out.println("** The user has not indicated which AT is preferred. ***********************");    	
+        System.out.println("** Resolution based on a expert defined ranking of AT ** *******************");
+        System.out.println("** defined in knowledge set rankingOfATs ***********************************");        
+        System.out.println("\n**************************************************************************");    	
+	
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/MMTest1d.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MMTest1dOUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT, "_MMTest1d");           
+    }     
     private void _resolveMSC_MultiSolutionPreffered()
     {
     	System.out.println("\n*************************************************************************");

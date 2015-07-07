@@ -5,61 +5,64 @@
         "com.freedomscientific.jaws" : {
           "active" : true,
           "settings" : {
-            "http://registry.gpii.net/common/announceCapitals" : true,
+            "http://registry.gpii.net/common/announceCapitals" : false,
             "http://registry.gpii.net/common/keyEcho" : true,
             "http://registry.gpii.net/common/pitch" : 0.8,
-            "http://registry.gpii.net/common/punctuationVerbosity" : "most",
+            "http://registry.gpii.net/common/punctuationVerbosity" : "some",
             "http://registry.gpii.net/common/readingUnit" : "paragraph",
             "http://registry.gpii.net/common/screenReaderTTSEnabled" : true,
-            "http://registry.gpii.net/common/speechRate" : 280.0
+            "http://registry.gpii.net/common/speechRate" : 300.0
           }
         },
-        "com.texthelp.readWriteGold" : {
-          "active" : false,
+        "com.microsoft.windows.magnifier" : {
+          "active" : true,
           "settings" : {
-            "http://registry.gpii.net/common/auditoryOutLanguage" : "en",
-            "http://registry.gpii.net/common/keyEcho" : true,
-            "http://registry.gpii.net/common/pitch" : 0.8,
-            "http://registry.gpii.net/common/readingUnit" : "paragraph",
-            "http://registry.gpii.net/common/screenReaderTTSEnabled" : true,
-            "http://registry.gpii.net/common/speechRate" : 280.0,
-            "http://registry.gpii.net/common/wordEcho" : false
+            "http://registry.gpii.net/common/invertColours" : true,
+            "http://registry.gpii.net/common/magnification" : 2.0,
+            "http://registry.gpii.net/common/magnifierEnabled" : true,
+            "http://registry.gpii.net/common/magnifierPosition" : "TopHalf"
           }
         },
         "com.yourdolphin.supernova-as" : {
           "active" : false,
           "settings" : {
-            "http://registry.gpii.net/common/announceCapitals" : true,
+            "http://registry.gpii.net/common/announceCapitals" : false,
             "http://registry.gpii.net/common/keyEcho" : true,
-            "http://registry.gpii.net/common/punctuationVerbosity" : "most",
+            "http://registry.gpii.net/common/magnification" : 2.0,
+            "http://registry.gpii.net/common/magnifierEnabled" : true,
+            "http://registry.gpii.net/common/magnifierPosition" : "TopHalf",
+            "http://registry.gpii.net/common/punctuationVerbosity" : "some",
             "http://registry.gpii.net/common/screenReaderTTSEnabled" : true,
-            "http://registry.gpii.net/common/speechRate" : 280.0,
+            "http://registry.gpii.net/common/speechRate" : 300.0,
             "http://registry.gpii.net/common/wordEcho" : false
-          }
-        },
-        "org.chrome.cloud4chrome" : {
-          "active" : false,
-          "settings" : {
-            "http://registry.gpii.net/common/screenReaderTTSEnabled" : true
           }
         },
         "org.nvda-project" : {
           "active" : false,
           "settings" : {
-            "http://registry.gpii.net/common/announceCapitals" : true,
+            "http://registry.gpii.net/common/announceCapitals" : false,
             "http://registry.gpii.net/common/auditoryOutLanguage" : "en",
             "http://registry.gpii.net/common/keyEcho" : true,
             "http://registry.gpii.net/common/pitch" : 0.8,
-            "http://registry.gpii.net/common/punctuationVerbosity" : "most",
+            "http://registry.gpii.net/common/punctuationVerbosity" : "some",
             "http://registry.gpii.net/common/readingUnit" : "paragraph",
             "http://registry.gpii.net/common/screenReaderTTSEnabled" : true,
             "http://registry.gpii.net/common/speakTutorialMessages" : false,
-            "http://registry.gpii.net/common/speechRate" : 280.0,
+            "http://registry.gpii.net/common/speechRate" : 300.0,
             "http://registry.gpii.net/common/wordEcho" : false
           }
         }
       },
       "metadata" : [ {
+        "message" : {
+          "de" : {
+            "learnMore" : "http://wwwpub.zih.tu-dresden.de/~loitsch/review/nvdaTutorial.html",
+            "message" : "Deine bevorzugte assistive Technology ist auf diesem Gerät nicht verfügbar. Wir habe diese alternaive Lösung für dich gestartet."
+          }
+        },
+        "scope" : [ "com.freedomscientific.jaws" ],
+        "type" : "helpMessage"
+      }, {
         "message" : {
           "de" : {
             "learnMore" : "http://wwwpub.zih.tu-dresden.de/~loitsch/review/nvdaTutorial.html",
@@ -74,7 +77,7 @@
             "message" : "Η εφαρμογή υποστηρικτικής τεχνολογίας που προτιμάτε δεν είναι διαθέσιμη. Επιλέξαμε για εσάς μια εναλλακτική εφαρμογή."
           }
         },
-        "scope" : [ "com.freedomscientific.jaws" ],
+        "scope" : [ "com.microsoft.windows.magnifier" ],
         "type" : "helpMessage"
       } ]
     }
