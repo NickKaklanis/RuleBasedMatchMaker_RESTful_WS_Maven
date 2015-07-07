@@ -41,7 +41,7 @@
 	(?config_b c4a:refersTo ?sol_b)
 	
 	(?if rdf:type c4a:InferredConfiguration)
-	(?if c4a:solPreferred "false")
+	noValue(?if c4a:solPreferred)
 	(?if c4a:id ?if_id)	
 	(?if c4a:refersTo ?config_a)
 	(?if c4a:refersTo ?config_b)
@@ -71,7 +71,7 @@
 	(?config_b c4a:refersTo ?sol_b)
 	
 	(?if rdf:type c4a:InferredConfiguration)
-	(?if c4a:solPreferred "false")
+	noValue(?if c4a:solPreferred)
 	(?if c4a:id ?if_id)	
 	(?if c4a:refersTo ?config_a)
 	(?if c4a:refersTo ?config_b)
