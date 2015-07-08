@@ -21,6 +21,8 @@ public class RBMM_WebServiceIT extends TestCase
 			_MMTest1b();
 			_MMTest1c();
 			_MMTest1d();
+			_MMTest2();
+			_MMTest3();			
 			//_resolveMSC_MultiSolutionPreffered();
 			//_resolveMSC_OneSolutionPreffered();
 			
@@ -118,6 +120,33 @@ public class RBMM_WebServiceIT extends TestCase
         String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MMTest1dOUT.json";
 	    
 	    performTest(filepathIN, filepathExpectedOUT, "_MMTest1d");           
+    }
+    public void _MMTest2()
+    {
+    	System.out.println("\n******************_MMTest2 ***********************************************");
+        System.out.println("** Multiple ATs of the same class locally available but the preferred ******");
+        System.out.println("** sulotion is missing. ****************************************************");    	
+        System.out.println("** Resolution based on a expert defined ranking of AT ** *******************");
+        System.out.println("** defined in knowledge set rankingOfATs ***********************************");        
+        System.out.println("\n**************************************************************************");    	
+	
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/MMTest2.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MMTest2OUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT, "_MMTest2");           
+    }
+    public void _MMTest3()
+    {
+    	System.out.println("\n******************_MMTest3 ****************************************************");
+        System.out.println("** Multiple ATs of the same type installed; Solution for one AT class preferred;*");
+        System.out.println("** Solution for the other AT class is not indicated as preferred. ***************");    	
+        System.out.println("** The preferred one is among the installed solutions. **************************");
+        System.out.println("\n**************************************************************************");    	
+	
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/MMTest3.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MMTest3OUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT, "_MMTest3");           
     }     
     private void _resolveMSC_MultiSolutionPreffered()
     {
