@@ -772,6 +772,14 @@
             "@type": "c4a:Solution",
             "c4a:id": "http://registry.gpii.net/applications/com.microsoft.windows.displaySettings",
             "c4a:name": "com.microsoft.windows.displaySettings",
+            "c4a:settings": [
+                {
+                    "@type": "c4a:Setting",
+                    "c4a:id": "resolution",
+                    "c4a:refersTo": "http://registry.gpii.net/common/screenResolution",
+                    "c4a:name": "Screen Resolution"
+                }
+            ],            
             "c4a:class": [
                 {
                     "@id":"c4a:output"

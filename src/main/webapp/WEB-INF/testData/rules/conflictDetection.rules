@@ -39,3 +39,23 @@
 	print('CONTEXT' ?if_id)
 	print('AFFECTED SOLUTION: ' ?s1)
 	]
+	
+	// DETECTION OF NoATConflict (NATC) - no configuration available   
+
+	[DetectNoATConflict: 
+	(?if rdf:type c4a:InferredConfiguration)
+	(?if c4a:hasMetadata ?meta)
+	(?meta c4a:type "required")
+	(?meta c4a:scope ?pref)
+	noValue(?if c4a:refersTo ?config)
+	makeSkolem(?newConflict, ?if)
+	->
+	(?newConflict rdf:type c4a:Conflict)
+	(?newConflict c4a:name "NoATConflict")
+	(?newConflict c4a:refersTo ?pref)
+	(?if c4a:hasConflict ?newConflict)
+	
+	print('************ CONFLICT DETECTION ****************')
+	print('CONFLICT: NoATConflict')
+	print('AFFECTED Preference: ' ?pref)
+	]	

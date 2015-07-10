@@ -1,0 +1,53 @@
+{
+    "@context": {
+        "c4a": "http://rbmm.org/schemas/cloud4all/0.1/",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "@graph": [
+        {
+            "@id": "http://registry.gpii.net/common/magnification",
+            "@type": "c4a:PreferenceSubstitute",
+            "c4a:id": "http://registry.gpii.net/common/magnification",
+            "c4a:substitute": [
+                {
+                    "c4a:rating": 9,
+                    "c4a:valueRange": {
+                      "c4a:min": {
+                        "@value": "1.1",
+                        "@type": "xsd:float"
+                      },
+                      "c4a:max": {
+                        "@value": "1.5",
+                        "@type": "xsd:float"
+                      }
+                    },
+                    "c4a:recommend": {
+                    	"c4a:id" : "http://registry.gpii.net/common/screenResolution",
+                    	"c4a:value" : {
+                        	"@value": "1.5",
+                        	"@type": "xsd:float"
+                      	}
+                    }
+                },
+                {
+                    "c4a:rating": 9,
+                    "c4a:valueRange": {
+                        "c4a:min": {
+                          "@value": "1.6",
+                          "@type": "xsd:float"                          
+                        },
+                      "c4a:max": {
+                        "@value": "2.0",
+                        "@type": "xsd:float"
+                      }
+                    },
+                    "c4a:recommend": {
+                        "c4a:id" : "http://registry.gpii.net/common/screenResolution",
+                    	"c4a:value" : "large"
+                    }
+                }
+            ]
+        }
+    ]
+}

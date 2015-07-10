@@ -11,7 +11,7 @@
                     {
                         "type": "required",
                         "scope": [
-                            "http://registry.gpii.net/common/magnifierEnabled"
+                            "http://registry.gpii.net/common/magnification"
                         ],
                         "value": 1024
                     }

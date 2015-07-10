@@ -1,6 +1,65 @@
 	@prefix c4a: <http://rbmm.org/schemas/cloud4all/0.1/>.
 	@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 
+[NATC_RES:
+	(?if c4a:hasConflict ?conflict)
+	(?if rdf:type c4a:InferredConfiguration)
+	(?if c4a:hasPrefs ?pref)
+		
+	(?conflict rdf:type c4a:Conflict)
+	(?conflict c4a:name "NoATConflict")
+	(?conflict c4a:refersTo ?pref_id)
+
+	(?pref c4a:id ?pref_id)
+	(?pref c4a:value ?pref_val)
+	
+	(?p_subst rdf:type c4a:PreferenceSubstitute)
+	(?p_subst c4a:id ?pref_id)
+	(?p_subst c4a:substitute ?subst)
+	
+	(?subst c4a:valueRange ?range)
+	(?range c4a:min ?min)
+	(?range c4a:max ?max)
+	
+	(?subst c4a:recommend ?recom)
+	(?recom c4a:id ?r_id)
+	(?recom c4a:value ?r_val)
+		
+	le(?pref_val, ?max)
+	ge(?pref_val, ?min)
+	
+	(?solution rdf:type c4a:InstalledSolution)
+	(?solution c4a:id ?sol_id)
+	(?solution c4a:name ?sol_name)
+	(?solution c4a:settings ?setting)
+	
+	(?setting rdf:type c4a:Setting)
+	(?setting c4a:refersTo ?set_id)
+	(?setting c4a:name ?set_name)
+	
+	equal(?r_id, ?set_id)
+	makeSkolem(?newConfig, ?solution, ?if)
+	makeSkolem(?newSetting, ?setting, ?pref)
+	->
+	(?if c4a:refersTo ?newConfig)
+	(?newConfig c4a:refersTo ?solution)
+	(?newConfig c4a:settings ?newSetting)
+	(?newConfig rdf:type c4a:Configuration)
+	(?newConfig c4a:id ?sol_id)
+	(?newConfig c4a:name ?sol_name)
+	(?newConfig c4a:isActive "true")
+	
+	(?newSetting rdf:type c4a:Setting)
+	(?newSetting c4a:id ?r_id)
+	(?newSetting c4a:name ?set_name)	
+	(?newSetting c4a:value ?r_val)	
+	print('**** NATC_Res *************')
+	print('affected preference: ' ?pref_id)
+	print('recommend: ' ?r_id)
+	print('recommended value: ' ?r_val)		
+	print('****************************')
+]
+
 [MATC_Res_ATRanking:
 	(?conflict rdf:type c4a:Conflict)
 	(?conflict c4a:refersTo ?config_a)
