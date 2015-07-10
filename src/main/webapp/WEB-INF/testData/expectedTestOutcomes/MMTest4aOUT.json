@@ -2,10 +2,16 @@
   "inferredConfiguration" : {
     "gpii-default" : {
       "applications" : {
+        "com.microsoft.windows.cursors" : {
+          "active" : false,
+          "settings" : {
+            "http://registry.gpii.net/common/cursorSize" : 0.7
+          }
+        },
         "com.microsoft.windows.displaySettings" : {
           "active" : true,
           "settings" : {
-            "http://registry.gpii.net/common/screenResolution" : 1.5
+            "http://registry.gpii.net/common/screenResolution" : "medium"
           }
         }
       }

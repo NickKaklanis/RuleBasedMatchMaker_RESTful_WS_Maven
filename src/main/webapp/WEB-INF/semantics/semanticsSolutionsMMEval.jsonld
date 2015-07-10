@@ -5,6 +5,46 @@
     },
     "@graph": [
         {
+            "@id": "http://registry.gpii.net/applications/org.gnome.desktop.interface",
+            "@type": "c4a:Solution",
+            "c4a:id": "http://registry.gpii.net/applications/org.gnome.desktop.interface",
+            "c4a:name": "org.gnome.desktop.interface",
+            "c4a:class": [
+                {
+                    "@id":"c4a:output"
+                },
+                {
+            		"@id":"c4a:os"
+                }   
+            ],
+            "c4a:settings": [
+                {
+                    "@type": "c4a:Setting",
+                    "c4a:id": "text-scaling-factor",
+                    "c4a:refersTo": "http://registry.gpii.net/common/fontSize",
+                    "c4a:name": "text-scaling-factor"
+                },
+                {
+                    "@type": "c4a:Setting",
+                    "c4a:id": "cursor-size",
+                    "c4a:refersTo": "http://registry.gpii.net/common/cursorSize",
+                    "c4a:name": "cursor-size"
+                },
+                {
+                    "@type": "c4a:Setting",
+                    "c4a:id": "gtk-theme",
+                    "c4a:refersTo": "http://registry.gpii.net/common/highContrastEnabled",
+                    "c4a:name": "gtk-theme"
+                },
+                {
+                    "@type": "c4a:Setting",
+                    "c4a:id": "icon-theme",
+                    "c4a:refersTo": "http://registry.gpii.net/common/highContrastEnabled",
+                    "c4a:name": "icon-theme"
+                }                                
+            ]
+        },  
+        {
             "@id": "http://registry.gpii.net/applications/webinsight.webAnywhere.windows",
             "@type": "c4a:Solution",
             "c4a:id": "http://registry.gpii.net/applications/webinsight.webAnywhere.windows",
