@@ -65,6 +65,7 @@ public class TransformerManager
             JSONObject context = new JSONObject();
             context.put("c4a", "http://rbmm.org/schemas/cloud4all/0.1/");
             context.put("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
+            context.put("xsd", "http://www.w3.org/2001/XMLSchema#");
 
             //@graph
             JSONArray graph = new JSONArray();
@@ -419,24 +420,47 @@ public class TransformerManager
                     }
                     String path = uri.getPath();
 
-                    // create preference object:
+                    // create a preference object:
                     JSONObject outPref = new JSONObject();
                     outPref.put("c4a:id", pID);
                     outPref.put("@type", "c4a:Preference");
-
+                    
+                    // handle common preferences
                     if (pID.contains("common"))
                     {    	            	
-                        //get preference name from path
+                        // get preference name from path
                         String idStr = path.substring(path.lastIndexOf('/') + 1);
-                        // common preference value is always a String, e.g. black-white
-                        String comPrefVal = cPrefs.get(pID).toString();
-
-                        //System.out.println("value type: " +comPrefVal);
-
+                        
+                        // get common preference value
+                        Object comPrefVal = cPrefs.get(pID);
+                        
+                        // add type and name to the preference object
                         outPref.put("c4a:type", "common");   	            	
                         outPref.put("c4a:name", idStr);
+                        
+                        // transform data type of the preference value
+                        /**
+                         * JSON-LD supports automatically typing of values for
+                         * Integer, Double, String and Boolean. This is a 
+                         * workaround for the loss of type information in numbers 
+                         * representing decimal or float (1.5) in JSON-LD.
+                         *   
+                         */
+                        try {
+                            float i = Float.parseFloat(comPrefVal.toString());
+                            comPrefVal = i;
+                            JSONObject valObject = new JSONObject();
+                            valObject.put("@value", comPrefVal.toString());
+                            valObject.put("@type", "xsd:float");
+                            comPrefVal = valObject;
+                        } 
+                        catch (NumberFormatException e){
+                        }								    
+
                         outPref.put("c4a:value", comPrefVal);
-                    } 
+                    }
+
+                    // handle application-specific preferences
                     if (pID.contains("applications"))
                     {    	            	
                         // app-specific preference value is always a JSONObject, e.g. { fontsize: 0.5, invertColours:false}    	            	
@@ -575,8 +599,8 @@ public class TransformerManager
         }
 
         outContext.put("c4a", "http://rbmm.org/schemas/cloud4all/0.1/");
-        outContext.put("rdfs", "http://www.w3.org/2000/01/rdf-schema#");		
-
+        outContext.put("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
+        outContext.put("xsd", "http://www.w3.org/2001/XMLSchema#");        
         outPreProc.put("@context", outContext);
         outPreProc.put("@graph", outGraph);
 
@@ -704,7 +728,8 @@ public class TransformerManager
                             String setId = soln.get("?setID").toString();
                             String setName = soln.get("?setName").toString();
                             Object setValue = soln.get("?setValue"); 
-
+                            
+                            // Transform value data types 
                             try {
                                 int i = Integer.parseInt(setValue.toString());
                                 setValue = i;
@@ -721,7 +746,8 @@ public class TransformerManager
 
                             if(setValue.toString().equals("true") || setValue.toString().equals("false"))
                                 setValue = new Boolean(setValue.toString());
-
+                            
+                            // Create or get a setting object
                             if(solution.has("settings"))
                                 settings = solution.getJSONObject("settings");
                             else 
@@ -730,9 +756,17 @@ public class TransformerManager
                                 solution.put("settings", settings);
                                 settings = solution.getJSONObject("settings");
                             }
-
+                            
+                            // Add settings to setting object
                             if(setId.contains("registry.gpii.net/applications/"))
                             {
+                            	/**
+                            	 * Add settings in app-specific representation:
+                            	 * "http://registry.gpii.net/applications/org.chrome.cloud4chrome" : 
+                            	 * 	{
+                            	 * 		"fontSize" : "medium"
+                            	 * 	}
+                            	 */
                                 if(settings.has(setId))
                                     extraWrap = settings.getJSONObject(setId);
                                 else
@@ -745,6 +779,10 @@ public class TransformerManager
 
                             }
                             else
+                            	/**
+                            	 *  Add setting in common representation: 
+                            	 *  "http://registry.gpii.net/common/screenResolution": "medium"
+                            	 */                            	
                                 settings.put(setId, setValue);       
                         }	
                     }						
@@ -813,7 +851,7 @@ public class TransformerManager
 
                         if(metadata == null)
                         {
-                            System.out.println("does something matches:" +metadata);
+                            System.out.println("metadata match:" +metadata);
                             metadata = new JSONObject();
                             // type
                             metadata.put("type", metaType);
