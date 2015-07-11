@@ -27,6 +27,7 @@ public class RBMM_WebServiceIT extends TestCase
 			_MMTest4b();
 			_MMTest4c();
 			_MMTest5a();			
+			_MMTest5b();
 			//_resolveMSC_MultiSolutionPreffered();
 			//_resolveMSC_OneSolutionPreffered();
 			
@@ -199,6 +200,20 @@ public class RBMM_WebServiceIT extends TestCase
         
         String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/MMTest5a.json";
         String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MMTest5aOUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT, "_MMTest5a");           
+    }
+    public void _MMTest5b()
+    {
+    	System.out.println("\n******************_MMTest5b **********************************************");
+        System.out.println("** Accessibility Setting of the type required by the user is installed but *");
+        System.out.println("** related setting is not. *************************************************");        
+        System.out.println("** High contrast on Linux but no yellow on black theme  ********************");
+        System.out.println("** No conflict rule applied - **********************************************");    	
+        System.out.println("\n**************************************************************************");
+        
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/MMTest5b.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MMTest5bOUT.json";
 	    
 	    performTest(filepathIN, filepathExpectedOUT, "_MMTest5a");           
     }    
