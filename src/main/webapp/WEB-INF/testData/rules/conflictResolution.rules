@@ -1,7 +1,7 @@
 	@prefix c4a: <http://rbmm.org/schemas/cloud4all/0.1/>.
 	@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 
-[NATC_RES:
+[NATC_RES_rangeVAl:
 	(?if rdf:type c4a:InferredConfiguration)
 	
 	// if there is a NoATConflict that refers to a preference within the '
@@ -73,6 +73,77 @@
 	print('recommendation: ' ?r_id '+' ?r_val)
 	print('****************************')
 ]
+
+[NATC_RES_singleVal:
+	(?if rdf:type c4a:InferredConfiguration)
+	
+	// if there is a NoATConflict that refers to a preference within the '
+	(?if c4a:hasConflict ?conflict)
+	(?conflict rdf:type c4a:Conflict)
+	(?conflict c4a:name "NoATConflict")
+	(?conflict c4a:refersTo ?pref_scope)
+	
+	// if there is a preference substitute   	
+	(?substSet rdf:type c4a:PreferenceSubstituteSet)
+	(?substSet c4a:scope ?pref_scope)
+	(?substSet c4a:id ?pref_id)
+	(?substSet c4a:transform ?trans)
+	
+	// if there is a preference object with the same '?pref_id' to the conflict  	
+	(?if c4a:hasPrefs ?pref)
+	(?pref c4a:id ?pref_id)
+	(?pref c4a:value ?pref_val)
+	
+	// check if the user's preference value is equal to the defined value of the substitute 
+	(?trans c4a:value ?trans_val)
+	equal(?pref_val, ?trans_val)
+
+	// get the preference recommendation
+	(?trans c4a:subsitute ?subst)
+	(?subst c4a:recommend ?recom)
+	(?recom c4a:id ?r_id)
+	(?recom c4a:value ?r_val)
+	
+	// if there are solutions that support the recommended settings
+	(?solution rdf:type c4a:InstalledSolution)
+	(?solution c4a:id ?sol_id)
+	(?solution c4a:name ?sol_name)
+	(?solution c4a:settings ?setting)
+	(?setting rdf:type c4a:Setting)
+	(?setting c4a:refersTo ?set_id)
+	(?setting c4a:name ?set_name)
+	equal(?r_id, ?set_id)
+
+	// create new knowledge
+	makeSkolem(?newConfig, ?solution, ?if)
+	makeSkolem(?newSetting, ?setting, ?pref)
+	makeSkolem(?newRec, ?newConfig, ?if)
+	
+	->
+	(?if c4a:refersTo ?newConfig)
+	(?newConfig rdf:type c4a:Configuration)
+	(?newConfig c4a:refersTo ?solution)
+	(?newConfig c4a:refersTo ?newRec)
+	(?newConfig c4a:settings ?newSetting)
+	(?newConfig c4a:id ?sol_id)
+	(?newConfig c4a:name ?sol_name)
+	(?newConfig c4a:isActive "true")
+	
+	(?newSetting rdf:type c4a:Setting)
+	(?newSetting c4a:id ?r_id)
+	(?newSetting c4a:name ?set_name)	
+	(?newSetting c4a:value ?r_val)		
+
+	(?newRec rdf:type c4a:Recommendation)
+	(?newRec c4a:refersTo ?substSet)
+	(?newRec c4a:refersTo ?subst)
+	
+	print('**** NATC_Res *************')
+	print('affected preference : ' ?pref_scope)
+	print('recommendation: ' ?r_id '+' ?r_val)
+	print('****************************')
+]
+
  // Choose the highest rated recommendation if there are multiple recommendations for on conflict resolutions 
 [NATC_RES_Deactivate_LowRated_Configruation:
 	// If there are 2 configurations and both configurations are active = true

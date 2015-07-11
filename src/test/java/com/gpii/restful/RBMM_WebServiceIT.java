@@ -25,7 +25,8 @@ public class RBMM_WebServiceIT extends TestCase
 			_MMTest3();			
 			_MMTest4a();
 			_MMTest4b();
-			_MMTest4c();				
+			_MMTest4c();
+			_MMTest5a();			
 			//_resolveMSC_MultiSolutionPreffered();
 			//_resolveMSC_OneSolutionPreffered();
 			
@@ -180,13 +181,27 @@ public class RBMM_WebServiceIT extends TestCase
     	System.out.println("\n******************_MMTest4c ***************************");
         System.out.println("** No AT of the type required by the user is installed.**");
         System.out.println("** No Magnifier on Android. *****************************");
+        System.out.println("\n DECT: NOATC RES: NOATC_RES_rangeVal*******************");
         System.out.println("\n*******************************************************");    	
 	
         String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/MMTest4c.json";
         String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MMTest4cOUT.json";
 	    
 	    performTest(filepathIN, filepathExpectedOUT, "_MMTest4c");           
-    }       
+    }
+    public void _MMTest5a()
+    {
+    	System.out.println("\n******************_MMTest5a **********************************************");
+        System.out.println("** No Accessibility Setting of the type required by the user is installed.**");
+        System.out.println("** No high contrast on android *************** *****************************");
+        System.out.println("\n DECT: NOATC RES: NOATC_RES_singleVal*************************************");    	
+        System.out.println("\n*******************************************************");
+        
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/MMTest5a.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MMTest5aOUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT, "_MMTest5a");           
+    }    
     private void _resolveMSC_MultiSolutionPreffered()
     {
     	System.out.println("\n*************************************************************************");
