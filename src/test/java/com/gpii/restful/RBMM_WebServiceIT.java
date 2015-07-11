@@ -24,7 +24,8 @@ public class RBMM_WebServiceIT extends TestCase
 			_MMTest2();
 			_MMTest3();			
 			_MMTest4a();
-			_MMTest4b();			
+			_MMTest4b();
+			_MMTest4c();				
 			//_resolveMSC_MultiSolutionPreffered();
 			//_resolveMSC_OneSolutionPreffered();
 			
@@ -173,7 +174,19 @@ public class RBMM_WebServiceIT extends TestCase
         String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MMTest4bOUT.json";
 	    
 	    performTest(filepathIN, filepathExpectedOUT, "_MMTest4b");           
-    }     
+    }
+    public void _MMTest4c()
+    {
+    	System.out.println("\n******************_MMTest4c ***************************");
+        System.out.println("** No AT of the type required by the user is installed.**");
+        System.out.println("** No Magnifier on Android. *****************************");
+        System.out.println("\n*******************************************************");    	
+	
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/MMTest4c.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MMTest4cOUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT, "_MMTest4c");           
+    }       
     private void _resolveMSC_MultiSolutionPreffered()
     {
     	System.out.println("\n*************************************************************************");
