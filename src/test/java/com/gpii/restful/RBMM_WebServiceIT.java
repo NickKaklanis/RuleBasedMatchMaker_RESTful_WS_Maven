@@ -28,6 +28,8 @@ public class RBMM_WebServiceIT extends TestCase
 			_MMTest4c();
 			_MMTest5a();			
 			_MMTest5b();
+			_MMTest6a();
+			_MMTest6b();			
 			//_resolveMSC_MultiSolutionPreffered();
 			//_resolveMSC_OneSolutionPreffered();
 			
@@ -217,6 +219,32 @@ public class RBMM_WebServiceIT extends TestCase
 	    
 	    performTest(filepathIN, filepathExpectedOUT, "_MMTest5a");           
     }    
+    public void _MMTest6a()
+    {
+    	System.out.println("\n******************_MMTest6a **********************************************");
+        System.out.println("** Accessibility Setting can be addressed at different levels **************");
+        System.out.println("** Font Size on Linux => OS and Browser ************************************");        
+        System.out.println("** No conflict rule applied - ??? ******************************************");    	
+        System.out.println("\n**************************************************************************");
+        
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/MMTest6a.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MMTest6aOUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT, "_MMTest6a");           
+    }
+    public void _MMTest6b()
+    {
+    	System.out.println("\n******************_MMTest6b **********************************************");
+        System.out.println("** Accessibility Setting can be addressed at different levels **************");
+        System.out.println("** Magnification on Windows => OS and Browser ******************************");        
+        System.out.println("** NOTE : No conflict rule applied ??? *************************************");    	
+        System.out.println("\n**************************************************************************");
+        
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/MMTest6b.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MMTest6bOUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT, "_MMTest6b");           
+    }     
     private void _resolveMSC_MultiSolutionPreffered()
     {
     	System.out.println("\n*************************************************************************");

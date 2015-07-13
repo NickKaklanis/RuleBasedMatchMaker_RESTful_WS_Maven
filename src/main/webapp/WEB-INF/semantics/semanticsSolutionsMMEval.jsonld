@@ -137,6 +137,34 @@
             ]
         },
         {
+            "@id": "http://registry.gpii.net/applications/com.google.chrome",
+            "@type": "c4a:Solution",
+            "c4a:id": "http://registry.gpii.net/applications/com.google.chrome",
+            "c4a:name": "com.google.chrome-GHOST",
+            "c4a:class": [
+                {
+                    "@id":"c4a:task"
+                },
+                {
+                    "@id":"c4a:browser"
+                }
+            ],
+            "c4a:settings": [
+                {
+                    "@type": "c4a:Setting",
+                    "c4a:id": "zoom",
+                    "c4a:name": "zoom",
+                    "c4a:refersTo": "http://registry.gpii.net/common/magnifierEnabled"
+                },
+                {
+                    "@type": "c4a:Setting",
+                    "c4a:id": "zoom",
+                    "c4a:name": "zoom",
+                    "c4a:refersTo": "http://registry.gpii.net/common/magnification"
+                }
+            ]
+        },
+        {
             "@id": "http://registry.gpii.net/applications/org.chrome.cloud4chrome",
             "@type": "c4a:Solution",
             "c4a:id": "http://registry.gpii.net/applications/org.chrome.cloud4chrome",
