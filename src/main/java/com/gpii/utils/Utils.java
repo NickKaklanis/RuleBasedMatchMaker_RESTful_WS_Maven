@@ -109,6 +109,9 @@ public class Utils
         } 
         catch (NumberFormatException e){
         }
+        
+        if(o.toString().equals("true") || o.toString().equals("false"))
+        	transVal = new Boolean(o.toString());
     	
         return transVal;    	
     }

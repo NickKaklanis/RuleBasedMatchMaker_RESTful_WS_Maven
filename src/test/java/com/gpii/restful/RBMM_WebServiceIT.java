@@ -15,8 +15,9 @@ public class RBMM_WebServiceIT extends TestCase
 
 		if(JsonLDManager.getInstance().PERFORM_INTEGRATION_TESTS)
         {
-			// core  
-			//_basicAlignment();
+			// core test cases 
+			
+			/*_basicAlignment();
 			_MMTest1a();
 			_MMTest1b();
 			_MMTest1c();
@@ -29,7 +30,7 @@ public class RBMM_WebServiceIT extends TestCase
 			_MMTest5a();			
 			_MMTest5b();
 			_MMTest6a();
-			_MMTest6b();			
+			_MMTest6b();*/			
 			//_resolveMSC_MultiSolutionPreffered();
 			//_resolveMSC_OneSolutionPreffered();
 			
@@ -40,13 +41,13 @@ public class RBMM_WebServiceIT extends TestCase
 			_Mary();
 			_Manuel();
 			_ChrisWin();
-			/*_ChrisAndroid();
+			_ChrisAndroid();
 			_LiWindows();
 			_LiAndroid();
 			_Franklin();*/
 			
 			// review 4
-			//_Alicia();			
+			_Alicia();			
 
         }
         else
@@ -394,7 +395,7 @@ public class RBMM_WebServiceIT extends TestCase
 	    System.out.println("*******************************************************");    	
 	
 	    String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/alicia.json";
-	    String filepathExpectedOUT1 = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/franklinOUT.json";
+	    String filepathExpectedOUT1 = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/aliciaOUT.json";
 	    
 	    performTest(filepathIN, filepathExpectedOUT1, "_Alicia");           
     }

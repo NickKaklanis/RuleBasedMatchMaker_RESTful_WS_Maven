@@ -19,6 +19,7 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import org.jboss.resteasy.plugins.server.servlet.ServletUtil;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -654,7 +655,7 @@ public class TransformerManager
 
                 String contextID = null; 
                 String queryType = null;
-
+                
                 while(response.hasNext())
                 {
                     QuerySolution soln = response.nextSolution();
@@ -670,7 +671,7 @@ public class TransformerManager
                     // get query type, e.g. Condition
                     if(soln.contains("?type"))
                         queryType = soln.get("?type").toString();
-
+                    
                     /**
                      * Context - create a new context object if not exists
                      *  
@@ -712,7 +713,7 @@ public class TransformerManager
                                 solution = appSet.getJSONObject(appName);
                             }	
                         }
-
+                        
                         // add activation of application
                         if(soln.contains("?appActive"))
                         {
@@ -722,30 +723,15 @@ public class TransformerManager
                                 solution.put("active", appActive);
                         }
 
-                        // add settings to separate settings block. 							
+                        // add settings to separate settings block.
                         if(soln.contains("?setID") && soln.contains("setValue") && soln.contains("setName") )
                         {
                             String setId = soln.get("?setID").toString();
                             String setName = soln.get("?setName").toString();
-                            Object setValue = soln.get("?setValue"); 
+                            Object setValue = soln.get("?setValue");
                             
                             // Transform value data types 
-                            try {
-                                int i = Integer.parseInt(setValue.toString());
-                                setValue = i;
-                            } 
-                            catch (NumberFormatException e) {
-                            }
-
-                            try {
-                                double i = Double.parseDouble(setValue.toString());
-                                setValue = i;
-                            } 
-                            catch (NumberFormatException e){
-                            }								    
-
-                            if(setValue.toString().equals("true") || setValue.toString().equals("false"))
-                                setValue = new Boolean(setValue.toString());
+                            setValue = Utils.getInstance().transformValueSpace(setValue);
                             
                             // Create or get a setting object
                             if(solution.has("settings"))
@@ -784,8 +770,8 @@ public class TransformerManager
                             	 *  "http://registry.gpii.net/common/screenResolution": "medium"
                             	 */                            	
                                 settings.put(setId, setValue);       
-                        }	
-                    }						
+                        }                        	
+                    }
 
                     /**
                      * Condition - create a new condition array if not exists
@@ -818,8 +804,7 @@ public class TransformerManager
                         condition.put("max", Utils.getInstance().transformValueSpace(setMax));
 
                         conSet.put(condition);								
-                    }
-
+                    }                    
                     /**
                      * Metadata - create a new metadata array if not exists
                      * 
@@ -883,6 +868,176 @@ public class TransformerManager
                         msg.put("learnMore", "http://wwwpub.zih.tu-dresden.de/~loitsch/review/nvdaTutorial.html");
                         msgSet.put(soln.get("?msgLang").toString(), msg);
                     }
+                    
+                    /**
+                     * 
+                     * HACK - Specific translation for service as they require specific output structure:    
+                     * 
+                     */
+                    if(queryType.equals(defaultNameSpace+"ServiceSetting")) {
+                    	
+                    	String appName = "";
+                    	String appID = "";                    	
+                    	String serviceName = "";
+                    	String propName = "";
+                    	String propValue = "";
+                        JSONObject serviceInput;
+                        JSONArray serviceArrWrap = null; 
+
+                    	// get SPARQL attributes
+                    	if(soln.contains("?serviceName")){
+                    		serviceName 	= soln.get("?serviceName").toString();
+                    	}
+                    	if(soln.contains("?propName")){
+                    		propName 	= soln.get("?propName").toString();
+                    	}                    	
+                    	if(soln.contains("?propValue"))
+                    		propValue 	= soln.get("?propValue").toString();
+                    	
+                    	if(soln.contains("?appID"))
+                    		appID 	= soln.get("?appID").toString();
+                    	
+                        // create JSON output structure
+                    	/**
+                    	 * create and get appSet - JSONObject with all configurations +
+                    	 * { "inferredConfiguration": {
+                    	 * 		"gpii-default": {
+                    	 * 		   "applications": {
+                    	 * 		     ... 
+                    	 * 			}
+                    	 *		}
+                    	 *	}
+                    	 *}
+                    	 */
+                    	if(contextSet.has("applications"))
+                            appSet = contextSet.getJSONObject("applications");
+	                    else 
+	                    {
+	                        appSet = new JSONObject();
+	                        contextSet.put("applications", appSet);
+	                        appSet = contextSet.getJSONObject("applications");
+	                    }
+
+                    	/** 
+                    	 * create an array for all services
+                    	 * { "inferredConfiguration": {
+                    	 * 		"gpii-default": {
+                    	 * 		    "applications": {
+                    	 * 		          "com.certh.service-synthesis": [ ... ],
+                    	 *  
+                    	 */
+                        if(soln.contains("?appName"))
+                        {
+                            appName 	= soln.get("?appName").toString();
+                            
+                            if(appSet.has(appName))
+                            	serviceArrWrap = appSet.getJSONArray(appName);
+                            else
+                            {
+                            	serviceArrWrap = new JSONArray();
+                            	appSet.put(appName, serviceArrWrap);
+                                serviceArrWrap = appSet.getJSONArray(appName);
+                            }
+                            
+                        }
+                        
+                        /**
+                         * create a solution object for each service
+                         * [{
+                         * 		"active": true,
+                         * 		"settings": { ... }
+                         * 	},
+                         * {
+                         * 		"active": true,
+                         * 		"settings": { ... }
+                         * }] 
+                         */                        
+                            
+                    	boolean serviceExists = false; 
+                    	int i; 
+                    	for (i = 0; i < serviceArrWrap.length(); i++) {
+
+                        	// find the object with the service name "serviceName"
+                    		JSONObject tmp_solution = serviceArrWrap.getJSONObject(i);
+              
+                        	if(tmp_solution.has("settings")){
+
+                        		JSONObject tmp_setting = tmp_solution.getJSONObject("settings");
+                            		
+                            		if(tmp_setting.has(appID)){
+                            			
+                            			JSONObject tmp_properties = tmp_setting.getJSONObject(appID);
+ 
+                            			if(tmp_properties.has("serviceName")){
+                        				
+                        				if(serviceName.equals(tmp_properties.get("serviceName").toString())){
+                            					serviceExists = true;
+                                            	solution = serviceArrWrap.getJSONObject(i);
+ 
+                            				}                            						
+                            			}
+                            		}
+                            	}
+                        }
+                    	if(!serviceExists){
+                            solution = new JSONObject();
+                            serviceArrWrap.put(i,solution);
+                            solution = serviceArrWrap.getJSONObject(i);
+                    	}
+
+
+                        // add activation of application
+	                    if(soln.contains("?appActive"))
+	                    {
+	                        Boolean appActive = new Boolean(soln.get("?appActive").toString());
+	
+	                        if(!solution.has("active"))
+	                            solution.put("active", appActive);
+	                    }
+	                    
+                    	/**
+                    	 * Add settings in app-specific representation:
+                    	 * 	"http://registry.gpii.net/applications/com.certh.service-synthesis": {
+                    	 * 		"serviceName": "Translatewebpage",
+                    	 * 		"serviceInput": {
+                    	 * 			"originalURL": "URL_TO_BE_REPLACED",
+                    	 * 			"targetLanguage": "fr"
+                    	 * 		}
+                    	 *	}
+                    	 */
+                        
+	                    if(solution.has("settings"))
+                            settings = solution.getJSONObject("settings");	                    
+                        else 
+                        {
+                            settings = new JSONObject(); 
+                            solution.put("settings", settings);
+                            settings = solution.getJSONObject("settings");
+                        }
+                        
+                        if(settings.has(appID))
+                            extraWrap = settings.getJSONObject(appID);
+                        else
+                        {
+                            extraWrap = new JSONObject();
+                            settings.put(appID, extraWrap);
+                            extraWrap = settings.getJSONObject(appID);
+                        }
+                        
+                        extraWrap.put("serviceName", serviceName);
+                        
+                        if(extraWrap.has("serviceInput"))
+                            serviceInput = extraWrap.getJSONObject("serviceInput");
+                        else
+                        {
+                        	serviceInput = new JSONObject();
+                        	extraWrap.put("serviceInput", serviceInput);
+                        	serviceInput = extraWrap.getJSONObject("serviceInput");
+                        }
+                        
+                        serviceInput.put(propName, Utils.getInstance().transformValueSpace(propValue));                      
+
+                    }  
                 }
             } 
             catch (JSONException e1) {

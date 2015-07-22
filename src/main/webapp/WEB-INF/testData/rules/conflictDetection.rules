@@ -58,4 +58,4 @@
 	print('************ CONFLICT DETECTION ****************')
 	print('CONFLICT: NoATConflict')
 	print('AFFECTED Preference: ' ?pref)
-	]	
+	]

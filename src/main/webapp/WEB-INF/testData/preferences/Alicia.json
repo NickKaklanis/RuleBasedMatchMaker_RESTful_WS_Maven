@@ -7,7 +7,7 @@
                     "http://registry.gpii.net/common/screenReaderTTSEnabled": true,
                     "http://registry.gpii.net/common/speechRate": 350,
                     "http://registry.gpii.net/common/volume": 0.6,
-                    "http://registry.gpii.net/common/highContrast": true,
+                    "http://registry.gpii.net/common/highContrastEnabled": true,
                     "http://registry.gpii.net/common/highContrastTheme": "white-black",
                     "http://registry.gpii.net/common/auditoryOutLanguage": "en",
                     "http://registry.gpii.net/common/language": "en",

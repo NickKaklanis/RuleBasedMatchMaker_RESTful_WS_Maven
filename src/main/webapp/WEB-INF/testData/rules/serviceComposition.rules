@@ -1,96 +1,64 @@
 @prefix c4a: <http://rbmm.org/schemas/cloud4all/0.1/>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 
-[AlignContext:
-(?ps rdf:type c4a:PreferenceSet)
-->
-(?ps rdf:type c4a:InferredConfiguration)
-]
-
-[MatchSolutions:  
-(?if rdf:type c4a:InferredConfiguration)
-(?if c4a:hasPrefs ?pref)
-
-(?pref rdf:type c4a:Preference)
-(?pref c4a:type "common")
-(?pref c4a:id ?p_id)
-(?pref c4a:name ?p_name)
-(?pref c4a:value ?p_value)
-
-(?solution rdf:type c4a:InstalledSolution)
-(?solution c4a:id ?sol_id)
-(?solution c4a:name ?sol_name)
-(?solution c4a:settings ?setting)
-
-(?setting rdf:type c4a:Setting)
-(?setting c4a:refersTo ?set_id)
-
-equal(?p_id, ?set_id)
-
-makeSkolem(?newConfig, ?solution, ?if)
-makeSkolem(?newSetting, ?setting, ?pref)
-->
-(?if c4a:refersTo ?newConfig)
-(?newConfig c4a:refersTo ?solution)
-(?newConfig c4a:settings ?newSetting)
-(?newConfig rdf:type c4a:Configuration)
-(?newConfig c4a:id ?sol_id)
-(?newConfig c4a:name ?sol_name)
-(?newConfig c4a:isActive "true")
-
-(?newSetting rdf:type c4a:Setting)
-(?newSetting c4a:id ?p_id)
-(?newSetting c4a:name ?p_name)
-(?newSetting c4a:value ?p_value)
-]
-
-[MatchSolutions: 
-(?if rdf:type c4a:InferredConfiguration)
-(?if c4a:hasPrefs ?pref)
-
-(?pref rdf:type c4a:Preference)
-(?pref c4a:type "application")
-(?pref c4a:id ?prefSol_id)
-(?pref c4a:setting ?prefSetting)
-
-(?prefSetting c4a:name ?p_name)
-(?prefSetting c4a:value ?p_value)
-
-(?solution rdf:type c4a:InstalledSolution)
-(?solution c4a:id ?instSol_id)
-(?solution c4a:name ?instSol_name)
-
-equal(?prefSol_id, ?instSol_id)
-
-makeSkolem(?newConfig, ?solution, ?if)
-makeSkolem(?newSetting, ?pref, ?prefSetting)
-->
-(?if c4a:refersTo ?newConfig)
-(?newConfig c4a:refersTo ?solution)
-(?newConfig c4a:settings ?newSetting)
-(?newConfig rdf:type c4a:Configuration)
-(?newConfig c4a:id ?instSol_id)
-(?newConfig c4a:name ?instSol_name)
-(?newConfig c4a:isActive "true")
-
-(?newSetting rdf:type c4a:Setting)
-(?newSetting c4a:id ?prefSol_id)
-(?newSetting c4a:name ?p_name)
-(?newSetting c4a:value ?p_value)
-]
-
-// Removes all matched common settings from a configuration for which a user has app-specific preferences defined 
-[RemoveCommonSettings: 
-(?if c4a:refersTo ?config)
-(?config rdf:type c4a:Configuration)
-(?config c4a:id ?sol_id)
-(?config c4a:settings ?set1)
-(?config c4a:settings ?set2)
-(?set1 c4a:id ?set1_id)
-(?set2 c4a:id ?set2_id)
-notEqual(?set1, ?set2)
-notEqual(?set2_id, ?sol_id)
-equal(?set1_id, ?sol_id)
-->
-drop(4)
-]
+	// Trigger for Matching a Service: noValue(?pref c4a:status "matched") 
+	// TODO: matches all services, may trigger multiple service conflicts ???
+	[MatchSingleService:
+	(?if rdf:type c4a:InferredConfiguration)
+	(?if c4a:hasPrefs ?pref)
+	  
+	(?pref rdf:type c4a:Preference)
+	(?pref c4a:id ?p_id)
+	(?pref c4a:value ?p_value)
+	noValue(?pref c4a:status "matched")
+	
+	(?ssynth rdf:type c4a:InstalledSolution)
+	(?ssynth c4a:id "http://registry.gpii.net/applications/com.certh.service-synthesis")
+	(?ssynth c4a:service ?service)
+	
+	(?service c4a:refersTo ?p_id)
+	(?service c4a:id ?s_id)
+	(?service c4a:properties ?prop)
+	(?prop c4a:name ?prop_name)
+	(?prop c4a:value ?prop_value)
+	
+	makeSkolem(?newConfig, ?pref, ?if)
+	makeSkolem(?newServiceSetting, ?service)
+	makeSkolem(?newSetting, ?prop)
+	->
+	(?if c4a:refersTo ?newConfig)
+	(?newConfig rdf:type c4a:Configuration)
+	(?newConfig c4a:refersTo ?ssynth)
+	(?newConfig c4a:refersTo ?pref)
+	(?newConfig c4a:id "http://registry.gpii.net/applications/com.certh.service-synthesis")
+	(?newConfig c4a:name "com.certh.service-synthesis")
+	(?newConfig c4a:isActive "true")
+	(?newConfig c4a:settings ?newServiceSetting)
+	
+	(?newServiceSetting rdf:type c4a:ServiceSetting)
+	(?newServiceSetting c4a:serviceName ?s_id)
+	(?newServiceSetting c4a:serviceInput ?newSetting)
+	
+	(?newSetting rdf:type c4a:Setting)
+	(?newSetting c4a:name ?prop_name)
+	(?newSetting c4a:value ?prop_value)
+	]
+	
+	
+	// Replace PREFERENCE_VALUE_TO_BE_REPLACED with the current preference value
+	[ReplaceSingleServicePrefValue:
+		(?if c4a:refersTo ?config)
+		(?config rdf:type c4a:Configuration)
+		(?config c4a:refersTo ?pref)
+		(?config c4a:settings ?serviceSetting)
+		(?pref rdf:type c4a:Preference)
+		(?pref c4a:value ?p_val)
+		(?serviceSetting rdf:type c4a:ServiceSetting)
+		(?serviceSetting c4a:serviceInput ?setting)
+		(?setting rdf:type c4a:Setting)
+		(?setting c4a:value ?s_val)
+		equal(?s_val, "PREFERENCE_VALUE_TO_BE_REPLACED")
+		->
+		drop(9)
+		(?setting c4a:value ?p_val) 
+	]
