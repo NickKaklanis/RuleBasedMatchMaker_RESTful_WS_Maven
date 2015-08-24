@@ -13,18 +13,19 @@
 	noValue(?pref c4a:status "matched")
 	
 	(?ssynth rdf:type c4a:InstalledSolution)
-	(?ssynth c4a:id "http://registry.gpii.net/applications/com.certh.service-synthesis")
+	(?ssynth c4a:id "com.certh.service-synthesis")
 	(?ssynth c4a:service ?service)
 	
-	(?service c4a:refersTo ?p_id)
 	(?service c4a:id ?s_id)
-	(?service c4a:properties ?prop)
-	(?prop c4a:name ?prop_name)
-	(?prop c4a:value ?prop_value)
-	
+	(?service c4a:settings ?set)
+	(?set c4a:name ?set_name)
+	(?set c4a:refersTo ?set_id)
+
+	equal(?p_id, ?set_id)
+		
 	makeSkolem(?newConfig, ?pref, ?if)
 	makeSkolem(?newServiceSetting, ?service)
-	makeSkolem(?newSetting, ?prop)
+	makeSkolem(?newSetting, ?set)
 	->
 	(?if c4a:refersTo ?newConfig)
 	(?newConfig rdf:type c4a:Configuration)
@@ -40,25 +41,25 @@
 	(?newServiceSetting c4a:serviceInput ?newSetting)
 	
 	(?newSetting rdf:type c4a:Setting)
-	(?newSetting c4a:name ?prop_name)
-	(?newSetting c4a:value ?prop_value)
+	(?newSetting c4a:name ?set_name)
+	(?newSetting c4a:value ?p_value)
 	]
 	
-	
-	// Replace PREFERENCE_VALUE_TO_BE_REPLACED with the current preference value
-	[ReplaceSingleServicePrefValue:
-		(?if c4a:refersTo ?config)
-		(?config rdf:type c4a:Configuration)
-		(?config c4a:refersTo ?pref)
-		(?config c4a:settings ?serviceSetting)
-		(?pref rdf:type c4a:Preference)
-		(?pref c4a:value ?p_val)
-		(?serviceSetting rdf:type c4a:ServiceSetting)
-		(?serviceSetting c4a:serviceInput ?setting)
-		(?setting rdf:type c4a:Setting)
-		(?setting c4a:value ?s_val)
-		equal(?s_val, "PREFERENCE_VALUE_TO_BE_REPLACED")
-		->
-		drop(9)
-		(?setting c4a:value ?p_val) 
-	]
+	// Add default settings to a configuration
+	[AddDefaultSettings: 
+	(?config rdf:type c4a:Configuration)
+	(?config c4a:refersTo ?sol)
+	(?config c4a:settings ?confSettings)
+
+	(?sol c4a:service ?service)
+	(?service c4a:settings ?set)
+	(?set c4a:default ?d)
+	(?set c4a:name ?set_name)
+	(?set c4a:value ?set_value)
+	makeSkolem(?newSetting, ?set)
+	->
+	(?confSettings c4a:serviceInput ?newSetting)
+	(?newSetting rdf:type c4a:Setting)
+	(?newSetting c4a:name ?set_name)
+	(?newSetting c4a:value ?set_value)	
+	] 
