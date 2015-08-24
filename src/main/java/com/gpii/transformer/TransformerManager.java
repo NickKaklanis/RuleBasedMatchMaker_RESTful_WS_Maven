@@ -648,7 +648,7 @@ public class TransformerManager
                 JSONObject  extraWrap;
                 JSONArray 	conSet;
                 JSONArray 	metaSet;
-                JSONObject 	metadata;
+                JSONObject 	metadata = null;
                 JSONArray 	scopeSet;
                 JSONObject  msgSet;
 
@@ -700,17 +700,17 @@ public class TransformerManager
                         }
 
                         // add application name if not exists
-                        if(soln.contains("?appName"))
+                        if(soln.contains("?appID"))
                         {
-                            String appName 	= soln.get("?appName").toString();
+                            String appID 	= soln.get("?appID").toString();
 
-                            if(appSet.has(appName))										
-                                solution = appSet.getJSONObject(appName);
+                            if(appSet.has(appID))										
+                                solution = appSet.getJSONObject(appID);
                             else
                             {
                                 solution = new JSONObject();
-                                appSet.put(appName, solution);
-                                solution = appSet.getJSONObject(appName);
+                                appSet.put(appID, solution);
+                                solution = appSet.getJSONObject(appID);
                             }	
                         }
                         
@@ -821,39 +821,49 @@ public class TransformerManager
                             metaSet = contextSet.getJSONArray("metadata");
                         }
 
-                        //check if there is already an object for type "helpMessage" in the scope of an application
                         String metaType = soln.get("?metaType").toString();
-                        String scope = soln.get("?metaScope").toString();
-                        /**
-                         * TODO
-                         * 
-                         * scope and message type make a meta data object unique for now. 
-                         * But does this work if you would have one helpMessage for solution A 
-                         * and one helpMessage for Solution A and B ???     
-                         * 
-                         */
-                        metadata = objectContains(metaSet, metaType, scope);
+                        String metaScopeID = soln.get("?metaScopeID").toString();
+                        String metaScopeName = soln.get("?metaScopeName").toString();
+                        String metaScopeClass = soln.get("?metaScopeClass").toString();
+                        
+                        // check if there is already an meta data object with scope (solution) AND type (e.g. helpMessage)
+                    	boolean scopeExists = false;
+                    	boolean typeExists = false; 
+                    	int i;
+                    	JSONObject tmp_meta = null;
+                    	System.out.println("meta set : " +metaSet.toString());
+                    	for (i = 0; i < metaSet.length(); i++) {
 
-                        if(metadata == null)
-                        {
-                            System.out.println("metadata match:" +metadata);
-                            metadata = new JSONObject();
-                            // type
-                            metadata.put("type", metaType);
-                            // scope
-                            if(metadata.has("scope"))
-                                scopeSet = metadata.getJSONArray("scope");
-                            else
-                            {
-                                scopeSet = new JSONArray();
-                                metadata.put("scope", scopeSet);
-                                scopeSet = metadata.getJSONArray("scope");
-                            }
-                            scopeSet.put(scope);
-                            metaSet.put(metadata);
-                        }
+                    		tmp_meta = metaSet.getJSONObject(i);                    		
+	                		JSONArray tmp_scope = tmp_meta.getJSONArray("scope");
+	                		
+	                		for (int j = 0; j < tmp_scope.length(); j++) {
+	                    		if(tmp_scope.getString(j).equals(metaScopeID)){
+	                    			
+	                    			scopeExists = true;
+	                            	
+	                        		if(tmp_meta.has("type")){
+	                            		if(tmp_meta.getString("type").equals(metaType)){
+	                            			typeExists = true;
+	                                		metadata = tmp_meta;
+	                            		}
+	                            	}
+	                    		}
+	                    	}                    	
+                    	}
+                    	
+                    	if(!(scopeExists && typeExists)){
+                    		metadata = new JSONObject();
+                    		metadata.put("type", metaType);
+                    		JSONArray scope = new JSONArray();
+                    		scope.put(metaScopeID);
+                    		metadata.put("scope", scope);
+                    		metaSet.put(i, metadata);
+                    		metadata = metaSet.getJSONObject(i);                    		
+                    	}   
 
-                        // message
+
+                    	// message
                         if(metadata.has("message"))
                             msgSet = metadata.getJSONObject("message");			
                         else 
@@ -862,16 +872,23 @@ public class TransformerManager
                             metadata.put("message", msgSet);
                             msgSet = metadata.getJSONObject("message");
                         }
-
+                        
                         JSONObject msg = new JSONObject();
-                        msg.put("message", soln.get("?msgText").toString());
-                        msg.put("learnMore", "http://wwwpub.zih.tu-dresden.de/~loitsch/review/nvdaTutorial.html");
-                        msgSet.put(soln.get("?msgLang").toString(), msg);
+                        String msgText = soln.get("?msgText").toString();
+                        String msgLang = soln.get("?msgLang").toString();
+                        String msgLearnMore = soln.get("?msgLearnMore").toString();                        
+                        
+                        msgText = msgText.replaceAll("SOLUTION_TO_BE_REPLACED", metaScopeName);
+                        msgText = msgText.replaceAll("CLASS_TO_BE_REPLACED", metaScopeClass);
+                        msg.put("message", msgText);
+                        if(!(msgLearnMore.equals("LINK_TO_BE_REPLACED")))
+                        	msg.put("learnMore", msgLearnMore);
+                        msgSet.put(msgLang, msg);
                     }
                     
                     /**
                      * 
-                     * HACK - Specific translation for service as they require specific output structure:    
+                     * Specific translation for service as they require specific output structure:    
                      * 
                      */
                     if(queryType.equals(defaultNameSpace+"ServiceSetting")) {
