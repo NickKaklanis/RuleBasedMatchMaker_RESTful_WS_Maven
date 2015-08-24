@@ -7,52 +7,34 @@
         {
             "@id": "http://registry.gpii.net/applications/com.certh.service-synthesis",
             "@type": "c4a:Solution",
-            "c4a:id": "http://registry.gpii.net/applications/com.certh.service-synthesis",
-            "c4a:name": "com.certh.service-synthesis",
+            "c4a:id": "com.certh.service-synthesis",
+            "c4a:name": "Service Synthesis",
             "c4a:service": [
                 {
                     "@type": "c4a:Service",
                     "c4a:id": "Translatewebpage",
-                    "c4a:refersTo": "http://registry.gpii.net/common/language",
                     "c4a:name": "Web page translation",
-                    "c4a:properties": [
+                    "c4a:settings": [
                         {
-                            "@type": "c4a:ServiceProperty",
-                            "c4a:name": "originalURL",
+                            "@type": "c4a:Setting",
+                            "c4a:default": true,
+                            "c4a:name": "originalURL",                            
                             "c4a:value": "URL_TO_BE_REPLACED"
                         },
                         {
-                            "@type": "c4a:ServiceProperty",
+                            "@type": "c4a:Setting",
                             "c4a:name": "targetLanguage",
-                            "c4a:value": "PREFERENCE_VALUE_TO_BE_REPLACED"
+                    		"c4a:refersTo": "http://registry.gpii.net/common/language"
                         }
                     ]
-                },
-                {
-                    "@type": "c4a:Service",
-                    "c4a:id": "test",
-                    "c4a:refersTo": "http://registry.gpii.net/common/volume",
-                    "c4a:name": "test service",
-                    "c4a:properties": [
-                        {
-                            "@type": "c4a:ServiceProperty",
-                            "c4a:name": "originalURL",
-                            "c4a:value": "URL_TO_BE_REPLACED"
-                        },
-                        {
-                            "@type": "c4a:ServiceProperty",
-                            "c4a:name": "targetVolume",
-                            "c4a:value": "PREFERENCE_VALUE_TO_BE_REPLACED"
-                        }
-                    ]
-                }                
+                }            
             ]
         },
         {
             "@id": "http://registry.gpii.net/applications/org.gnome.desktop.interface",
             "@type": "c4a:Solution",
-            "c4a:id": "http://registry.gpii.net/applications/org.gnome.desktop.interface",
-            "c4a:name": "org.gnome.desktop.interface",
+            "c4a:id": "org.gnome.desktop.interface",
+            "c4a:name": "Gnome Interface Settings",
             "c4a:class": [
                 {
                     "@id": "c4a:output"
@@ -91,8 +73,8 @@
         {
             "@id": "http://registry.gpii.net/applications/webinsight.webAnywhere.windows",
             "@type": "c4a:Solution",
-            "c4a:id": "http://registry.gpii.net/applications/webinsight.webAnywhere.windows",
-            "c4a:name": "webinsight.webAnywhere.windows",
+            "c4a:id": "webinsight.webAnywhere.windows",
+            "c4a:name": "WebAnywhere",
             "c4a:class": [
                 {
                     "@id": "c4a:screenreader"
@@ -116,8 +98,8 @@
         {
             "@id": "http://registry.gpii.net/applications/com.freedomscientific.jaws",
             "@type": "c4a:Solution",
-            "c4a:id": "http://registry.gpii.net/applications/com.freedomscientific.jaws",
-            "c4a:name": "com.freedomscientific.jaws",
+            "c4a:id": "com.freedomscientific.jaws",
+            "c4a:name": "JAWS",
             "c4a:class": [
                 {
                     "@id": "c4a:screenreader"
@@ -183,8 +165,8 @@
         {
             "@id": "http://registry.gpii.net/applications/com.google.chrome",
             "@type": "c4a:Solution",
-            "c4a:id": "http://registry.gpii.net/applications/com.google.chrome",
-            "c4a:name": "com.google.chrome-GHOST",
+            "c4a:id": "com.google.chrome",
+            "c4a:name": "Google Chrome-GHOST",
             "c4a:class": [
                 {
                     "@id": "c4a:task"
@@ -211,8 +193,8 @@
         {
             "@id": "http://registry.gpii.net/applications/org.chrome.cloud4chrome",
             "@type": "c4a:Solution",
-            "c4a:id": "http://registry.gpii.net/applications/org.chrome.cloud4chrome",
-            "c4a:name": "org.chrome.cloud4chrome",
+            "c4a:id": "org.chrome.cloud4chrome",
+            "c4a:name": "Cloud4chrome",
             "c4a:class": [
                 {
                     "@id": "c4a:screenreader"
@@ -272,8 +254,8 @@
         {
             "@id": "http://registry.gpii.net/applications/com.microsoft.windows.magnifier",
             "@type": "c4a:Solution",
-            "c4a:id": "http://registry.gpii.net/applications/com.microsoft.windows.magnifier",
-            "c4a:name": "com.microsoft.windows.magnifier",
+            "c4a:id": "com.microsoft.windows.magnifier",
+            "c4a:name": "Windows Magnifier",
             "c4a:class": [
                 {
                     "@id": "c4a:magnifier"
@@ -315,8 +297,8 @@
         {
             "@id": "http://registry.gpii.net/applications/org.nvda-project",
             "@type": "c4a:Solution",
-            "c4a:id": "http://registry.gpii.net/applications/org.nvda-project",
-            "c4a:name": "org.nvda-project",
+            "c4a:id": "org.nvda-project",
+            "c4a:name": "NVDA",
             "c4a:class": [
                 {
                     "@id": "c4a:screenreader"
@@ -327,6 +309,12 @@
                 {
                     "@id": "c4a:at"
                 }
+            ],
+            "c4a:tutorial": [
+            	{
+            	"c4a:language" : "en",
+            	"c4a:link" : "http://wwwpub.zih.tu-dresden.de/~loitsch/review/nvdaTutorial.html"
+            	}
             ],
             "c4a:settings": [
                 {
@@ -406,8 +394,8 @@
         {
             "@id": "http://registry.gpii.net/applications/com.microsoft.windows.highContrast",
             "@type": "c4a:Solution",
-            "c4a:id": "http://registry.gpii.net/applications/com.microsoft.windows.highContrast",
-            "c4a:name": "com.microsoft.windows.highContrast",
+            "c4a:id": "com.microsoft.windows.highContrast",
+            "c4a:name": "Windows HighContrast",
             "c4a:class": [
                 {
                     "@id": "c4a:output"
@@ -428,8 +416,8 @@
         {
             "@id": "http://registry.gpii.net/applications/com.microsoft.windows.onscreenKeyboard",
             "@type": "c4a:Solution",
-            "c4a:id": "http://registry.gpii.net/applications/com.microsoft.windows.onscreenKeyboard",
-            "c4a:name": "com.microsoft.windows.onscreenKeyboard",
+            "c4a:id": "com.microsoft.windows.onscreenKeyboard",
+            "c4a:name": "Windows On-Screen-Keyboard",
             "c4a:class": [
                 {
                     "@id": "c4a:onscreenkeyboard"
@@ -453,8 +441,8 @@
         {
             "@id": "http://registry.gpii.net/applications/org.gnome.desktop.a11y.magnifier",
             "@type": "c4a:Solution",
-            "c4a:id": "http://registry.gpii.net/applications/org.gnome.desktop.a11y.magnifier",
-            "c4a:name": "org.gnome.desktop.a11y.magnifier",
+            "c4a:id": "org.gnome.desktop.a11y.magnifier",
+            "c4a:name": "Gnome Magnifier",
             "c4a:class": [
                 {
                     "@id": "c4a:magnifier"
@@ -502,8 +490,8 @@
         {
             "@id": "http://registry.gpii.net/applications/org.gnome.desktop.a11y.applications.onscreen-keyboard",
             "@type": "c4a:Solution",
-            "c4a:id": "http://registry.gpii.net/applications/org.gnome.desktop.a11y.applications.onscreen-keyboard",
-            "c4a:name": "org.gnome.desktop.a11y.applications.onscreen-keyboard",
+            "c4a:id": "org.gnome.desktop.a11y.applications.onscreen-keyboard",
+            "c4a:name": "Gnome On-Screen-Keyboard",
             "c4a:class": [
                 {
                     "@id": "c4a:onscreenkeyboard"
@@ -527,8 +515,8 @@
         {
             "@id": "http://registry.gpii.net/applications/org.gnome.desktop.a11y.keyboard",
             "@type": "c4a:Solution",
-            "c4a:id": "http://registry.gpii.net/applications/org.gnome.desktop.a11y.keyboard",
-            "c4a:name": "org.gnome.desktop.a11y.keyboard",
+            "c4a:id": "org.gnome.desktop.a11y.keyboard",
+            "c4a:name": "On-Screen-Keyboard",
             "c4a:class": [
                 {
                     "@id": "c4a:onscreenkeyboard"
@@ -600,8 +588,8 @@
         {
             "@id": "http://registry.gpii.net/applications/com.microsoft.windows.mouseTrailing",
             "@type": "c4a:Solution",
-            "c4a:id": "http://registry.gpii.net/applications/com.microsoft.windows.mouseTrailing",
-            "c4a:name": "com.microsoft.windows.mouseTrailing",
+            "c4a:id": "com.microsoft.windows.mouseTrailing",
+            "c4a:name": "Windows Mouse Trailing",
             "c4a:class": [
                 {
                     "@id": "c4a:output"
@@ -622,8 +610,8 @@
         {
             "@id": "http://registry.gpii.net/applications/com.microsoft.windows.cursors",
             "@type": "c4a:Solution",
-            "c4a:id": "http://registry.gpii.net/applications/com.microsoft.windows.cursors",
-            "c4a:name": "com.microsoft.windows.cursors",
+            "c4a:id": "com.microsoft.windows.cursors",
+            "c4a:name": "Windows Cursors",
             "c4a:class": [
                 {
                     "@id": "c4a:output"
@@ -644,7 +632,7 @@
         {
             "@id": "http://registry.gpii.net/applications/com.yourdolphin.supernova-as",
             "@type": "c4a:Solution",
-            "c4a:id": "http://registry.gpii.net/applications/com.yourdolphin.supernova-as",
+            "c4a:id": "com.yourdolphin.supernova-as",
             "c4a:name": "com.yourdolphin.supernova-as",
             "c4a:class": [
                 {
@@ -726,8 +714,8 @@
         {
             "@id": "http://registry.gpii.net/applications/com.android.talkback",
             "@type": "c4a:Solution",
-            "c4a:id": "http://registry.gpii.net/applications/com.android.talkback",
-            "c4a:name": "com.android.talkback",
+            "c4a:id": "com.android.talkback",
+            "c4a:name": "Talkback",
             "c4a:class": [
                 {
                     "@id": "c4a:screenreader"
@@ -751,8 +739,8 @@
         {
             "@id": "http://registry.gpii.net/applications/com.android.settings.secure",
             "@type": "c4a:Solution",
-            "c4a:id": "http://registry.gpii.net/applications/com.android.settings.secure",
-            "c4a:name": "com.android.settings.secure",
+            "c4a:id": "com.android.settings.secure",
+            "c4a:name": "Android Settings Secure",
             "c4a:settings": [
                 {
                     "@type": "c4a:Setting",
@@ -771,8 +759,8 @@
         {
             "@id": "http://registry.gpii.net/applications/com.android.persistentConfiguration",
             "@type": "c4a:Solution",
-            "c4a:id": "http://registry.gpii.net/applications/com.android.persistentConfiguration",
-            "c4a:name": "com.android.persistentConfiguration",
+            "c4a:id": "com.android.persistentConfiguration",
+            "c4a:name": "Android Persistent Configuration",
             "c4a:class": [
                 {
                     "@id": "c4a:output"
@@ -799,8 +787,8 @@
         {
             "@id": "http://registry.gpii.net/applications/com.android.audioManager",
             "@type": "c4a:Solution",
-            "c4a:id": "http://registry.gpii.net/applications/com.android.audioManager",
-            "c4a:name": "com.android.audioManager",
+            "c4a:id": "com.android.audioManager",
+            "c4a:name": "Android Audio Manager",
             "c4a:class": [
                 {
                     "@id": "c4a:output"
@@ -827,8 +815,8 @@
         {
             "@id": "http://registry.gpii.net/applications/es.codefactory.android.app.ma",
             "@type": "c4a:Solution",
-            "c4a:id": "http://registry.gpii.net/applications/es.codefactory.android.app.ma",
-            "c4a:name": "es.codefactory.android.app.ma",
+            "c4a:id": "es.codefactory.android.app.ma",
+            "c4a:name": "Mobile Accessibility",
             "c4a:class": [
                 {
                     "@id": "c4a:screenreader"
@@ -882,8 +870,8 @@
         {
             "@id": "http://registry.gpii.net/applications/com.microsoft.windows.displaySettings",
             "@type": "c4a:Solution",
-            "c4a:id": "http://registry.gpii.net/applications/com.microsoft.windows.displaySettings",
-            "c4a:name": "com.microsoft.windows.displaySettings",
+            "c4a:id": "com.microsoft.windows.displaySettings",
+            "c4a:name": "Windows Display Settings",
             "c4a:settings": [
                 {
                     "@type": "c4a:Setting",
@@ -904,8 +892,8 @@
         {
             "@id": "http://registry.gpii.net/applications/com.texthelp.readWriteGold",
             "@type": "c4a:Solution",
-            "c4a:id": "http://registry.gpii.net/applications/com.texthelp.readWriteGold",
-            "c4a:name": "com.texthelp.readWriteGold",
+            "c4a:id": "com.texthelp.readWriteGold",
+            "c4a:name": "ReadWriteGold",
             "c4a:class": [
                 {
                     "@id": "c4a:screenreader"
