@@ -15,37 +15,7 @@ public class RBMM_WebServiceIT extends TestCase
 
 		if(JsonLDManager.getInstance().PERFORM_INTEGRATION_TESTS)
         {
-			// core test cases 
-			
-			/*_basicAlignment();
-			_MMTest1a();
-			_MMTest1b();
-			_MMTest1c();
-			_MMTest1d();
-			_MMTest2();
-			_MMTest3();			
-			_MMTest4a();
-			_MMTest4b();
-			_MMTest4c();
-			_MMTest5a();			
-			_MMTest5b();
-			_MMTest6a();
-			_MMTest6b();*/			
-			//_resolveMSC_MultiSolutionPreffered();
-			//_resolveMSC_OneSolutionPreffered();
-			
-			/*
-			// review 3
-			_vladimirLobby();
-			_vladimirSubway();
-			_Mary();
-			_Manuel();
-			_ChrisWin();
-			_ChrisAndroid();
-			_LiWindows();
-			_LiAndroid();
-			_Franklin();*/
-			
+		
 			// review 4
 			_Alicia();			
 

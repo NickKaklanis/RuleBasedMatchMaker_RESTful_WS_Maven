@@ -13,26 +13,7 @@
               "serviceName" : "Translatewebpage"
             }
           }
-        }, {
-          "active" : true,
-          "settings" : {
-            "http://registry.gpii.net/applications/com.certh.service-synthesis" : {
-              "serviceInput" : {
-                "originalURL" : "URL_TO_BE_REPLACED",
-                "targetVolume" : 0.6
-              },
-              "serviceName" : "test"
-            }
-          }
         } ],
-        "com.microsoft.windows.displaySettings" : {
-          "active" : true,
-          "settings" : {
-            "http://registry.gpii.net/applications/com.microsoft.windows.displaySettings" : {
-              "isActive" : true
-            }
-          }
-        },
         "com.microsoft.windows.highContrast" : {
           "active" : true,
           "settings" : {
@@ -74,16 +55,11 @@
       "metadata" : [ {
         "message" : {
           "de" : {
-            "learnMore" : "http://wwwpub.zih.tu-dresden.de/~loitsch/review/nvdaTutorial.html",
-            "message" : "Deine bevorzugte assistive Technology ist auf diesem Gerät nicht verfügbar. Wir habe diese alternaive Lösung für dich gestartet."
+            "message" : "Der bevorzugte ScreenReader ist auf diesem Gerät nicht verfügbar. Wir haben NVDA für dich gestartet."
           },
           "en" : {
             "learnMore" : "http://wwwpub.zih.tu-dresden.de/~loitsch/review/nvdaTutorial.html",
-            "message" : "Your preferred Assistive Technology is not available on the device. We have launched this alternative solution for you."
-          },
-          "gr" : {
-            "learnMore" : "http://wwwpub.zih.tu-dresden.de/~loitsch/review/nvdaTutorial.html",
-            "message" : "Η εφαρμογή υποστηρικτικής τεχνολογίας που προτιμάτε δεν είναι διαθέσιμη. Επιλέξαμε για εσάς μια εναλλακτική εφαρμογή."
+            "message" : "Your preferred ScreenReader is not available on the device. We have launched NVDA for you."
           }
         },
         "scope" : [ "org.nvda-project" ],
