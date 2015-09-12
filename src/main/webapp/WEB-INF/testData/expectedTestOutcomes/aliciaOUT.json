@@ -45,8 +45,7 @@
           "active" : false,
           "settings" : {
             "http://registry.gpii.net/common/highContrastEnabled" : true,
-            "http://registry.gpii.net/common/highContrastTheme" : "white-black",
-            "http://registry.gpii.net/common/screenReaderTTSEnabled" : true
+            "http://registry.gpii.net/common/highContrastTheme" : "white-black"
           }
         },
         "org.nvda-project" : {

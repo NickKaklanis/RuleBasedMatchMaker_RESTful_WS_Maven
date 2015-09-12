@@ -18,16 +18,16 @@
                         {
                             "@type": "c4a:Setting",
                             "c4a:default": true,
-                            "c4a:name": "originalURL",                            
+                            "c4a:name": "originalURL",
                             "c4a:value": "URL_TO_BE_REPLACED"
                         },
                         {
                             "@type": "c4a:Setting",
                             "c4a:name": "targetLanguage",
-                    		"c4a:refersTo": "http://registry.gpii.net/common/language"
+                            "c4a:refersTo": "http://registry.gpii.net/common/language"
                         }
                     ]
-                }            
+                }
             ]
         },
         {
@@ -197,9 +197,6 @@
             "c4a:name": "Cloud4chrome",
             "c4a:class": [
                 {
-                    "@id": "c4a:screenreader"
-                },
-                {
                     "@id": "c4a:task"
                 },
                 {
@@ -248,7 +245,7 @@
                     "c4a:id": "invertColours",
                     "c4a:name": "invertColours",
                     "c4a:refersTo": "http://registry.gpii.net/common/invertColours"
-                }                
+                }
             ]
         },
         {
@@ -311,10 +308,10 @@
                 }
             ],
             "c4a:tutorial": [
-            	{
-            	"c4a:language" : "en",
-            	"c4a:link" : "http://wwwpub.zih.tu-dresden.de/~loitsch/review/nvdaTutorial.html"
-            	}
+                {
+                    "c4a:language": "en",
+                    "c4a:link": "http://wwwpub.zih.tu-dresden.de/~loitsch/review/nvdaTutorial.html"
+                }
             ],
             "c4a:settings": [
                 {
@@ -957,14 +954,35 @@
             ]
         },
         {
+            "@id": "c4a:suite",
+            "@type": "c4a:AccessibilitySolution",
+            "c4a:name": "Access Suite",
+            "c4a:refersTo": {
+                "@list": [
+                    "http://registry.gpii.net/common/screenReaderTTSEnabled",
+                    "http://registry.gpii.net/common/magnifierEnabled"
+                ]
+            }
+        },
+        {
             "@id": "c4a:screenreader",
             "@type": "c4a:AccessibilitySolution",
-            "c4a:name": "ScreenReader"
+            "c4a:name": "ScreenReader",
+            "c4a:refersTo": {
+                "@list": [
+                    "http://registry.gpii.net/common/screenReaderTTSEnabled"
+                ]
+            }
         },
         {
             "@id": "c4a:magnifier",
             "@type": "c4a:AccessibilitySolution",
-            "c4a:name": "Magnifier"
+            "c4a:name": "Magnifier",
+            "c4a:refersTo": {
+                "@list": [
+                    "http://registry.gpii.net/common/magnifierEnabled"
+                ]
+            }
         },
         {
             "@id": "c4a:input",

@@ -1,0 +1,17 @@
+{
+    "@context": {
+        "c4a": "http://rbmm.org/schemas/cloud4all/0.1/",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+    },
+    "@graph": [
+        {
+            "@id": "c4a:conflict",
+            "@type": "c4a:SolutionConflict",
+            "c4a:refersTo": [
+                "http://registry.gpii.net/common/screenReaderTTSEnabled", 
+				"http://registry.gpii.net/common/magnifierEnabled",                
+                "http://registry.gpii.net/common/highContrastEnabled"
+            ]
+        }
+    ]
+}
