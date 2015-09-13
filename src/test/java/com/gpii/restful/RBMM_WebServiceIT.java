@@ -18,6 +18,7 @@ public class RBMM_WebServiceIT extends TestCase
 		
 			// review 4
 			_Alicia();			
+			_AliciaSz2();			
 
         }
         else
@@ -369,6 +370,17 @@ public class RBMM_WebServiceIT extends TestCase
 	    
 	    performTest(filepathIN, filepathExpectedOUT1, "_Alicia");           
     }
+	private void _AliciaSz2()
+    {
+	    System.out.println("\n*****************************************************");
+	    System.out.println("* Testing 'Alica  on Linux (Szenario 2) '**************");
+	    System.out.println("*******************************************************");    	
+	
+	    String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/aliciaSz2.json";
+	    String filepathExpectedOUT1 = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/aliciaSz2OUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT1, "_AliciaSz2");           
+    }	
 
     public void test_transformOwlToJSONLD() 
     {

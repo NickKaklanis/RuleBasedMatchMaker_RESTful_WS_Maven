@@ -24,32 +24,32 @@
         },
         "solutions": [
             {
-                "id": "com.microsoft.windows.onscreenKeyboard"
+                "id": "org.gnome.desktop.interface"
             },
             {
-                "id": "com.microsoft.windows.magnifier"
+                "id": "org.gnome.shell.overrides"
             },
             {
-                "id": "com.microsoft.windows.displaySettings"
+                "id": "org.gnome.desktop.wm.preferences"
             },
             {
-                "id": "com.microsoft.windows.highContrast"
+                "id": "org.gnome.nautilus"
             },
             {
-                "id": "org.nvda-project"
+                "id": "org.gnome.desktop.a11y.keyboard"
             },
             {
-                "id": "com.yourdolphin.supernova-as"
+                "id": "org.gnome.desktop.a11y.applications.onscreen-keyboard"
             },
             {
-                "id": "com.texthelp.readWriteGold"
+                "id": "org.gnome.orca"
             },
             {
-                "id": "org.chrome.cloud4chrome"
+                "id": "org.gnome.desktop.a11y.magnifier"
             },
             {
                 "id": "com.certh.service-synthesis"
-            }
+            }			
         ]
     },
     "environmentReporter": {},

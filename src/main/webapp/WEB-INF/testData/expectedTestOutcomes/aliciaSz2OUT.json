@@ -14,42 +14,13 @@
             }
           }
         } ],
-        "com.microsoft.windows.displaySettings" : {
-          "active" : true,
-          "settings" : {
-            "http://registry.gpii.net/common/screenResolution" : "low"
-          }
-        },
-        "com.microsoft.windows.highContrast" : {
+        "org.gnome.desktop.interface" : {
           "active" : true,
           "settings" : {
             "http://registry.gpii.net/common/highContrastEnabled" : true
           }
         },
-        "com.texthelp.readWriteGold" : {
-          "active" : false,
-          "settings" : {
-            "http://registry.gpii.net/common/auditoryOutLanguage" : "en",
-            "http://registry.gpii.net/common/screenReaderTTSEnabled" : true,
-            "http://registry.gpii.net/common/speechRate" : 350.0,
-            "http://registry.gpii.net/common/volumeTTS" : 0.6
-          }
-        },
-        "com.yourdolphin.supernova-as" : {
-          "active" : false,
-          "settings" : {
-            "http://registry.gpii.net/common/screenReaderTTSEnabled" : true,
-            "http://registry.gpii.net/common/speechRate" : 350.0
-          }
-        },
-        "org.chrome.cloud4chrome" : {
-          "active" : false,
-          "settings" : {
-            "http://registry.gpii.net/common/highContrastEnabled" : true,
-            "http://registry.gpii.net/common/highContrastTheme" : "white-black"
-          }
-        },
-        "org.nvda-project" : {
+        "org.gnome.orca" : {
           "active" : true,
           "settings" : {
             "http://registry.gpii.net/common/auditoryOutLanguage" : "en",
@@ -62,14 +33,13 @@
       "metadata" : [ {
         "message" : {
           "de" : {
-            "message" : "Der bevorzugte ScreenReader ist auf diesem Gerät nicht verfügbar. Wir haben NVDA für dich gestartet."
+            "message" : "Der bevorzugte ScreenReader ist auf diesem Gerät nicht verfügbar. Wir haben ORCA für dich gestartet."
           },
           "en" : {
-            "learnMore" : "http://wwwpub.zih.tu-dresden.de/~loitsch/review/nvdaTutorial.html",
-            "message" : "Your preferred ScreenReader is not available on the device. We have launched NVDA for you."
+            "message" : "Your preferred ScreenReader is not available on the device. We have launched ORCA for you."
           }
         },
-        "scope" : [ "org.nvda-project" ],
+        "scope" : [ "org.gnome.orca" ],
         "type" : "helpMessage"
       } ]
     },
@@ -87,42 +57,13 @@
             }
           }
         } ],
-        "com.microsoft.windows.displaySettings" : {
-          "active" : true,
-          "settings" : {
-            "http://registry.gpii.net/common/screenResolution" : "very low"
-          }
-        },
-        "com.microsoft.windows.highContrast" : {
+        "org.gnome.desktop.interface" : {
           "active" : true,
           "settings" : {
             "http://registry.gpii.net/common/highContrastEnabled" : false
           }
         },
-        "com.texthelp.readWriteGold" : {
-          "active" : false,
-          "settings" : {
-            "http://registry.gpii.net/common/auditoryOutLanguage" : "en",
-            "http://registry.gpii.net/common/screenReaderTTSEnabled" : true,
-            "http://registry.gpii.net/common/speechRate" : 350.0,
-            "http://registry.gpii.net/common/volumeTTS" : 0.6
-          }
-        },
-        "com.yourdolphin.supernova-as" : {
-          "active" : false,
-          "settings" : {
-            "http://registry.gpii.net/common/screenReaderTTSEnabled" : true,
-            "http://registry.gpii.net/common/speechRate" : 350.0
-          }
-        },
-        "org.chrome.cloud4chrome" : {
-          "active" : false,
-          "settings" : {
-            "http://registry.gpii.net/common/highContrastEnabled" : false,
-            "http://registry.gpii.net/common/highContrastTheme" : "white-black"
-          }
-        },
-        "org.nvda-project" : {
+        "org.gnome.orca" : {
           "active" : true,
           "settings" : {
             "http://registry.gpii.net/common/auditoryOutLanguage" : "en",
@@ -163,14 +104,13 @@
       }, {
         "message" : {
           "de" : {
-            "message" : "Der bevorzugte ScreenReader ist auf diesem Gerät nicht verfügbar. Wir haben NVDA für dich gestartet."
+            "message" : "Der bevorzugte ScreenReader ist auf diesem Gerät nicht verfügbar. Wir haben ORCA für dich gestartet."
           },
           "en" : {
-            "learnMore" : "http://wwwpub.zih.tu-dresden.de/~loitsch/review/nvdaTutorial.html",
-            "message" : "Your preferred ScreenReader is not available on the device. We have launched NVDA for you."
+            "message" : "Your preferred ScreenReader is not available on the device. We have launched ORCA for you."
           }
         },
-        "scope" : [ "org.nvda-project" ],
+        "scope" : [ "org.gnome.orca" ],
         "type" : "helpMessage"
       } ]
     },
@@ -188,42 +128,13 @@
             }
           }
         } ],
-        "com.microsoft.windows.displaySettings" : {
-          "active" : true,
-          "settings" : {
-            "http://registry.gpii.net/common/screenResolution" : "low"
-          }
-        },
-        "com.microsoft.windows.highContrast" : {
+        "org.gnome.desktop.interface" : {
           "active" : true,
           "settings" : {
             "http://registry.gpii.net/common/highContrastEnabled" : true
           }
         },
-        "com.texthelp.readWriteGold" : {
-          "active" : false,
-          "settings" : {
-            "http://registry.gpii.net/common/auditoryOutLanguage" : "en",
-            "http://registry.gpii.net/common/screenReaderTTSEnabled" : true,
-            "http://registry.gpii.net/common/speechRate" : 350.0,
-            "http://registry.gpii.net/common/volumeTTS" : 0.8
-          }
-        },
-        "com.yourdolphin.supernova-as" : {
-          "active" : false,
-          "settings" : {
-            "http://registry.gpii.net/common/screenReaderTTSEnabled" : true,
-            "http://registry.gpii.net/common/speechRate" : 350.0
-          }
-        },
-        "org.chrome.cloud4chrome" : {
-          "active" : false,
-          "settings" : {
-            "http://registry.gpii.net/common/highContrastEnabled" : true,
-            "http://registry.gpii.net/common/highContrastTheme" : "white-black"
-          }
-        },
-        "org.nvda-project" : {
+        "org.gnome.orca" : {
           "active" : true,
           "settings" : {
             "http://registry.gpii.net/common/auditoryOutLanguage" : "en",
@@ -253,14 +164,13 @@
       }, {
         "message" : {
           "de" : {
-            "message" : "Der bevorzugte ScreenReader ist auf diesem Gerät nicht verfügbar. Wir haben NVDA für dich gestartet."
+            "message" : "Der bevorzugte ScreenReader ist auf diesem Gerät nicht verfügbar. Wir haben ORCA für dich gestartet."
           },
           "en" : {
-            "learnMore" : "http://wwwpub.zih.tu-dresden.de/~loitsch/review/nvdaTutorial.html",
-            "message" : "Your preferred ScreenReader is not available on the device. We have launched NVDA for you."
+            "message" : "Your preferred ScreenReader is not available on the device. We have launched ORCA for you."
           }
         },
-        "scope" : [ "org.nvda-project" ],
+        "scope" : [ "org.gnome.orca" ],
         "type" : "helpMessage"
       } ]
     }

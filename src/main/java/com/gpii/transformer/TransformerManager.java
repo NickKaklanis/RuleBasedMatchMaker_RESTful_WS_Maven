@@ -831,7 +831,7 @@ public class TransformerManager
                     	boolean typeExists = false; 
                     	int i;
                     	JSONObject tmp_meta = null;
-                    	System.out.println("meta set : " +metaSet.toString());
+
                     	for (i = 0; i < metaSet.length(); i++) {
 
                     		tmp_meta = metaSet.getJSONObject(i);                    		
@@ -873,16 +873,19 @@ public class TransformerManager
                             msgSet = metadata.getJSONObject("message");
                         }
                         
+
                         JSONObject msg = new JSONObject();
                         String msgText = soln.get("?msgText").toString();
                         String msgLang = soln.get("?msgLang").toString();
-                        String msgLearnMore = soln.get("?msgLearnMore").toString();                        
                         
                         msgText = msgText.replaceAll("SOLUTION_TO_BE_REPLACED", metaScopeName);
                         msgText = msgText.replaceAll("CLASS_TO_BE_REPLACED", metaScopeClass);
-                        msg.put("message", msgText);
-                        if(!(msgLearnMore.equals("LINK_TO_BE_REPLACED")))
+                        
+                    	String msgLearnMore = soln.get("?msgLearnMore").toString();
+                        if(!(msgLearnMore.equals("")) && !(msgLearnMore.equals("LINK_TO_BE_REPLACED")))
                         	msg.put("learnMore", msgLearnMore);
+                                         
+                        msg.put("message", msgText);
                         msgSet.put(msgLang, msg);
                     }
                     
