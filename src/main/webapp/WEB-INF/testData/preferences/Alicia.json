@@ -12,6 +12,7 @@
                     "http://registry.gpii.net/common/auditoryOutLanguage": "en",
                     "http://registry.gpii.net/common/language": "en",
                     "http://registry.gpii.net/common/screenResolution": "low",
+                    "http://registry.gpii.net/common/simplifiedUiEnabled": true,
                     "http://registry.gpii.net/common/matchMakerType": "RuleBased"
                 }
             }
@@ -46,6 +47,9 @@
             },
             {
                 "id": "org.chrome.cloud4chrome"
+            },
+            {
+                "id": "eu.gpii.olb"
             },
             {
                 "id": "com.certh.service-synthesis"
