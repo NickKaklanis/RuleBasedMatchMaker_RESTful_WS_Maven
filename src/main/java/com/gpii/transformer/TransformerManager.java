@@ -352,191 +352,42 @@ public class TransformerManager
     {		
         String inputString = in;
         JSONTokener inputTokener = new JSONTokener(inputString);
-        JSONObject mmIn = new JSONObject(inputTokener);		
 
+        JSONObject mmIn = null;
+        
+    	try {
+            mmIn = new JSONObject(inputTokener);
+        } 
+        catch (org.json.JSONException e) { }
+	
+    	// original: 
         JSONObject 	outPreProc 	= new JSONObject();
         JSONObject 	outContext 	= new JSONObject();
         JSONArray 	outGraph 	= new JSONArray();
 
         if(mmIn.has("preferences"))
         {
-            JSONObject inContext  = mmIn.getJSONObject("preferences").getJSONObject("contexts");
-
-            /** Translate preferences sets 
-             * IN: 
-             * "gpii-default": {
-             * 		"name": "Default preferences",
-             * 		"preferences": {
-             *  		"http://registry.gpii.net/common/fontSize": 15,
-             *       }
-             * }
-             * GOAL: {
-             *  "@id": "c4a:nighttime-at-home",
-             *  "@type": "c4a:PreferenceSet",
-             *  "c4a:id": "nighttime-at-home",
-             *  "c4a:name": "Nighttimeathome",
-             *  "c4a:hasPrefs": [{
-             *  	"c4a:id": "http://registry.gpii.net/common/fontSize",
-             *  	"@type": "c4a:Preference",
-             *  	"c4a:type": "common",
-             *  	"c4a:setting": [
-             *  		{
-             *  			"c4a:name": "fontSize",
-             *  			"c4a:value": "18"
-             *  		}
-             *  	]
-             *  	
-             *  }] 
-             */
-            Iterator<?> cKeys = inContext.keys(); 
-            while( cKeys.hasNext() )
-            {
-                String cID = (String)cKeys.next();
-                String cName = inContext.getJSONObject(cID).get("name").toString();
-
-                JSONObject outPrefSet = new JSONObject();
-                outPrefSet.put("@id", "c4a:"+cID);
-                outPrefSet.put("@type", "c4a:PreferenceSet");
-                outPrefSet.put("c4a:id", cID);
-                outPrefSet.put("c4a:name", cName);
-
-                // translate preferences and add hasPrefs relation 
-                JSONObject cPrefs = inContext.getJSONObject(cID).getJSONObject("preferences");
-
-                JSONArray outPrefArray = new JSONArray(); 
-                Iterator<?> pKeys = cPrefs.keys(); 
-                while( pKeys.hasNext() )
-                {
-                    // common, e.g. http://registry.gpii.net/common/highContrastEnabled
-                    // application, e.g http://registry.gpii.net/applications/org.chrome.cloud4chrome 
-                    String pID = (String)pKeys.next();
-
-                    // get the path of pID 
-                    URI uri = null;
-                    try {
-                        uri = new URI(pID);
-                    } catch (URISyntaxException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                    }
-                    String path = uri.getPath();
-
-                    // create a preference object:
-                    JSONObject outPref = new JSONObject();
-                    outPref.put("c4a:id", pID);
-                    outPref.put("@type", "c4a:Preference");
+            Object prefs = mmIn.get("preferences"); 
+            
+            if(prefs instanceof JSONObject){
+            	
+            	JSONObject inContext  = ((JSONObject) prefs).getJSONObject("contexts");
+            	
+            	outGraph = transformInputNPsets(inContext, outGraph);
+            }
+            else if(prefs instanceof JSONArray){
+            	// you have a array
+            	System.out.println("multi users");
+            	
+            	for(int i = 0; i < ((JSONArray) prefs).length(); i++){
+            		
+                    String user = ((JSONArray) prefs).getJSONObject(i).getString("userToken");
+                    JSONObject inContext = ((JSONArray) prefs).getJSONObject(i).getJSONObject("contexts");
                     
-                    // handle common preferences
-                    if (pID.contains("common"))
-                    {    	            	
-                        // get preference name from path
-                        String idStr = path.substring(path.lastIndexOf('/') + 1);
-                        
-                        // get common preference value
-                        Object comPrefVal = cPrefs.get(pID);
-                        
-                        // add type and name to the preference object
-                        outPref.put("c4a:type", "common");   	            	
-                        outPref.put("c4a:name", idStr);
-                        
-                        // transform data type of the preference value
-                        /**
-                         * JSON-LD supports automatically typing of values for
-                         * Integer, Double, String and Boolean. This is a 
-                         * workaround for the loss of type information in numbers 
-                         * representing decimal or float (1.5) in JSON-LD.
-                         *   
-                         */
-                        try {
-                            float i = Float.parseFloat(comPrefVal.toString());
-                            comPrefVal = i;
-                            JSONObject valObject = new JSONObject();
-                            valObject.put("@value", comPrefVal.toString());
-                            valObject.put("@type", "xsd:float");
-                            comPrefVal = valObject;
-                        } 
-                        catch (NumberFormatException e){
-                        }								    
+                    outGraph = transformInputNPsets(inContext, user, outGraph);
 
-                        outPref.put("c4a:value", comPrefVal);
-                    }
-
-                    // handle application-specific preferences
-                    if (pID.contains("applications"))
-                    {    	            	
-                        // app-specific preference value is always a JSONObject, e.g. { fontsize: 0.5, invertColours:false}    	            	
-                        JSONObject appPrefValueObject = cPrefs.getJSONObject(pID);    	            	
-                        Iterator<?> setKeys = appPrefValueObject.keys(); 
-                        JSONArray settingSet = new JSONArray();    	    	        
-                        while( setKeys.hasNext() )
-                        {
-                            JSONObject setting = new JSONObject();
-                            String appPrefID = (String)setKeys.next();
-                            String appPrefValue = appPrefValueObject.get(appPrefID).toString();
-                            setting.put("c4a:name", appPrefID);
-                            setting.put("c4a:value", appPrefValue);
-                            settingSet.put(setting);
-                        }
-                        outPref.put("c4a:setting", settingSet);    	            	
-                        outPref.put("c4a:type", "application");
-                    }   	        	
-                    outPrefArray.put(outPref);
                 }
-                outPrefSet.put("c4a:hasPrefs", outPrefArray);
-
-                // translate metadata and add hasMetadata relation 
-                if(inContext.getJSONObject(cID).has("metadata"))
-                {
-                    JSONArray cMetaOuter = inContext.getJSONObject(cID).getJSONArray("metadata");
-
-                    // output array
-                    JSONArray outMetaArray = new JSONArray();
-
-                    for(int i = 0; i < cMetaOuter.length(); i++)
-                    {
-                        JSONObject cMeta = cMetaOuter.getJSONObject(i);	        		 
-
-                        // new JSONObject for each metadata blob
-                        JSONObject outMetaObject = new JSONObject();
-
-                         outMetaObject.put("@type", "c4a:Metadata");
-                         outMetaObject.put("c4a:type", cMeta.get("type").toString());
-                         outMetaObject.put("c4a:value", cMeta.get("value").toString());
-                         outMetaObject.put("c4a:scope", cMeta.getJSONArray("scope"));	        		 
-
-                         outMetaArray.put(outMetaObject); 
-                    }
-                    outPrefSet.put("c4a:hasMetadata", outMetaArray);	
-                }
-
-                // translate condition and add hasCondition relation 
-                if(inContext.getJSONObject(cID).has("conditions"))
-                {
-                    JSONArray cCondOuter = inContext.getJSONObject(cID).getJSONArray("conditions");
-
-                    // output array
-                    JSONArray outCondArray = new JSONArray();
-
-                    for(int i = 0; i < cCondOuter.length(); i++)
-                    {
-                        JSONObject cMeta = cCondOuter.getJSONObject(i);	        		 
-
-                        // new JSONObject for each metadata blob
-                        JSONObject outMetaObject = new JSONObject();
-
-                        outMetaObject.put("@type", "c4a:Condition");
-
-                        Iterator<?> condKeys = cMeta.keys(); 
-                        while(condKeys.hasNext())
-                        {
-                            String condKey = (String)condKeys.next();
-                            outMetaObject.put("c4a:"+condKey, cMeta.get(condKey).toString());
-                        }		        		 
-                        outCondArray.put(outMetaObject); 
-                    }
-                    outPrefSet.put("c4a:hasCondition", outCondArray);	
-                }
-                outGraph.put(outPrefSet);        	        	
+            	
             }
         }
 
@@ -611,8 +462,210 @@ public class TransformerManager
         return outPreProc.toString(5);
     }
     
-    /**
-     * Queries all requiered information from the rdf model and transforms the result the specific C4a JSON Structure. 
+    private JSONArray transformInputNPsets(JSONObject inContext,
+			JSONArray outGraph) throws JSONException {
+    	
+    	String user = null; 
+		
+    	outGraph = transformInputNPsets(inContext, user, outGraph);
+		
+		return outGraph;
+	}
+
+	/** Input || transformation of preferences sets and preferences
+     * IN: 
+     * "gpii-default": {
+     * 		"name": "Default preferences",
+     * 		"preferences": {
+     *  		"http://registry.gpii.net/common/fontSize": 15,
+     *       }
+     * }
+     * OUT: {
+     *  "@id": "c4a:nighttime-at-home",
+     *  "@type": "c4a:PreferenceSet",
+     *  "c4a:id": "nighttime-at-home",
+     *  "c4a:name": "Nighttimeathome",
+     *  "c4a:hasPrefs": [{
+     *  	"c4a:id": "http://registry.gpii.net/common/fontSize",
+     *  	"@type": "c4a:Preference",
+     *  	"c4a:type": "common",
+     *  	"c4a:setting": [
+     *  		{
+     *  			"c4a:name": "fontSize",
+     *  			"c4a:value": "18"
+     *  		}
+     *  	]
+     *  	
+     *  }] 
+     * @param user 
+     */
+    private JSONArray transformInputNPsets(JSONObject inContext,
+			String user, JSONArray outGraph) throws JSONException {
+    	
+    	Iterator<?> cKeys = inContext.keys(); 
+        while( cKeys.hasNext() )
+        {
+        	// for quick access and set specific reasoning create append a list of all preference ids in a NP set
+        	JSONArray pref_list = new JSONArray();
+        	
+            String cID = (String)cKeys.next();
+            String cName = inContext.getJSONObject(cID).get("name").toString();
+
+            JSONObject outPrefSet = new JSONObject();
+            outPrefSet.put("@type", "c4a:PreferenceSet");
+            if(!(user == null)) outPrefSet.put("c4a:user", user);
+            outPrefSet.put("c4a:id", cID);
+            outPrefSet.put("c4a:name", cName);
+
+            // translate preferences and add hasPrefs relation 
+            JSONObject cPrefs = inContext.getJSONObject(cID).getJSONObject("preferences");
+
+            JSONArray outPrefArray = new JSONArray(); 
+            Iterator<?> pKeys = cPrefs.keys(); 
+            while( pKeys.hasNext() )
+            {
+                // common, e.g. http://registry.gpii.net/common/highContrastEnabled
+                // application, e.g http://registry.gpii.net/applications/org.chrome.cloud4chrome 
+                String pID = (String)pKeys.next();
+                
+               // append preference id to the pref_list
+               pref_list.put(pID);
+                
+                // get the path of pID 
+                URI uri = null;
+                try {
+                    uri = new URI(pID);
+                } catch (URISyntaxException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+                String path = uri.getPath();
+
+                // create a preference object:
+                JSONObject outPref = new JSONObject();
+                outPref.put("c4a:id", pID);
+                outPref.put("@type", "c4a:Preference");
+                
+                // handle common preferences
+                if (pID.contains("common"))
+                {    	            	
+                    // get preference name from path
+                    String idStr = path.substring(path.lastIndexOf('/') + 1);
+                    
+                    // get common preference value
+                    Object comPrefVal = cPrefs.get(pID);
+                    
+                    // add type and name to the preference object
+                    outPref.put("c4a:type", "common");   	            	
+                    outPref.put("c4a:name", idStr);
+                    
+                    // transform data type of the preference value
+                    /**
+                     * JSON-LD supports automatically typing of values for
+                     * Integer, Double, String and Boolean. This is a 
+                     * workaround for the loss of type information in numbers 
+                     * representing decimal or float (1.5) in JSON-LD.
+                     *   
+                     */
+                    try {
+                        float i = Float.parseFloat(comPrefVal.toString());
+                        comPrefVal = i;
+                        JSONObject valObject = new JSONObject();
+                        valObject.put("@value", comPrefVal.toString());
+                        valObject.put("@type", "xsd:float");
+                        comPrefVal = valObject;
+                    } 
+                    catch (NumberFormatException e){
+                    }								    
+
+                    outPref.put("c4a:value", comPrefVal);
+                }
+
+                // handle application-specific preferences
+                if (pID.contains("applications"))
+                {    	            	
+                    // app-specific preference value is always a JSONObject, e.g. { fontsize: 0.5, invertColours:false}    	            	
+                    JSONObject appPrefValueObject = cPrefs.getJSONObject(pID);    	            	
+                    Iterator<?> setKeys = appPrefValueObject.keys(); 
+                    JSONArray settingSet = new JSONArray();    	    	        
+                    while( setKeys.hasNext() )
+                    {
+                        JSONObject setting = new JSONObject();
+                        String appPrefID = (String)setKeys.next();
+                        String appPrefValue = appPrefValueObject.get(appPrefID).toString();
+                        setting.put("c4a:name", appPrefID);
+                        setting.put("c4a:value", appPrefValue);
+                        settingSet.put(setting);
+                    }
+                    outPref.put("c4a:setting", settingSet);    	            	
+                    outPref.put("c4a:type", "application");
+                }   	        	
+                outPrefArray.put(outPref);
+            }
+            outPrefSet.put("c4a:hasPrefs", outPrefArray);
+            JSONObject pref_list_wrapper = new JSONObject();
+            pref_list_wrapper.put("@list", pref_list);
+            outPrefSet.put("c4a:prefList", pref_list_wrapper);
+
+            // translate metadata and add hasMetadata relation 
+            if(inContext.getJSONObject(cID).has("metadata"))
+            {
+                JSONArray cMetaOuter = inContext.getJSONObject(cID).getJSONArray("metadata");
+
+                // output array
+                JSONArray outMetaArray = new JSONArray();
+
+                for(int i = 0; i < cMetaOuter.length(); i++)
+                {
+                    JSONObject cMeta = cMetaOuter.getJSONObject(i);	        		 
+
+                    // new JSONObject for each metadata blob
+                    JSONObject outMetaObject = new JSONObject();
+
+                     outMetaObject.put("@type", "c4a:Metadata");
+                     outMetaObject.put("c4a:type", cMeta.get("type").toString());
+                     outMetaObject.put("c4a:value", cMeta.get("value").toString());
+                     outMetaObject.put("c4a:scope", cMeta.getJSONArray("scope"));	        		 
+
+                     outMetaArray.put(outMetaObject); 
+                }
+                outPrefSet.put("c4a:hasMetadata", outMetaArray);	
+            }
+
+            // translate condition and add hasCondition relation 
+            if(inContext.getJSONObject(cID).has("conditions"))
+            {
+                JSONArray cCondOuter = inContext.getJSONObject(cID).getJSONArray("conditions");
+
+                // output array
+                JSONArray outCondArray = new JSONArray();
+
+                for(int i = 0; i < cCondOuter.length(); i++)
+                {
+                    JSONObject cMeta = cCondOuter.getJSONObject(i);	        		 
+
+                    // new JSONObject for each metadata blob
+                    JSONObject outMetaObject = new JSONObject();
+
+                    outMetaObject.put("@type", "c4a:Condition");
+
+                    Iterator<?> condKeys = cMeta.keys(); 
+                    while(condKeys.hasNext())
+                    {
+                        String condKey = (String)condKeys.next();
+                        outMetaObject.put("c4a:"+condKey, cMeta.get(condKey).toString());
+                    }		        		 
+                    outCondArray.put(outMetaObject); 
+                }
+                outPrefSet.put("c4a:hasCondition", outCondArray);	
+            }
+            outGraph.put(outPrefSet);        	        	
+        }
+		return outGraph;
+	}
+
+	
+/** Queries all requiered information from the rdf model and transforms the result the specific C4a JSON Structure. 
      * @param model
      * @param queries
      * @return
@@ -824,7 +877,7 @@ public class TransformerManager
                         String metaType = soln.get("?metaType").toString();
                         String metaScopeID = soln.get("?metaScopeID").toString();
                         String metaScopeName = soln.get("?metaScopeName").toString();
-                        String metaScopeClass = soln.get("?metaScopeClass").toString();
+                        String metaScopeAddition = soln.get("?metaScopeAddition").toString();
                         
                         // check if there is already an meta data object with scope (solution) AND type (e.g. helpMessage)
                     	boolean scopeExists = false;
@@ -879,7 +932,7 @@ public class TransformerManager
                         String msgLang = soln.get("?msgLang").toString();
                         
                         msgText = msgText.replaceAll("SOLUTION_TO_BE_REPLACED", metaScopeName);
-                        msgText = msgText.replaceAll("CLASS_TO_BE_REPLACED", metaScopeClass);
+                        msgText = msgText.replaceAll("ADDITION_TO_BE_REPLACED", metaScopeAddition);
                         
                     	String msgLearnMore = soln.get("?msgLearnMore").toString();
                         if(!(msgLearnMore.equals("")) && !(msgLearnMore.equals("LINK_TO_BE_REPLACED")))

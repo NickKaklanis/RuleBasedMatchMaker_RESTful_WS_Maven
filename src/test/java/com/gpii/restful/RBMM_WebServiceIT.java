@@ -18,7 +18,8 @@ public class RBMM_WebServiceIT extends TestCase
 		
 			// review 4
 			_Alicia();			
-			_AliciaSz2();			
+			_AliciaSz2();
+			_LiaAndManuel();
 
         }
         else
@@ -380,6 +381,19 @@ public class RBMM_WebServiceIT extends TestCase
 	    String filepathExpectedOUT1 = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/aliciaSz2OUT.json";
 	    
 	    performTest(filepathIN, filepathExpectedOUT1, "_AliciaSz2");           
+    }
+
+	private void _LiaAndManuel()
+    {
+	    System.out.println("\n*****************************************************");
+	    System.out.println("* Testing 'Lia and Manuel (Demo 4) '*******************");
+	    System.out.println("* Conflict Resolution on Multi-User Login *************");    	
+	    System.out.println("*******************************************************");
+	    
+	    String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/liaAndManuel.json";
+	    String filepathExpectedOUT1 = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/liaAndManuelOUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT1, "_LiaAndManuel");           
     }	
 
     public void test_transformOwlToJSONLD() 

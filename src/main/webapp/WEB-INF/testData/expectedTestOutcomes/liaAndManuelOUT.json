@@ -1,0 +1,38 @@
+{
+  "inferredConfiguration" : {
+    "ifnps-multi-users-merged" : {
+      "applications" : {
+        "com.certh.service-synthesis" : [ {
+          "active" : true,
+          "settings" : {
+            "http://registry.gpii.net/applications/com.certh.service-synthesis" : {
+              "serviceInput" : {
+                "originalURL" : "URL_TO_BE_REPLACED",
+                "targetLanguage" : "en"
+              },
+              "serviceName" : "Translatewebpage"
+            }
+          }
+        } ],
+        "com.microsoft.windows.displaySettings" : {
+          "active" : true,
+          "settings" : {
+            "http://registry.gpii.net/common/screenResolution" : "low"
+          }
+        }
+      },
+      "metadata" : [ {
+        "message" : {
+          "de" : {
+            "message" : "Mehrere Nutzer sind eingelogt. Wir haben das System bestmöglich konfiguriert um die Bedürfnissen aller Benutzer zu erfüllen. Allerdings bevorzugen mehrere Nutzer unterschiedliche screenResolution. Wir haben die screenResolution auf low eingestellt."
+          },
+          "en" : {
+            "message" : "Multiple users are logged in. We have configured the system to suit the needs of all users. However, multiple users prefer different screenResolution and we have configured it to low."
+          }
+        },
+        "scope" : [ "http://registry.gpii.net/common/screenResolution" ],
+        "type" : "infoMessage"
+      } ]
+    }
+  }
+}
