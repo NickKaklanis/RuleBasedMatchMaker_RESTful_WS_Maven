@@ -5,6 +5,28 @@
     },
     "@graph": [
         {
+            "@id": "http://registry.gpii.net/applications/eu.gpii.olb",
+            "@type": "c4a:Solution",
+            "c4a:id": "eu.gpii.olb",
+            "c4a:name": "Online Banking App",
+            "c4a:class": [
+                {
+                    "@id": "c4a:task"
+                },
+                {
+                    "@id": "c4a:website"
+                }
+            ],
+            "c4a:settings": [
+                {
+                    "@type": "c4a:Setting",
+                    "c4a:id": "simplification",
+                    "c4a:refersTo": "http://registry.gpii.net/common/simplifiedUiEnabled",
+                    "c4a:name": "simplification"
+                }
+            ]
+        }, 
+        {
             "@id": "http://registry.gpii.net/applications/com.certh.service-synthesis",
             "@type": "c4a:Solution",
             "c4a:id": "com.certh.service-synthesis",

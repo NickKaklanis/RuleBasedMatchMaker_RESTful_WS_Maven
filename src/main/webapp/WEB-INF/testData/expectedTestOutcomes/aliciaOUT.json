@@ -42,6 +42,12 @@
             "http://registry.gpii.net/common/speechRate" : 350.0
           }
         },
+        "eu.gpii.olb" : {
+          "active" : true,
+          "settings" : {
+            "http://registry.gpii.net/common/simplifiedUiEnabled" : true
+          }
+        },
         "org.chrome.cloud4chrome" : {
           "active" : false,
           "settings" : {
@@ -113,6 +119,12 @@
           "settings" : {
             "http://registry.gpii.net/common/screenReaderTTSEnabled" : true,
             "http://registry.gpii.net/common/speechRate" : 350.0
+          }
+        },
+        "eu.gpii.olb" : {
+          "active" : true,
+          "settings" : {
+            "http://registry.gpii.net/common/simplifiedUiEnabled" : true
           }
         },
         "org.chrome.cloud4chrome" : {
@@ -214,6 +226,12 @@
           "settings" : {
             "http://registry.gpii.net/common/screenReaderTTSEnabled" : true,
             "http://registry.gpii.net/common/speechRate" : 350.0
+          }
+        },
+        "eu.gpii.olb" : {
+          "active" : true,
+          "settings" : {
+            "http://registry.gpii.net/common/simplifiedUiEnabled" : true
           }
         },
         "org.chrome.cloud4chrome" : {
