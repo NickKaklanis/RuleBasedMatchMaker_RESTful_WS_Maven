@@ -6,529 +6,412 @@ import com.gpii.utils.Utils;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
+
 import java.io.IOException;
+import java.nio.charset.Charset;
+
 import junit.framework.TestCase;
 
 public class RBMM_WebServiceIT extends TestCase
-{/*
-    public void test_runJSONLDRules() 
+{
+	public void test_(){
+
+		if(JsonLDManager.getInstance().PERFORM_INTEGRATION_TESTS)
+        {
+		
+			// review 4
+			_Alicia();	
+			_CombinedScenario1();
+			_CombinedScenario2();
+
+        }
+        else
+            System.out.println("INTEGRATION TESTS WAS IGNORED because 'PERFORM_INTEGRATION_TESTS=false' in config.properties");		
+		
+	}
+	
+    //Core
+    public void _basicAlignment()
     {
-        System.out.println("\n****************************************");
-        System.out.println("* Testing 'runJSONLDRules' web service *");
-        System.out.println("****************************************");
+    	System.out.println("\n**********************************************************************");
+        System.out.println("* Tetsing Basic Alignment of Solutions and Setting *********************");
+        System.out.println("** for multiple contetxs. N&P sets:  ***********************************");    	
+        System.out.println("** 1. same preference across N&P sets (high contrast)*******************"); 
+        System.out.println("** 2. different preference values across N&P sets (cursor size) ********"); 
+        System.out.println("** 3. common prefs not matched to app-specific prefs *******************");
+    	System.out.println("\n**********************************************************************");    	
+	
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/basicAlignment.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/basicAlignmentOUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT, "_BasicAlignment");           
+    }
+    
+    public void _MMTest1a()
+    {
+    	System.out.println("\n******************_MMTest1a ******************************************");
+        System.out.println("** Multiple ATs of the same type are locally installed *****************");
+        System.out.println("** and the user has not indicated which AT is preferred. ***************");    	
+        System.out.println("** Resolution based on a expert defined ranking of AT ** ***************");
+        System.out.println("** defined in knowledge set rankingOfATs *******************************");        
+        System.out.println("\n**********************************************************************");    	
+	
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/MMTest1a.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MMTest1aOUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT, "_MMTest1a");           
+    }
+    
+    public void _MMTest1b()
+    {
+    	System.out.println("\n******************_MMTest1b **************************************************");
+        System.out.println("** Multiple ATs of the same type are available, either locally or as ***********");
+        System.out.println("** cloud-based solution. The user has not indicated which AT is preferred. *****");    	
+        System.out.println("** Resolution based on the application layer of a solution (os, browser, cloud)*");
+        System.out.println("** OS ATs are prioritized over browser solutions *******************************");        
+        System.out.println("\n******************************************************************************");    	
+	
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/MMTest1b.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MMTest1bOUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT, "_MMTest1b");           
+    }    
+    public void _MMTest1c()
+    {
+    	System.out.println("\n******************_MMTest1c **********************************************");
+        System.out.println("** Multiple ATs of the same type and sharing functionalities ***************");
+        System.out.println("** cloud-based solution. The user has not indicated which AT is preferred. *");    	
+        System.out.println("** Resolution based on a expert defined ranking of AT ** *******************");
+        System.out.println("** defined in knowledge set rankingOfATs ***********************************");        
+        System.out.println("\n**************************************************************************");    	
+	
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/MMTest1c.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MMTest1cOUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT, "_MMTest1c");           
+    }
+    public void _MMTest1d()
+    {
+    	System.out.println("\n******************_MMTest1d **********************************************");
+        System.out.println("** Multiple ATs and suits of the same type.**************** ****************");
+        System.out.println("** The user has not indicated which AT is preferred. ***********************");    	
+        System.out.println("** Resolution based on a expert defined ranking of AT ** *******************");
+        System.out.println("** defined in knowledge set rankingOfATs ***********************************");        
+        System.out.println("\n**************************************************************************");    	
+	
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/MMTest1d.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MMTest1dOUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT, "_MMTest1d");           
+    }
+    public void _MMTest2()
+    {
+    	System.out.println("\n******************_MMTest2 ***********************************************");
+        System.out.println("** Multiple ATs of the same class locally available but the preferred ******");
+        System.out.println("** sulotion is missing. ****************************************************");    	
+        System.out.println("** Resolution based on a expert defined ranking of AT ** *******************");
+        System.out.println("** defined in knowledge set rankingOfATs ***********************************");        
+        System.out.println("\n**************************************************************************");    	
+	
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/MMTest2.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MMTest2OUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT, "_MMTest2");           
+    }
+    public void _MMTest3()
+    {
+    	System.out.println("\n******************_MMTest3 ****************************************************");
+        System.out.println("** Multiple ATs of the same type installed; Solution for one AT class preferred;*");
+        System.out.println("** Solution for the other AT class is not indicated as preferred. ***************");    	
+        System.out.println("** The preferred one is among the installed solutions. **************************");
+        System.out.println("\n**************************************************************************");    	
+	
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/MMTest3.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MMTest3OUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT, "_MMTest3");           
+    }
+    public void _MMTest4a()
+    {
+    	System.out.println("\n******************_MMTest4a ***************************");
+        System.out.println("** No AT of the type required by the user is installed.*");
+        System.out.println("** No Magnifier on Windows. ****************************");
+        System.out.println("\n******************************************************");    	
+	
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/MMTest4a.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MMTest4aOUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT, "_MMTest4a");           
+    }
+    public void _MMTest4b()
+    {
+    	System.out.println("\n******************_MMTest4b ***************************");
+        System.out.println("** No AT of the type required by the user is installed.*");
+        System.out.println("** No Magnifier on Linux. ******************************");
+        System.out.println("\n******************************************************");    	
+	
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/MMTest4b.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MMTest4bOUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT, "_MMTest4b");           
+    }
+    public void _MMTest4c()
+    {
+    	System.out.println("\n******************_MMTest4c ***************************");
+        System.out.println("** No AT of the type required by the user is installed.**");
+        System.out.println("** No Magnifier on Android. *****************************");
+        System.out.println("\n DECT: NOATC RES: NOATC_RES_rangeVal*******************");
+        System.out.println("\n*******************************************************");    	
+	
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/MMTest4c.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MMTest4cOUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT, "_MMTest4c");           
+    }
+    public void _MMTest5a()
+    {
+    	System.out.println("\n******************_MMTest5a **********************************************");
+        System.out.println("** No Accessibility Setting of the type required by the user is installed.**");
+        System.out.println("** No high contrast on android *************** *****************************");
+        System.out.println("\n DECT: NOATC RES: NOATC_RES_singleVal*************************************");    	
+        System.out.println("\n*******************************************************");
         
-        String inputJsonStr = null;
-        String actualOutputStr = null;
-        String expectedOutputJsonStr = null;
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/MMTest5a.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MMTest5aOUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT, "_MMTest5a");           
+    }
+    public void _MMTest5b()
+    {
+    	System.out.println("\n******************_MMTest5b **********************************************");
+        System.out.println("** Accessibility Setting of the type required by the user is installed but *");
+        System.out.println("** related setting is not. *************************************************");        
+        System.out.println("** High contrast on Linux but no yellow on black theme  ********************");
+        System.out.println("** No conflict rule applied - **********************************************");    	
+        System.out.println("\n**************************************************************************");
         
-        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/input_test1.json";
-        String filepathActualOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/debug/5_RBMMJsonOutput.json";
-        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/expected_output_test1.json";
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/MMTest5b.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MMTest5bOUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT, "_MMTest5a");           
+    }    
+    public void _MMTest6a()
+    {
+    	System.out.println("\n******************_MMTest6a **********************************************");
+        System.out.println("** Accessibility Setting can be addressed at different levels **************");
+        System.out.println("** Font Size on Linux => OS and Browser ************************************");        
+        System.out.println("** No conflict rule applied - ??? ******************************************");    	
+        System.out.println("\n**************************************************************************");
         
-        // read input & expected output
-        try {
-            inputJsonStr = Utils.getInstance().readFile(filepathIN);
-            expectedOutputJsonStr = Utils.getInstance().readFile(filepathExpectedOUT);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/MMTest6a.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MMTest6aOUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT, "_MMTest6a");           
+    }
+    public void _MMTest6b()
+    {
+    	System.out.println("\n******************_MMTest6b **********************************************");
+        System.out.println("** Accessibility Setting can be addressed at different levels **************");
+        System.out.println("** Magnification on Windows => OS and Browser ******************************");        
+        System.out.println("** NOTE : No conflict rule applied ??? *************************************");    	
+        System.out.println("\n**************************************************************************");
         
-        Client client = Client.create();
-        WebResource webResource = client.resource("http://localhost:8080/RBMM/runJSONLDRules");
-        ClientResponse response = webResource.accept("application/json").type("application/json").post(ClientResponse.class, inputJsonStr);
-        String output = Utils.getInstance().jsonPrettyPrint(response.getEntity(String.class));
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/MMTest6b.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MMTest6bOUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT, "_MMTest6b");           
+    }     
+    private void _resolveMSC_MultiSolutionPreffered()
+    {
+    	System.out.println("\n*************************************************************************");
+        System.out.println("* Testing 'Resolution of Multiple Solution Conflict  ' ********************");
+        System.out.println("* Test criteria: multiple ATs of same type installed ' ********************");
+        System.out.println("* multiple preferred installed; one installed not preferred; AT suits ' *");
+        System.out.println("***************************************************************************");    	
+	
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/MSC_multiInstATpreferred_noATSuite.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MSC_multiInstATpreferred_noATSuiteOUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT, "_resolveMSC_MultiSolutionPreffered");           
+    }
+    
+    private void _resolveMSC_OneSolutionPreffered()
+    {
+    	System.out.println("\n*****************************************************");
+        System.out.println("* Testing 'Resolution of Multiple Solution Conflict  ' *");
+        System.out.println("* Test criteria: one solution preferred; no AT suits ' *");
+        System.out.println("*******************************************************");    	
+	
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/MSC_oneInstATpreferred_noATSuite.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MSC_oneInstATpreferred_noATSuiteOUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT, "_resolveMSC_OneSolutionPreffered");           
+    }    
+	
+    // Review 3
+    private void _vladimirLobby()
+    {
+        System.out.println("\n*****************************************************");
+        System.out.println("* Testing 'Vladimir at the Lobby' *");
+        System.out.println("*******************************************************");    	
+
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/vladimir.json";
+        String filepathExpectedOUT1 = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/vladimirLobbyOUT.json";
         
-        System.out.println("\nWeb service output:\n");
-        System.out.println(output);
-        
-        // read actual output
-        try {
-            actualOutputStr = Utils.getInstance().readFile(filepathActualOUT);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-               
-        assertEquals(actualOutputStr, expectedOutputJsonStr);
-    }*/
-    
-    public void test_vladimirLobby()
-    {
-        if(JsonLDManager.getInstance().PERFORM_INTEGRATION_TESTS)
-        {
-            System.out.println("\n*****************************************************");
-            System.out.println("* Testing 'Vladimir at the Lobby' *");
-            System.out.println("*******************************************************");    	
+	    performTest(filepathIN, filepathExpectedOUT1, "_vladimirLobby");   
 
-            String inputJsonStr = null;
-            String actualOutputStr = null;
-            String expectedOutputJsonStr1 = null;
-
-            String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/vladimir.json";
-
-            String filepathActualOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/debug/5_RBMMJsonOutput.json";
-
-            String filepathExpectedOUT1 = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/vladimirLobbyOUT.json";
-
-            // read input & expected output
-            try {
-                inputJsonStr = Utils.getInstance().readFile(filepathIN);
-                expectedOutputJsonStr1 = Utils.getInstance().readFile(filepathExpectedOUT1);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            Client client = Client.create();
-            WebResource webResource = client.resource("http://localhost:8080/RBMM/runJSONLDRules");
-            ClientResponse response = webResource.accept("application/json").type("application/json").post(ClientResponse.class, inputJsonStr);
-            String output = response.getEntity(String.class);
-
-            System.out.println("\nWeb service output:\n");
-            System.out.println(output);
-
-            // read actual output
-            try {
-                actualOutputStr = Utils.getInstance().readFile(filepathActualOUT);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            boolean outputIsSimilarToOneOfTheExpected = false;
-            if(actualOutputStr.equals(expectedOutputJsonStr1))
-                outputIsSimilarToOneOfTheExpected = true;
-            else
-            {
-                System.out.println("\n* ERROR -> test_vladimirLobby INTEGRATION TEST FAILED!");
-                System.exit(-1);
-            }
-            assertEquals(outputIsSimilarToOneOfTheExpected, true);	
-        }
-        else
-            System.out.println("test_vladimirLobby INTEGRATION TEST WAS IGNORED because 'PERFORM_INTEGRATION_TESTS=false' in config.properties");
     }
     
-    public void test_VladimirSubway()
+    private void _vladimirSubway()
     {
-        if(JsonLDManager.getInstance().PERFORM_INTEGRATION_TESTS)
-        {
-            System.out.println("\n*****************************************************");
-            System.out.println("* Testing 'Vladimir at the Subway' ********************");
-            System.out.println("*******************************************************");    	
-
-            String inputJsonStr = null;
-            String actualOutputStr = null;
-            String expectedOutputJsonStr = null;
-
-            String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/vladimirSubway.json";
-            String filepathActualOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/debug/5_RBMMJsonOutput.json";
-            String filepathExpectedOUT;
-            if(JsonLDManager.getInstance().USE_THE_REAL_ONTOLOGY == false)
-                filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/vladimirSubwayOUT.json";
-            else
-                filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/vladimirSubwayRealOntologyOUT.json";
-
-            // read input & expected output
-            try {
-                inputJsonStr = Utils.getInstance().readFile(filepathIN);
-                expectedOutputJsonStr = Utils.getInstance().readFile(filepathExpectedOUT);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            Client client = Client.create();
-            WebResource webResource = client.resource("http://localhost:8080/RBMM/runJSONLDRules");
-            ClientResponse response = webResource.accept("application/json").type("application/json").post(ClientResponse.class, inputJsonStr);
-            String output = response.getEntity(String.class);
-
-            System.out.println("\nWeb service output:\n");
-            System.out.println(output);
-
-            // read actual output
-            try {
-                actualOutputStr = Utils.getInstance().readFile(filepathActualOUT);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            if(actualOutputStr.equals(expectedOutputJsonStr) == false)
-            {
-                System.out.println("\n* ERROR -> test_VladimirSubway INTEGRATION TEST FAILED!");
-                System.exit(-1);
-            }
-            assertEquals(actualOutputStr, expectedOutputJsonStr);
-        }
+	    System.out.println("\n*****************************************************");
+	    System.out.println("* Testing 'Vladimir Subway' ***************************");
+	    System.out.println("*******************************************************");    	
+	
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/vladimirSubway.json";
+        String filepathExpectedOUT1;
+        if(JsonLDManager.getInstance().USE_THE_REAL_ONTOLOGY == false)
+            filepathExpectedOUT1 = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/vladimirSubwayOUT.json";
         else
-            System.out.println("test_VladimirSubway INTEGRATION TEST WAS IGNORED because 'PERFORM_INTEGRATION_TESTS=false' in config.properties");
+            filepathExpectedOUT1 = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/vladimirSubwayRealOntologyOUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT1, "_vladimirSubway");           
     }
     
-    public void test_Mary()
+    private void _Mary()
     {
-        if(JsonLDManager.getInstance().PERFORM_INTEGRATION_TESTS)
-        {
-            System.out.println("\n*****************************************************");
-            System.out.println("* Testing 'Classroom Marry' ***************************");
-            System.out.println("*******************************************************");    	
-
-            String inputJsonStr = null;
-            String actualOutputStr = null;
-            String expectedOutputJsonStr = null;
-
-            String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/mary.json";
-            String filepathActualOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/debug/5_RBMMJsonOutput.json";
-            String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/maryOUT.json";
-
-            // read input & expected output
-            try {
-                inputJsonStr = Utils.getInstance().readFile(filepathIN);
-                expectedOutputJsonStr = Utils.getInstance().readFile(filepathExpectedOUT);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            Client client = Client.create();
-            WebResource webResource = client.resource("http://localhost:8080/RBMM/runJSONLDRules");
-            ClientResponse response = webResource.accept("application/json").type("application/json").post(ClientResponse.class, inputJsonStr);
-            String output = response.getEntity(String.class);
-
-            System.out.println("\nWeb service output:\n");
-            System.out.println(output);
-
-            // read actual output
-            try {
-                actualOutputStr = Utils.getInstance().readFile(filepathActualOUT);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            if(actualOutputStr.equals(expectedOutputJsonStr) == false)
-            {
-                System.out.println("\n* ERROR -> test_Mary INTEGRATION TEST FAILED!");
-                System.exit(-1);
-            }
-            assertEquals(actualOutputStr, expectedOutputJsonStr);
-        }
-        else
-            System.out.println("test_Mary INTEGRATION TEST WAS IGNORED because 'PERFORM_INTEGRATION_TESTS=false' in config.properties");
+        System.out.println("\n*****************************************************");
+        System.out.println("* Testing 'Classroom Marry' ***************************");
+        System.out.println("*******************************************************");	
+	
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/mary.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/maryOUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT, "_Mary");           
     }
     
-    public void test_Manuel()
+    private void _Manuel()
     {
-        if(JsonLDManager.getInstance().PERFORM_INTEGRATION_TESTS)
-        {
-            System.out.println("\n*****************************************************");
-            System.out.println("* Testing 'Classroom Manuel' **************************");
-            System.out.println("*******************************************************");    	
-
-            String inputJsonStr = null;
-            String actualOutputStr = null;
-            String expectedOutputJsonStr1 = null;
-
-            String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/manuel.json";
-            String filepathActualOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/debug/5_RBMMJsonOutput.json";
-            String filepathExpectedOUT1 = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/manuelOUT.json";
-
-            // read input & expected output
-            try {
-                inputJsonStr = Utils.getInstance().readFile(filepathIN);
-                expectedOutputJsonStr1 = Utils.getInstance().readFile(filepathExpectedOUT1);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            Client client = Client.create();
-            WebResource webResource = client.resource("http://localhost:8080/RBMM/runJSONLDRules");
-            ClientResponse response = webResource.accept("application/json").type("application/json").post(ClientResponse.class, inputJsonStr);
-            String output = response.getEntity(String.class);
-
-            System.out.println("\nWeb service output:\n");
-            System.out.println(output);
-
-            // read actual output
-            try {
-                actualOutputStr = Utils.getInstance().readFile(filepathActualOUT);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            boolean outputIsSimilarToOneOfTheExpected = false;
-            if(actualOutputStr.equals(expectedOutputJsonStr1))
-                outputIsSimilarToOneOfTheExpected = true;
-            else
-            {
-                System.out.println("\n* ERROR -> test_Manuel INTEGRATION TEST FAILED!");
-                System.exit(-1);
-            }
-            assertEquals(outputIsSimilarToOneOfTheExpected, true);
-        }
-        else
-            System.out.println("test_Manuel INTEGRATION TEST WAS IGNORED because 'PERFORM_INTEGRATION_TESTS=false' in config.properties");
+        System.out.println("\n*****************************************************");
+        System.out.println("* Testing 'Classroom Manuel' **************************");
+        System.out.println("*******************************************************");
+	
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/manuel.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/manuelOUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT, "_Manuel");           
+    }
+  
+    private void _ChrisWin()
+    {
+        System.out.println("\n*****************************************************");
+        System.out.println("* Testing 'Classroom Chris Windows' *******************");
+        System.out.println("*******************************************************");;
+	
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/chrisWindows.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/chrisWindowsOUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT, "testChristWin");           
     }
     
-    public void test_ChrisWin()
+    private void _ChrisAndroid()
     {
-        if(JsonLDManager.getInstance().PERFORM_INTEGRATION_TESTS)
-        {
-            System.out.println("\n*****************************************************");
-            System.out.println("* Testing 'Classroom Chris Windows' *******************");
-            System.out.println("*******************************************************");    	
-
-            String inputJsonStr = null;
-            String actualOutputStr = null;
-            String expectedOutputJsonStr1 = null;
-
-            String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/chrisWindows.json";
-            String filepathActualOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/debug/5_RBMMJsonOutput.json";
-            String filepathExpectedOUT1 = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/chrisWindowsOUT.json";
-
-            // read input & expected output
-            try {
-                inputJsonStr = Utils.getInstance().readFile(filepathIN);
-                expectedOutputJsonStr1 = Utils.getInstance().readFile(filepathExpectedOUT1);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            Client client = Client.create();
-            WebResource webResource = client.resource("http://localhost:8080/RBMM/runJSONLDRules");
-            ClientResponse response = webResource.accept("application/json").type("application/json").post(ClientResponse.class, inputJsonStr);
-            String output = response.getEntity(String.class);
-
-            System.out.println("\nWeb service output:\n");
-            System.out.println(output);
-
-            // read actual output
-            try {
-                actualOutputStr = Utils.getInstance().readFile(filepathActualOUT);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            boolean outputIsSimilarToOneOfTheExpected = false;
-            if(actualOutputStr.equals(expectedOutputJsonStr1))
-                outputIsSimilarToOneOfTheExpected = true;
-            else
-            {
-                System.out.println("\n* ERROR -> test_ChrisWin INTEGRATION TEST FAILED!");
-                System.exit(-1);
-            }
-            assertEquals(outputIsSimilarToOneOfTheExpected, true);
-        }
-        else
-            System.out.println("test_ChrisWin INTEGRATION TEST WAS IGNORED because 'PERFORM_INTEGRATION_TESTS=false' in config.properties");
-    }
+        System.out.println("\n*****************************************************");
+        System.out.println("* Testing 'Classroom Chris Android' *******************");
+        System.out.println("*******************************************************");
+	
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/chrisAndroid.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/chrisAndroidOUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT, "_ChrisAndroid");           
+    }   
     
-    public void test_ChrisAndroid()
+    private void _LiWindows()
     {
-        if(JsonLDManager.getInstance().PERFORM_INTEGRATION_TESTS)
-        {
-            System.out.println("\n*****************************************************");
-            System.out.println("* Testing 'Classroom Chris Android' *******************");
-            System.out.println("*******************************************************");    	
-
-            String inputJsonStr = null;
-            String actualOutputStr = null;
-            String expectedOutputJsonStr1 = null;
-
-            String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/chrisAndroid.json";
-            String filepathActualOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/debug/5_RBMMJsonOutput.json";
-            String filepathExpectedOUT1 = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/chrisAndroidOUT.json";
-
-            // read input & expected output
-            try {
-                inputJsonStr = Utils.getInstance().readFile(filepathIN);
-                expectedOutputJsonStr1 = Utils.getInstance().readFile(filepathExpectedOUT1);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            Client client = Client.create();
-            WebResource webResource = client.resource("http://localhost:8080/RBMM/runJSONLDRules");
-            ClientResponse response = webResource.accept("application/json").type("application/json").post(ClientResponse.class, inputJsonStr);
-            String output = response.getEntity(String.class);
-
-            System.out.println("\nWeb service output:\n");
-            System.out.println(output);
-
-            // read actual output
-            try {
-                actualOutputStr = Utils.getInstance().readFile(filepathActualOUT);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            boolean outputIsSimilarToOneOfTheExpected = false;
-            if(actualOutputStr.equals(expectedOutputJsonStr1))
-                outputIsSimilarToOneOfTheExpected = true;
-            else
-            {
-                System.out.println("\n* ERROR -> test_ChrisAndroid INTEGRATION TEST FAILED!");
-                System.exit(-1);
-            }
-            assertEquals(outputIsSimilarToOneOfTheExpected, true);
-        }
-        else
-            System.out.println("test_ChrisAndroid INTEGRATION TEST WAS IGNORED because 'PERFORM_INTEGRATION_TESTS=false' in config.properties");
+        System.out.println("\n*****************************************************");
+        System.out.println("* Testing 'Classroom Li Windows' **********************");
+        System.out.println("*******************************************************");
+	
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/liWindows.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/liWindowsOUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT, "_LiWindows");           
     }
-    
-    public void test_LiWindows()
+
+    private void _LiAndroid()
     {
-        if(JsonLDManager.getInstance().PERFORM_INTEGRATION_TESTS)
-        {
-            System.out.println("\n*****************************************************");
-            System.out.println("* Testing 'Classroom Li Windows' **********************");
-            System.out.println("*******************************************************");    	
+        System.out.println("\n*****************************************************");
+        System.out.println("* Testing 'Classroom Li Android' **********************");
+        System.out.println("*******************************************************");
+	
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/liAndroid.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/liAndroidOUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT,"_LiAndroid");           
+    } 
 
-            String inputJsonStr = null;
-            String actualOutputStr = null;
-            String expectedOutputJsonStr1 = null;
-
-            String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/liWindows.json";
-            String filepathActualOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/debug/5_RBMMJsonOutput.json";
-            String filepathExpectedOUT1 = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/liWindowsOUT.json";
-
-            // read input & expected output
-            try {
-                inputJsonStr = Utils.getInstance().readFile(filepathIN);
-                expectedOutputJsonStr1 = Utils.getInstance().readFile(filepathExpectedOUT1);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            Client client = Client.create();
-            WebResource webResource = client.resource("http://localhost:8080/RBMM/runJSONLDRules");
-            ClientResponse response = webResource.accept("application/json").type("application/json").post(ClientResponse.class, inputJsonStr);
-            String output = response.getEntity(String.class);
-
-            System.out.println("\nWeb service output:\n");
-            System.out.println(output);
-
-            // read actual output
-            try {
-                actualOutputStr = Utils.getInstance().readFile(filepathActualOUT);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            boolean outputIsSimilarToOneOfTheExpected = false;
-            if(actualOutputStr.equals(expectedOutputJsonStr1))
-                outputIsSimilarToOneOfTheExpected = true;
-            else
-            {
-                System.out.println("\n* ERROR -> test_LiWindows INTEGRATION TEST FAILED!");
-                System.exit(-1);
-            }
-            assertEquals(outputIsSimilarToOneOfTheExpected, true);
-        }
-        else
-            System.out.println("test_LiWindows INTEGRATION TEST WAS IGNORED because 'PERFORM_INTEGRATION_TESTS=false' in config.properties");
-    }
-    
-    public void test_LiAndroid()
+    private void _Franklin()
     {
-        if(JsonLDManager.getInstance().PERFORM_INTEGRATION_TESTS)
-        {
-            System.out.println("\n*****************************************************");
-            System.out.println("* Testing 'Classroom Li Android' **********************");
-            System.out.println("*******************************************************");    	
-
-            String inputJsonStr = null;
-            String actualOutputStr = null;
-            String expectedOutputJsonStr1 = null;
-
-            String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/liAndroid.json";
-            String filepathActualOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/debug/5_RBMMJsonOutput.json";
-            String filepathExpectedOUT1 = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/liAndroidOUT.json";
-
-
-            // read input & expected output
-            try {
-                inputJsonStr = Utils.getInstance().readFile(filepathIN);
-                expectedOutputJsonStr1 = Utils.getInstance().readFile(filepathExpectedOUT1);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            Client client = Client.create();
-            WebResource webResource = client.resource("http://localhost:8080/RBMM/runJSONLDRules");
-            ClientResponse response = webResource.accept("application/json").type("application/json").post(ClientResponse.class, inputJsonStr);
-            String output = response.getEntity(String.class);
-
-            System.out.println("\nWeb service output:\n");
-            System.out.println(output);
-
-            // read actual output
-            try {
-                actualOutputStr = Utils.getInstance().readFile(filepathActualOUT);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            boolean outputIsSimilarToOneOfTheExpected = false;
-            if(actualOutputStr.equals(expectedOutputJsonStr1))
-                outputIsSimilarToOneOfTheExpected = true;
-            else
-            {
-                System.out.println("\n* ERROR -> test_LiAndroid INTEGRATION TEST FAILED!");
-                System.exit(-1);
-            }
-            assertEquals(outputIsSimilarToOneOfTheExpected, true);
-        }
-        else
-            System.out.println("test_LiAndroid INTEGRATION TEST WAS IGNORED because 'PERFORM_INTEGRATION_TESTS=false' in config.properties");
-    }
-    
-    public void test_Franklin()
+        System.out.println("\n*****************************************************");
+        System.out.println("* Testing 'Classroom Franklin' **********************");
+        System.out.println("*******************************************************"); 
+	
+        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/franklin.json";
+        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/franklinOUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT, "_Franklin");           
+    }     
+   
+	// Review 4    
+	private void _Alicia()
     {
-        if(JsonLDManager.getInstance().PERFORM_INTEGRATION_TESTS)
-        {
-            System.out.println("\n*****************************************************");
-            System.out.println("* Testing 'Classroom Franklin' **********************");
-            System.out.println("*******************************************************");    	
-
-            String inputJsonStr = null;
-            String actualOutputStr = null;
-            String expectedOutputJsonStr1 = null;
-
-            String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/franklin.json";
-            String filepathActualOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/debug/5_RBMMJsonOutput.json";
-            String filepathExpectedOUT1 = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/franklinOUT.json";
-
-            // read input & expected output
-            try {
-                inputJsonStr = Utils.getInstance().readFile(filepathIN);
-                expectedOutputJsonStr1 = Utils.getInstance().readFile(filepathExpectedOUT1);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            Client client = Client.create();
-            WebResource webResource = client.resource("http://localhost:8080/RBMM/runJSONLDRules");
-            ClientResponse response = webResource.accept("application/json").type("application/json").post(ClientResponse.class, inputJsonStr);
-            String output = response.getEntity(String.class);
-
-            System.out.println("\nWeb service output:\n");
-            System.out.println(output);
-
-            // read actual output
-            try {
-                actualOutputStr = Utils.getInstance().readFile(filepathActualOUT);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            boolean outputIsSimilarToOneOfTheExpected = false;
-            if(actualOutputStr.equals(expectedOutputJsonStr1))
-                outputIsSimilarToOneOfTheExpected = true;
-            else
-            {
-                System.out.println("\n* ERROR -> test_Franklin INTEGRATION TEST FAILED!");
-                System.exit(-1);
-            }
-            assertEquals(outputIsSimilarToOneOfTheExpected, true);
-        }
-        else
-            System.out.println("test_Franklin INTEGRATION TEST WAS IGNORED because 'PERFORM_INTEGRATION_TESTS=false' in config.properties");
+	    System.out.println("\n*****************************************************");
+	    System.out.println("* Testing 'Alica' *************************************");
+	    System.out.println("*******************************************************");    	
+	
+	    String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/alicia.json";
+	    String filepathExpectedOUT1 = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/aliciaOUT.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT1, "_Alicia");           
     }
-    
+	
+	private void _CombinedScenario1()
+    {
+	    System.out.println("\n*****************************************************");
+	    System.out.println("* Testing 'CombinedScenario1' *************************************");
+	    System.out.println("*******************************************************");    	
+	
+	    String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/combinedScenario1.json";
+	    String filepathExpectedOUT1 = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/combinedScenarioOUT1.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT1, "_Alicia");           
+    }
+	
+	private void _CombinedScenario2()
+    {
+	    System.out.println("\n*****************************************************");
+	    System.out.println("* Testing 'CombinedScenario2' *************************************");
+	    System.out.println("*******************************************************");    	
+	
+	    String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/combinedScenario2.json";
+	    String filepathExpectedOUT1 = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/combinedScenarioOUT2.json";
+	    
+	    performTest(filepathIN, filepathExpectedOUT1, "_Alicia");           
+    }
+	
+	// Review 4    
+		private void _Alicia2()
+	    {
+		    System.out.println("\n*****************************************************");
+		    System.out.println("* Testing 'Alica' *************************************");
+		    System.out.println("*******************************************************");    	
+		
+		    String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/alicia2.json";
+		    String filepathExpectedOUT1 = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/aliciaOUT2.json";
+		    
+		    performTest(filepathIN, filepathExpectedOUT1, "_Alicia");           
+	    }
+
     public void test_transformOwlToJSONLD() 
     {
         if(JsonLDManager.getInstance().PERFORM_INTEGRATION_TESTS)
@@ -561,109 +444,15 @@ public class RBMM_WebServiceIT extends TestCase
         }
         else
             System.out.println("test_transformOwlToJSONLD INTEGRATION TEST WAS IGNORED because 'PERFORM_INTEGRATION_TESTS=false' in config.properties");
-    }
-    
-	/*
-    public void test_resolveMSC_OneSolutionPreffered(){
+    }    
+	
+    private void performTest(String filepathIN, String filepathExpectedOUT1, String test) {
         
-    	System.out.println("\n*****************************************************");
-        System.out.println("* Testing 'Resolution of Multiple Solution Conflict  ' *");
-        System.out.println("* Test criteria: one solution preferred; no AT suits ' *");
-        System.out.println("*******************************************************");    	
-    	
-        String inputJsonStr = null;
-        String actualOutputStr = null;
-        String expectedOutputJsonStr = null;
-        
-        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/MSC_oneInstATpreferred_noATSuite.json";
         String filepathActualOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/debug/5_RBMMJsonOutput.json";
-        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MSC_oneInstATpreferred_noATSuiteOUT.json";
-        
-        // read input & expected output
-        try {
-            inputJsonStr = Utils.getInstance().readFile(filepathIN);
-            expectedOutputJsonStr = Utils.getInstance().readFile(filepathExpectedOUT);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        
-        Client client = Client.create();
-        WebResource webResource = client.resource("http://localhost:8080/RBMM/runJSONLDRules");
-        ClientResponse response = webResource.accept("application/json").type("application/json").post(ClientResponse.class, inputJsonStr);
-        String output = response.getEntity(String.class);
-        
-        System.out.println("\nWeb service output:\n");
-        System.out.println(output);
-               
-        // read actual output
-        try {
-            actualOutputStr = Utils.getInstance().readFile(filepathActualOUT);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-               
-        //IT FAILS BECAUSE IT NEEDS ANOTHER SEMANTIC SOLUTIONS FILE -> assertEquals(actualOutputStr, expectedOutputJsonStr);
-    }
-
-    public void test_resolveMSC_MultiSolutionPreffered(){
-        
-    	System.out.println("\n*************************************************************************");
-        System.out.println("* Testing 'Resolution of Multiple Solution Conflict  ' ********************");
-        System.out.println("* Test criteria: multiple ATs of same type installed ' ********************");
-        System.out.println("* multiple preferred installed; one installed not preferred; AT suits ' *");
-        System.out.println("***************************************************************************");    	
     	
-        String inputJsonStr = null;
-        String actualOutputStr = null;
-        String expectedOutputJsonStr = null;
-        
-        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/MSC_multiInstATpreferred_noATSuite.json";
-        String filepathActualOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/debug/5_RBMMJsonOutput.json";
-        String filepathExpectedOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/MSC_multiInstATpreferred_noATSuiteOUT.json";
-        
-        // read input & expected output
-        try {
-            inputJsonStr = Utils.getInstance().readFile(filepathIN);
-            expectedOutputJsonStr = Utils.getInstance().readFile(filepathExpectedOUT);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        
-        Client client = Client.create();
-        WebResource webResource = client.resource("http://localhost:8080/RBMM/runJSONLDRules");
-        ClientResponse response = webResource.accept("application/json").type("application/json").post(ClientResponse.class, inputJsonStr);
-        String output = response.getEntity(String.class);
-        
-        System.out.println("\nWeb service output:\n");
-        System.out.println(output);
-               
-        // read actual output
-        try {
-            actualOutputStr = Utils.getInstance().readFile(filepathActualOUT);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-               
-        //IT FAILS BECAUSE IT NEEDS ANOTHER SEMANTIC SOLUTIONS FILE -> assertEquals(actualOutputStr, expectedOutputJsonStr);
-    } 
-    
-    public void test_BasicAlignment(){
-        
-    	System.out.println("\n**********************************************************************");
-        System.out.println("* Tetsing Basic Alignment of Solutions and Setting *********************");
-        System.out.println("** for multiple contetxs. N&P sets:  ***********************************");    	
-        System.out.println("** 1. same preference across N&P sets (high contrast)*******************"); 
-        System.out.println("** 2. different preference values across N&P sets (cursor size) ********"); 
-        System.out.println("** 3. common prefs not matched to app-specific prefs *******************");
-    	System.out.println("\n**********************************************************************");
-    	
-        String inputJsonStr = null;
+    	String inputJsonStr = null;
         String actualOutputStr = null;
         String expectedOutputJsonStr1 = null;
-        
-        String filepathIN = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/preferences/basicAlignment.json";
-        String filepathActualOUT = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/debug/5_RBMMJsonOutput.json";
-        String filepathExpectedOUT1 = System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/testData/expectedTestOutcomes/basicAlignmentOUT.json";
         
         // read input & expected output
         try {
@@ -672,26 +461,35 @@ public class RBMM_WebServiceIT extends TestCase
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
+
         Client client = Client.create();
         WebResource webResource = client.resource("http://localhost:8080/RBMM/runJSONLDRules");
         ClientResponse response = webResource.accept("application/json").type("application/json").post(ClientResponse.class, inputJsonStr);
         String output = response.getEntity(String.class);
-        
+
         System.out.println("\nWeb service output:\n");
         System.out.println(output);
-        
+
         // read actual output
         try {
             actualOutputStr = Utils.getInstance().readFile(filepathActualOUT);
+//            Charset.forName("UTF-8").encode(actualOutputStr);
+//            System.out.println("----------------------------------------");
+//            System.out.println(actualOutputStr);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
+
         boolean outputIsSimilarToOneOfTheExpected = false;
         if(actualOutputStr.equals(expectedOutputJsonStr1))
             outputIsSimilarToOneOfTheExpected = true;
-        assertEquals(outputIsSimilarToOneOfTheExpected, true);	
-    }*/   
-    
+        else
+        {
+            System.out.println("\n* ERROR -> " +test+ " INTEGRATION TEST FAILED!");
+            //System.exit(-1);
+        }
+        assertEquals(outputIsSimilarToOneOfTheExpected, true);		
+	}
+	
+	
 }

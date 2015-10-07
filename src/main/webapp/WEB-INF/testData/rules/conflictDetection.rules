@@ -19,7 +19,7 @@
 	
 	(?s1 c4a:class ?c) 
 	(?s2 c4a:class ?c)
-	(?c rdf:type c4a:AssistiveTechnology)
+	(?c rdf:type c4a:AccessibilitySolution)
 	
 	makeSkolem(?newConflict, ?if, ?c)
 	->
@@ -40,14 +40,22 @@
 	print('AFFECTED SOLUTION: ' ?s1)
 	]
 	
-	// HACK - Google Chrome Browser plugins schall not be activated per default
-	[DeactivateGoogleChrome:
-	(?if c4a:refersTo ?config_x)
-	(?config_x rdf:type c4a:Configuration)
-	(?config_x c4a:isActive "true")	
-	(?config_x c4a:refersTo http://registry.gpii.net/applications/org.chrome.cloud4chrome)
+	// DETECTION OF NoATConflict (NATC) - no configuration available   
+
+	[DetectNoATConflict: 
+	(?if rdf:type c4a:InferredConfiguration)
+	(?if c4a:hasMetadata ?meta)
+	(?meta c4a:type "required")
+	(?meta c4a:scope ?pref)
+	noValue(?if c4a:refersTo ?config)
+	makeSkolem(?newConflict, ?if)
 	->
-	drop(2)
-	(?config_x c4a:isActive "false")
-	print('************ HACK GOOGLE CHROME HAS BEEN DEACTIVATED ****************')
+	(?newConflict rdf:type c4a:Conflict)
+	(?newConflict c4a:name "NoATConflict")
+	(?newConflict c4a:refersTo ?pref)
+	(?if c4a:hasConflict ?newConflict)
+	
+	print('************ CONFLICT DETECTION ****************')
+	print('CONFLICT: NoATConflict')
+	print('AFFECTED Preference: ' ?pref)
 	]
