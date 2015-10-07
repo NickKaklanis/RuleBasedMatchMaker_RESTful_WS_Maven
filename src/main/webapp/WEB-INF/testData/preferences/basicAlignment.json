@@ -102,13 +102,12 @@
             {
                 "id": "com.yourdolphin.supernova-as"
             },
-			{
-				"id": "org.chrome.cloud4chrome"
-			},
-			{
-				"id": "com.microsoft.windows.mouseTrailing"
-			}
-			
+            {
+                "id": "org.chrome.cloud4chrome"
+            },
+            {
+                "id": "com.microsoft.windows.mouseTrailing"
+            }
         ]
     },
     "environmentReporter": {},

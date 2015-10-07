@@ -11,8 +11,10 @@
 	(?config c4a:refersTo ?sol)		
 	(?sol c4a:id ?sol_id)
 	equal(?prefsol, ?sol_id)
+	noValue(?config c4a:solPreferred ?p)
 	->
 	(?config c4a:solPreferred "true")
+	(?if c4a:solPreferred "true")
 	print('**********PREFDERRED SOLUTION **************')
 	print('CONTEXT: ' ?if_id)
 	print('SOLUTION: ' ?sol_id)

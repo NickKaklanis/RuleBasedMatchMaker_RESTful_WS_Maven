@@ -21,6 +21,8 @@
 (?solution c4a:id ?sol_id)
 (?solution c4a:name ?sol_name)
 (?solution c4a:settings ?setting)
+(?solution c4a:class ?class)
+(?class rdf:type ?class_type)
 
 (?setting rdf:type c4a:Setting)
 (?setting c4a:refersTo ?set_id)
@@ -32,6 +34,7 @@ makeSkolem(?newSetting, ?setting, ?pref)
 ->
 (?if c4a:refersTo ?newConfig)
 (?newConfig c4a:refersTo ?solution)
+(?newConfig c4a:refersTo ?pref)
 (?newConfig c4a:settings ?newSetting)
 (?newConfig rdf:type c4a:Configuration)
 (?newConfig c4a:id ?sol_id)
@@ -42,6 +45,8 @@ makeSkolem(?newSetting, ?setting, ?pref)
 (?newSetting c4a:id ?p_id)
 (?newSetting c4a:name ?p_name)
 (?newSetting c4a:value ?p_value)
+
+(?pref c4a:status "matched")
 ]
 
 [MatchSolutions: 
