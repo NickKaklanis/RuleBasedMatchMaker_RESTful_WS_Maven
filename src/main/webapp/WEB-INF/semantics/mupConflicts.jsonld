@@ -1,0 +1,117 @@
+{
+    "@context": {
+        "c4a": "http://rbmm.org/schemas/cloud4all/0.1/",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+    },
+    "@graph": [
+        {
+            "@type": "c4a:MultiuserPreferenceConflict",
+            "c4a:id": "spdv-lowerValue",
+            "c4a:name": "same preference different value - adjust to lower value",
+            "c4a:affects": {
+                "@list": [
+                    "http://registry.gpii.net/common/speechRate"
+                ]
+            },
+            "c4a:resolution": "lowerValue"
+        },
+        {
+            "@type": "c4a:MultiuserPreferenceConflict",
+            "c4a:id": "spdv-individualRes",
+            "c4a:name": "same preference different value - adjust individually",
+            "c4a:affects": "http://registry.gpii.net/common/screenResolution",
+            "c4a:resolution": [
+                {
+                    "c4a:input": {
+                        "@list": [
+                            "high",
+                            "normal"
+                        ]
+                    },
+                    "c4a:output": {
+                        "@type": "c4a:Preference",
+                        "c4a:id": "http://registry.gpii.net/common/screenResolution",
+                        "c4a:name": "screenResolution",
+                        "c4a:type": "common",
+                        "c4a:value": "normal"
+                    }
+                },
+                {
+                    "c4a:input": {
+                        "@list": [
+                            "high",
+                            "low"
+                        ]
+                    },
+                    "c4a:output": {
+                        "@type": "c4a:Preference",
+                        "c4a:id": "http://registry.gpii.net/common/screenResolution",
+                        "c4a:name": "screenResolution",
+                        "c4a:type": "common",
+                        "c4a:value": "low"
+                    }
+                },
+                {
+                    "c4a:input": {
+                        "@list": [
+                            "high",
+                            "very low"
+                        ]
+                    },
+                    "c4a:output": {
+                        "@type": "c4a:Preference",
+                        "c4a:id": "http://registry.gpii.net/common/screenResolution",
+                        "c4a:name": "screenResolution",
+                        "c4a:type": "common",
+                        "c4a:value": "very low"
+                    }
+                },
+                {
+                    "c4a:input": {
+                        "@list": [
+                            "normal",
+                            "low"
+                        ]
+                    },
+                    "c4a:output": {
+                        "@type": "c4a:Preference",
+                        "c4a:id": "http://registry.gpii.net/common/screenResolution",
+                        "c4a:name": "screenResolution",
+                        "c4a:type": "common",
+                        "c4a:value": "low"
+                    }
+                },
+                {
+                    "c4a:input": {
+                        "@list": [
+                            "normal",
+                            "very low"
+                        ]
+                    },
+                    "c4a:output": {
+                        "@type": "c4a:Preference",
+                        "c4a:id": "http://registry.gpii.net/common/screenResolution",
+                        "c4a:name": "screenResolution",
+                        "c4a:type": "common",
+                        "c4a:value": "very low"
+                    }
+                },
+                {
+                    "c4a:input": {
+                        "@list": [
+                            "low",
+                            "very low"
+                        ]
+                    },
+                    "c4a:output": {
+                        "@type": "c4a:Preference",
+                        "c4a:id": "http://registry.gpii.net/common/screenResolution",
+                        "c4a:name": "screenResolution",
+                        "c4a:type": "common",
+                        "c4a:value": "very low"
+                    }
+                }
+            ]
+        }
+    ]
+}

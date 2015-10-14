@@ -1,45 +1,6 @@
 	@prefix c4a: <http://rbmm.org/schemas/cloud4all/0.1/>.
 	@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 		
-// DETECTION OF MULTIPLE SOLUTION CONFLICTS FOR ASSISTIVE TECHNOLOGIES 
-
-	[DetectMultipleSolutionConflict: 
-	(?config_x c4a:refersTo ?s1)
-	(?config_y c4a:refersTo ?s2)
-	
-	(?config_x rdf:type c4a:Configuration)
-	(?config_y rdf:type c4a:Configuration)
-	
-	notEqual(?config_x, ?config_y)
-	
-	(?if rdf:type c4a:InferredConfiguration)
-	(?if c4a:id ?if_id)
-	(?if c4a:refersTo ?config_x)
-	(?if c4a:refersTo ?config_y)
-	
-	(?s1 c4a:class ?c) 
-	(?s2 c4a:class ?c)
-	(?c rdf:type c4a:AccessibilitySolution)
-	
-	makeSkolem(?newConflict, ?if, ?c)
-	->
-	(?newConflict rdf:type c4a:Conflict)
-	(?newConflict c4a:name "MultipleSolutionConflict")
-	(?newConflict c4a:refersTo ?config_x)
-	(?newConflict c4a:refersTo ?config_y)
-	(?newConflict c4a:class ?c)
-	
-	(?config_x c4a:hasConflict ?newConflict)
-	(?config_y c4a:hasConflict ?newConflict)
-	
-	print('************ CONFLICT DETECTION ****************')
-	print('CONFLICT: Multiple Solution Conflict')
-	print('CONFLICT CLASS: Multiple Assistive Technologies')
-	print('TYPE: ' ?c)
-	print('CONTEXT' ?if_id)
-	print('AFFECTED SOLUTION: ' ?s1)
-	]
-	
 	// DETECTION OF NoATConflict (NATC) - no configuration available   
 
 	[DetectNoATConflict: 
@@ -59,3 +20,86 @@
 	print('CONFLICT: NoATConflict')
 	print('AFFECTED Preference: ' ?pref)
 	]
+	
+	// DETECTION OF MUTIPLE SOLUTION CONFLICTS FOR RELEVANT PREFERENCES (conflictingTermsOnLayers.jsonld)
+	[DetectMSC:
+	// If there are two inferred configurations ...
+	(?config_x rdf:type c4a:Configuration)
+	(?config_x c4a:id ?s1)
+	(?config_x c4a:settings ?set_x)
+		
+	(?config_y rdf:type c4a:Configuration)
+	(?config_y c4a:id ?s2)
+	(?config_y c4a:settings ?set_y)	
+	
+	notEqual(?config_x, ?config_y)
+	
+	(?if rdf:type c4a:InferredConfiguration)
+	(?if c4a:id ?if_id)
+	(?if c4a:refersTo ?config_x)
+	(?if c4a:refersTo ?config_y)
+	
+	// and these configurations have conflicting settings  
+	(?conflict rdf:type c4a:SolutionConflict)
+	(?conflict c4a:refersTo ?aff_set)
+	(?set_x c4a:id ?aff_set) 
+	(?set_y c4a:id ?aff_set)
+	
+	noValue(?c c4a:affects ?aff_set)
+	makeSkolem(?newConflict, ?if, ?aff_set)
+	->
+	(?newConflict rdf:type c4a:Conflict)
+	(?newConflict c4a:name "MultipleSolutionConflict")
+	(?newConflict c4a:refersTo ?config_x)
+	(?newConflict c4a:refersTo ?config_y)
+	(?newConflict c4a:affects ?aff_set)	
+	(?config_x c4a:hasConflict ?newConflict)
+	(?config_y c4a:hasConflict ?newConflict)
+	
+	print('************ MSC DETECTED ****************')
+	print('CONTEXT' ?if_id)
+	print('AFFECTS: ' ?aff_set)
+	print('REFERS TO: ' ?s1)
+	print('REFERS TO: ' ?s2)	 
+	]	
+	
+	// UPDATE MUTIPLE SOLUTION CONFLICTS FOR RELEVANT PREFERENCES 
+	[UpdateMSC:
+	// If there are two inferred configurations ...
+	(?config_x rdf:type c4a:Configuration)
+	(?config_x c4a:id ?s1)
+	(?config_x c4a:settings ?set_x)
+		
+	(?config_y rdf:type c4a:Configuration)
+	(?config_y c4a:id ?s2)
+	(?config_y c4a:settings ?set_y)	
+	
+	notEqual(?config_x, ?config_y)
+	
+	(?if rdf:type c4a:InferredConfiguration)
+	(?if c4a:id ?if_id)
+	(?if c4a:refersTo ?config_x)
+	(?if c4a:refersTo ?config_y)
+	
+	// and these configurations have conflicting settings  
+	(?conflict rdf:type c4a:SolutionConflict)
+	(?conflict c4a:refersTo ?aff_set)
+	(?set_x c4a:id ?aff_set) 
+	(?set_y c4a:id ?aff_set)
+	
+	(?c c4a:affects ?aff_set)
+	(?c rdf:type c4a:Conflict)
+	(?c c4a:name "MultipleSolutionConflict")
+	->
+	(?c c4a:refersTo ?config_x)
+	(?c c4a:refersTo ?config_y)
+	(?config_x c4a:hasConflict ?c)
+	(?config_y c4a:hasConflict ?c)
+	
+	print('************ MSC UPDATED ****************')
+	print('CONTEXT' ?if_id)
+	print('AFFECTS: ' ?aff_set)
+	print('REFERS TO: ' ?s1)
+	print('REFERS TO: ' ?s2)	 
+	]	
+	

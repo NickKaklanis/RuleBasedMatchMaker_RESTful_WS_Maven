@@ -8,7 +8,7 @@ SELECT DISTINCT
 	(str(?msgType) as ?metaType)
 	(str(?scopeID) as ?metaScopeID)
 	(str(?scopeName) as ?metaScopeName)
-	(str(?scopeClass) as ?metaScopeClass)	
+	(str(?scopeAddition) as ?metaScopeAddition)	
 	(str(?lang) as ?msgLang)
 	(str(?text) as ?msgText)
 	(str(?learnMore) as ?msgLearnMore)
@@ -22,7 +22,7 @@ WHERE
 	?meta c4a:scope ?scope.
 	?scope c4a:id ?scopeID.
 	?scope c4a:name ?scopeName.
-	?scope c4a:class ?scopeClass.	
+	?scope c4a:addition ?scopeAddition.	
 	?meta c4a:messages ?msgs.
 	?msgs c4a:language ?lang.
 	?msgs c4a:text ?text.

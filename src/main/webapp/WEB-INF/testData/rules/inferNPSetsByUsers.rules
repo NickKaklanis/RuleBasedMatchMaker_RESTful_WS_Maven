@@ -1,0 +1,164 @@
+	@prefix c4a: <http://rbmm.org/schemas/cloud4all/0.1/>.
+	@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+
+// Create an empty new NP set that will contain all merged preferences   
+[CreateMergedNPSets:
+	// If there are preference sets for multiple users (?u_x and ?u_y) ... 
+	(?nps_x rdf:type c4a:PreferenceSet)
+	(?nps_x c4a:id "gpii-default")
+	(?nps_x c4a:user ?u_x)
+	
+	(?nps_y rdf:type c4a:PreferenceSet)
+	(?nps_y c4a:id "gpii-default")
+	(?nps_y c4a:user ?u_y)
+	
+	notEqual(?nps_x, ?nps_y)
+	
+	// ... and an inferred NP set "ifnps-multi-users-merged" is not available 
+	noValue(?pns_z c4a:id "ifnps-multi-users-merged")
+	
+	// ... create a new NP set "ifnps-multi-users-merged"  
+	makeSkolem(?newNPS, c4a:ifnps-multi-users-merged)
+	->
+	(?newNPS rdf:type c4a:PreferenceSet)
+	(?newNPS c4a:id "ifnps-multi-users-merged")
+	(?newNPS c4a:name "inferred preference set for multiple users")
+]
+
+// Apply set difference | Appended preference p_x if p_x is part of nps_x and not part of nps_y 
+[A\B: 
+	(?nps_x rdf:type c4a:PreferenceSet)
+	(?nps_x c4a:id "gpii-default")
+	(?nps_x c4a:user ?u_x)
+	(?nps_x c4a:hasPrefs ?p_x)
+
+	(?p_x rdf:type c4a:Preference)
+	(?p_x c4a:id ?p_x_id)
+
+	(?nps_y rdf:type c4a:PreferenceSet)
+	(?nps_y c4a:id "gpii-default")
+	(?nps_y c4a:user ?u_y)
+	(?nps_y c4a:prefList ?prefList_y)
+	
+	listNotContains(?prefList_y, ?p_x_id)
+	notEqual(?nps_x, ?nps_y)
+	
+	(?nps_z rdf:type c4a:PreferenceSet)
+	(?nps_z c4a:id "ifnps-multi-users-merged")
+	->
+	(?nps_z c4a:hasPrefs ?p_x)
+	print('****** MUPM | set-theoretic difference ******')
+	print('append ' ?p_x_id) 
+]
+
+// Apply intersection | no conflict - "same preference same values (spsv)"
+[spsv-noConflict:
+	// If there are 2 NP sets of different users ...  
+	(?nps_x rdf:type c4a:PreferenceSet)
+	(?nps_x c4a:id "gpii-default")
+	(?nps_x c4a:user ?u_x)
+	(?nps_x c4a:hasPrefs ?p_x)
+
+	(?nps_y rdf:type c4a:PreferenceSet)
+	(?nps_y c4a:id "gpii-default")
+	(?nps_y c4a:user ?u_y)
+	(?nps_y c4a:hasPrefs ?p_y)
+	
+	notEqual(?nps_x, ?nps_y)
+	
+	// ... and users have preferences with the same ids but different values 
+	(?p_x rdf:type c4a:Preference)
+	(?p_x c4a:id ?p_aff)
+	(?p_x c4a:name ?p_aff_name)
+	(?p_x c4a:type ?p_aff_type)
+	(?p_x c4a:value ?p_x_value)
+		
+	(?p_y rdf:type c4a:Preference)
+	(?p_y c4a:id ?p_aff)
+	(?p_y c4a:value ?p_y_value)
+	
+	equal(?p_x_value, ?p_y_value)
+	
+	(?nps_z rdf:type c4a:PreferenceSet)
+	(?nps_z c4a:id "ifnps-multi-users-merged")
+	noValue(?nps_z c4a:hasPrefs ?p_x)
+	noValue(?nps_z c4a:hasPrefs ?p_y)
+	->
+	(?nps_z c4a:hasPrefs ?p_x)
+	print('****** MUPM | spsv-noConflict ******')
+	print('append ' ?p_aff)
+]
+
+
+// Apply intersection | conflict - "same preference different values (spdv)" | resolution - "individual resolution (spdv-individualRes)"    
+[spdv-individualRes:
+	// If there are 2 NP sets of different users ...  
+	(?nps_x rdf:type c4a:PreferenceSet)
+	(?nps_x c4a:id "gpii-default")
+	(?nps_x c4a:user ?u_x)
+	(?nps_x c4a:hasPrefs ?p_x)
+
+	(?nps_y rdf:type c4a:PreferenceSet)
+	(?nps_y c4a:id "gpii-default")
+	(?nps_y c4a:user ?u_y)
+	(?nps_y c4a:hasPrefs ?p_y)
+	
+	notEqual(?nps_x, ?nps_y)
+	
+	// ... and users have preferences with the same ids but different values 
+	(?p_x rdf:type c4a:Preference)
+	(?p_x c4a:id ?p_aff)
+	
+	(?p_y rdf:type c4a:Preference)
+	(?p_y c4a:id ?p_aff)
+	
+	(?p_x c4a:value ?p_x_value)
+	(?p_y c4a:value ?p_y_value)
+	
+	notEqual(?p_x_value, ?p_y_value)
+	
+	// and there is a conflict description for the affected preference 
+	(?c rdf:type c4a:MultiuserPreferenceConflict)
+	(?c c4a:id "spdv-individualRes")
+	(?c c4a:affects ?p_aff)		
+	
+	(?c c4a:resolution ?c_res)
+	(?c_res c4a:input ?in_val)		
+	
+	listContains(?in_val, ?p_x_value)
+	listContains(?in_val, ?p_y_value) 
+	
+	(?c_res c4a:output ?out)
+	(?out c4a:id ?out_id)
+	(?out c4a:name ?out_name)
+	(?out c4a:value ?out_value)
+	
+	(?nps_z rdf:type c4a:PreferenceSet)
+	(?nps_z c4a:id "ifnps-multi-users-merged")
+	
+	// ... if there is a feedback messages that match the conflict type "spdv-individualRes" ....
+	(?feed rdf:type c4a:Message)
+	(?feed c4a:id "spdv-individualRes")
+	(?feed c4a:messageType ?msg_type)
+	(?feed c4a:messages ?msg)
+	
+	// ... than add new meta data knowledge and align the feedback messages  
+	makeSkolem(?newMetaData, ?nps_z)
+	makeSkolem(?newScope, ?newMetaData, ?nps_z)
+	->
+	(?nps_z c4a:hasPrefs ?out) 
+	(?nps_z c4a:hasMetadata ?newMetaData)
+	
+	(?newMetaData rdf:type c4a:Metadata)
+	(?newMetaData c4a:messageType ?msg_type)
+	(?newMetaData c4a:scope ?newScope)
+	(?newMetaData c4a:messages ?msg)
+	
+	(?newScope rdf:type c4a:MetadataScope)
+	(?newScope c4a:id ?out_id)
+	(?newScope c4a:name ?out_name)
+	(?newScope c4a:addition ?out_value)	
+
+	print('****** MUPM | spdv-individualRes ******')
+	print('append: ' ?p_aff)
+]

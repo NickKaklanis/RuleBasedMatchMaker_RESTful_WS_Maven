@@ -1,0 +1,140 @@
+	@prefix c4a: <http://rbmm.org/schemas/cloud4all/0.1/>.
+	@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+
+[InferPrefSetsForNoise:
+	// If there is a default preference set ... 
+	(?ps rdf:type c4a:PreferenceSet)
+	(?ps c4a:id "gpii-default")
+	
+	// And a user has a preference volumeTTS in the their default preference set
+	(?ps c4a:hasPrefs ?p)
+	(?p c4a:id "http://registry.gpii.net/common/volumeTTS")
+	(?p c4a:name ?p_name)
+	(?p c4a:value ?p_value)
+	
+	//calculate new value for volume
+	sum(?p_value, 0.2, ?p_new_value)
+	
+	// create a new NPSet context
+	makeSkolem(?newPS, c4a:ifnps-noise)
+	makeSkolem(?newP, ?newPS) 
+	->
+	(?newPS rdf:type c4a:PreferenceSet)
+	(?newPS c4a:id "ifnps-noise")
+	(?newPS c4a:name "inferred preference set for noise")
+	(?newPS c4a:hasPrefs ?newP)
+	
+	(?newP rdf:type c4a:Preference)
+	(?newP c4a:type "common")
+	(?newP c4a:id "http://registry.gpii.net/common/volumeTTS")
+	(?newP c4a:name ?p_name)
+	(?newP c4a:value ?p_new_value)
+	
+	print('********** NEW NPS inferred **************')
+	print('CONTEXT: ifnps-noise')
+	print('AFFECTS PREF: http://registry.gpii.net/common/volumeTTS')
+	print('OLD VALUE: ' ?p_value)
+	print('NEW VALUE: ' ?p_new_value)
+]
+
+
+// Infer NPS for luminance 
+[InferPrefSetsForLum:
+	// If there is a default preference set ... 
+	(?ps rdf:type c4a:PreferenceSet)
+	(?ps c4a:id "gpii-default")
+
+	// And a user has a preference for high contrast.... 
+	(?ps c4a:hasPrefs ?p1)
+	(?p1 rdf:type c4a:Preference)
+	(?p1 c4a:id "http://registry.gpii.net/common/highContrastEnabled")
+	(?p1 c4a:type ?p1_type)
+	(?p1 c4a:name ?p1_name)
+	(?p1 c4a:value ?p1_value)
+	
+	// And a user has a preference for screen resolution.... 
+	(?ps c4a:hasPrefs ?p2)
+	(?p2 rdf:type c4a:Preference)
+	(?p2 c4a:id "http://registry.gpii.net/common/screenResolution")
+	(?p2 c4a:type ?p2_type)
+	(?p2 c4a:name ?p2_name)
+	(?p2 c4a:value ?p2_value)
+
+	// create a new NPSet context
+	makeSkolem(?newPS, c4a:ifnps-luminance)
+	makeSkolem(?newP1, ?newPS, ?p1)
+	makeSkolem(?newP2, ?newPS, ?p2)
+	->
+	(?newPS rdf:type c4a:PreferenceSet)
+	(?newPS c4a:id "ifnps-luminance")
+	(?newPS c4a:name "inferred preference set for luminance")
+	(?newPS c4a:hasPrefs ?newP1)
+	(?newPS c4a:hasPrefs ?newP2)
+	
+	(?newP1 rdf:type c4a:Preference)
+	(?newP1 c4a:type "common")
+	(?newP1 c4a:id "http://registry.gpii.net/common/highContrastEnabled")
+	(?newP1 c4a:name ?p1_name)
+	(?newP1 c4a:value "false")
+	
+	(?newP2 rdf:type c4a:Preference)
+	(?newP2 c4a:type "common")
+	(?newP2 c4a:id "http://registry.gpii.net/common/screenResolution")
+	(?newP2 c4a:name ?p2_name)
+	(?newP2 c4a:value "very low")
+	
+	print('********** NEW NPS inferred **************')
+	print('CONTEXT: ifnps-luminance')
+	print('AFFECTS PREF: http://registry.gpii.net/common/highContrast')
+	print('AFFECTS PREF: http://registry.gpii.net/common/screenResolution')
+]
+
+// add the condition to an inferred NPS
+[AddCond:
+	// If there is an NPS 
+	(?inf_ps rdf:type c4a:PreferenceSet)
+	(?inf_ps c4a:id ?inf_ps_id)
+	
+	// that has been inferred for a context
+	(?c_inf rdf:type c4a:ContextInference)
+	(?c_inf c4a:id ?inf_ps_id)
+	
+	// and no condition is availavle 
+	noValue(?inf_ps c4a:hasCondition ?x)
+	
+	// and add the defined condition (incontextInferences.jsonld)
+	(?c_inf c4a:condition ?c_inf_cond)
+	->
+	(?inf_ps c4a:hasCondition ?c_inf_cond)
+]
+
+// Transfer all non-affected preferences from the gpii-default to an inferred NPS
+[TransferPrefs:
+	 // If there is a default NPS ... 
+	(?ps rdf:type c4a:PreferenceSet)
+	(?ps c4a:id "gpii-default")
+	
+	// And a user has a preferences ...
+	(?ps c4a:hasPrefs ?p)
+	(?p c4a:type ?p_type)
+	(?p c4a:id ?p_id)
+	(?p c4a:id ?p_name)
+	(?p c4a:value ?p_value)
+	
+	// and there is a further NPS 
+	(?inf_ps rdf:type c4a:PreferenceSet)
+	(?inf_ps c4a:id ?inf_ps_id)
+	
+	// that has been inferred for a context
+	(?c_inf rdf:type c4a:ContextInference)
+	(?c_inf c4a:id ?inf_ps_id)
+	(?c_inf c4a:affects ?inf_aff_prefs)
+	
+	// And p is not an affected preference by the context inference
+	listNotContains(?inf_aff_prefs, ?p_id)		
+	notEqual(?ps, ?inf_ps)
+	->
+	(?inf_ps c4a:hasPrefs ?p)
+	// SAME new preference (from gpii-default) node is translated to the new NPS  
+	// NOTE: matching of solutions and settings for this NPS could be affected by the preference property "matched" that is inferred in basic matching  
+]

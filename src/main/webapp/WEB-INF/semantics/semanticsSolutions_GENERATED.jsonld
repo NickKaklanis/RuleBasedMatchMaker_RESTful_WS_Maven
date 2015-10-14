@@ -13,7 +13,7 @@
                 "@ontClassName": "MouseControlSoftware",
                 "@type": "c4a:AccessibilitySetting"
             }],
-            "c4a:id": "com.microsoft.windows.mouseTrailing",
+            "c4a:id": "http://registry.gpii.net/applications/com.microsoft.windows.mouseTrailing",
             "c4a:name": "com.microsoft.windows.mouseTrailing",
             "c4a:settings": [{
                 "@type": "c4a:Setting",
@@ -21,10 +21,8 @@
                 "c4a:hasConstraints": "Works for Windows 95, 98, NT, XP. Third-party software need to be installed to enable mouse trails on Windows 2000.",
                 "c4a:hasDescription": "Mouse cursor has trails following it as it mouse moves.",
                 "c4a:id": "http://registry.gpii.net/application/com.microsoft.windows.mouseTrailing/MouseTrails",
-                "c4a:isExactMatching": true,
                 "c4a:name": "Show pointer trails",
-                "c4a:primitive_type": "boolean",
-                "c4a:refersTo": "http://registry.gpii.net/common/mouseTrailing"
+                "c4a:primitive_type": "boolean"
             }]
         },
         {
@@ -35,7 +33,7 @@
                 "@ontClassName": "PortableComputersAndPersonalDigitalAssistants",
                 "@type": "...unknown..."
             }],
-            "c4a:id": "MSSurface.assistant",
+            "c4a:id": "http://registry.gpii.net/applications/MSSurface.assistant",
             "c4a:name": "MSSurface.assistant",
             "c4a:settings": [
                 {
@@ -119,7 +117,7 @@
                 "@ontClassName": "WebBrowsers",
                 "@type": "c4a:AccessibilitySolution"
             }],
-            "c4a:id": "IE8.webBrowser",
+            "c4a:id": "http://registry.gpii.net/applications/IE8.webBrowser",
             "c4a:name": "IE8.webBrowser",
             "c4a:settings": [
                 {
@@ -268,7 +266,7 @@
                 "@ontClassName": "MagnifyingSoftware",
                 "@type": "c4a:AccessibilitySolution"
             }],
-            "c4a:id": "org.chrome.cloud4chrome",
+            "c4a:id": "http://registry.gpii.net/applications/org.chrome.cloud4chrome",
             "c4a:name": "org.chrome.cloud4chrome",
             "c4a:settings": [
                 {
@@ -281,49 +279,39 @@
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
                     "c4a:id": "http://registry.gpii.net/application/org.chrome.cloud4chrome/Magnification",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Magnification",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/magnifierEnabled"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "medium",
                     "c4a:hasValueSpace": "medium, large, x-large",
                     "c4a:id": "http://registry.gpii.net/application/org.chrome.cloud4chrome/FontSize",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Font Size",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/fontSize"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "1",
                     "c4a:hasValueSpace": "1 (100%), 2 (200%), 3 (300%)",
                     "c4a:id": "http://registry.gpii.net/application/org.chrome.cloud4chrome/MagnificationLevel",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Magnification level",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/magnification"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "TTS of Chrome",
                     "c4a:id": "http://registry.gpii.net/application/org.chrome.cloud4chrome/ChromeVox",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "ChromeVox",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/screenReaderTTSEnabled"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
                     "c4a:id": "http://registry.gpii.net/application/org.chrome.cloud4chrome/Invert",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Invert (High Contrast)",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/highContrast"
+                    "c4a:primitive_type": "boolean"
                 }
             ]
         },
@@ -335,7 +323,7 @@
                 "@ontClassName": "WebBrowsers",
                 "@type": "c4a:AccessibilitySolution"
             }],
-            "c4a:id": "firefox_10_0_1.webBrowser",
+            "c4a:id": "http://registry.gpii.net/applications/firefox_10_0_1.webBrowser",
             "c4a:name": "firefox_10_0_1.webBrowser",
             "c4a:settings": [
                 {
@@ -540,7 +528,7 @@
                 "@ontClassName": "AlternativeInputDevices",
                 "@type": "c4a:AccessibilitySolution"
             }],
-            "c4a:id": "com.texthelp.readWriteGold",
+            "c4a:id": "http://registry.gpii.net/applications/com.texthelp.readWriteGold",
             "c4a:name": "com.texthelp.readWriteGold",
             "c4a:settings": [
                 {
@@ -4319,7 +4307,7 @@
                 "@ontClassName": "AlternativeInputDevices",
                 "@type": "c4a:AccessibilitySolution"
             }],
-            "c4a:id": "speechStreamTextHelp.alternativeInput",
+            "c4a:id": "http://registry.gpii.net/applications/speechStreamTextHelp.alternativeInput",
             "c4a:name": "speechStreamTextHelp.alternativeInput",
             "c4a:settings": [
                 {
@@ -4814,7 +4802,7 @@
                 "@ontClassName": "AlternativeInputDevices",
                 "@type": "c4a:AccessibilitySolution"
             }],
-            "c4a:id": "MSSurface.alternativeInput",
+            "c4a:id": "http://registry.gpii.net/applications/MSSurface.alternativeInput",
             "c4a:name": "MSSurface.alternativeInput",
             "c4a:settings": []
         },
@@ -4826,7 +4814,7 @@
                 "@ontClassName": "SoftwareToModifyThePointerAppearance",
                 "@type": "c4a:AccessibilitySetting"
             }],
-            "c4a:id": "com.microsoft.windows.cursors",
+            "c4a:id": "http://registry.gpii.net/applications/com.microsoft.windows.cursors",
             "c4a:name": "com.microsoft.windows.cursors",
             "c4a:settings": [
                 {
@@ -4834,125 +4822,99 @@
                     "c4a:hasDescription": "Customize theme/icon for \"hand\"",
                     "c4a:hasValueSpace": "%SystemRoot%\\\\cursors\\\\aero_link.cur (<0.333); %SystemRoot%\\\\cursors\\\\aero_link_l.cur (<0.666); %SystemRoot%\\\\cursors\\\\aero_link_xl.cur (>0.666)",
                     "c4a:id": "http://registry.gpii.net/application/com.microsoft.windows.cursors/Hand",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "no name specified",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/cursorSize"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:hasDescription": "Customize theme/icon for \"help\"",
                     "c4a:hasValueSpace": "%SystemRoot%\\\\cursors\\\\aero_helpsel.cur; %SystemRoot%\\\\cursors\\\\aero_helpsel_l.cur; %SystemRoot%\\\\cursors\\\\aero_helpsel_xl.cur",
                     "c4a:id": "http://registry.gpii.net/application/com.microsoft.windows.cursors/Help",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "no name specified",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/cursorSize"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:hasDescription": "Customize theme/icon for \"up arrow\".",
                     "c4a:hasValueSpace": "%SystemRoot%\\\\cursors\\\\aero_up.cur; %SystemRoot%\\\\cursors\\\\aero_up_l.cur; %SystemRoot%\\\\cursors\\\\aero_up_xl.cur",
                     "c4a:id": "http://registry.gpii.net/application/com.microsoft.windows.cursors/UpArrow",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "no name specified",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/cursorSize"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:hasValueSpace": "%SystemRoot%\\\\cursors\\\\aero_ew.cur; %SystemRoot%\\\\cursors\\\\aero_ew_l.cur; %SystemRoot%\\\\cursors\\\\aero_ew_xl.cur",
                     "c4a:id": "http://registry.gpii.net/application/com.microsoft.windows.cursors/SizeWE",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "no name specified",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/cursorSize"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:hasDescription": "Customize theme/icon for \"wait\"",
                     "c4a:hasValueSpace": "%SystemRoot%\\\\cursors\\\\aero_up_xl.cur; %SystemRoot%\\\\cursors\\\\aero_busy_l.ani; %SystemRoot%\\\\cursors\\\\aero_busy_xl.ani",
                     "c4a:id": "http://registry.gpii.net/application/com.microsoft.windows.cursors/Wait",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "no name specified",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/cursorSize"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:hasDescription": "Customize theme/icon for \"not abailable\".",
                     "c4a:hasValueSpace": "%SystemRoot%\\\\cursors\\\\aero_unavail.cur; %SystemRoot%\\\\cursors\\\\aero_unavail_l.cur; %SystemRoot%\\\\cursors\\\\aero_unavail_xl.cur",
                     "c4a:id": "http://registry.gpii.net/application/com.microsoft.windows.cursors/No",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "no name specified",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/cursorSize"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:hasDescription": "Customize theme/icon for starting an application.",
                     "c4a:hasValueSpace": "%SystemRoot%\\\\cursors\\\\aero_working.ani; %S%SystemRoot%\\\\cursors\\\\aero_working_xl.aniystemRoot%\\\\cursors\\\\aero_working_l.ani;",
                     "c4a:id": "http://registry.gpii.net/application/com.microsoft.windows.cursors/AppStarting",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "no name specified",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/cursorSize"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:hasValueSpace": "%SystemRoot%\\\\cursors\\\\aero_nwse.cur; %SystemRoot%\\\\cursors\\\\aero_nwse_l.cur; %SystemRoot%\\\\cursors\\\\aero_nwse_xl.cur",
                     "c4a:id": "http://registry.gpii.net/application/com.microsoft.windows.cursors/SizeNWSE",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "no name specified",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/cursorSize"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:hasValueSpace": "%SystemRoot%\\\\cursors\\\\aero_nesw.cur; %SystemRoot%\\\\cursors\\\\aero_nesw_l.cur; %SystemRoot%\\\\cursors\\\\aero_nesw_xl.cur",
                     "c4a:id": "http://registry.gpii.net/application/com.microsoft.windows.cursors/SizeNESW",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "no name specified",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/cursorSize"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:hasValueSpace": "%SystemRoot%\\\\cursors\\\\aero_move.cur; %SystemRoot%\\\\cursors\\\\aero_move_l.cur; %SystemRoot%\\\\cursors\\\\aero_move_xl.cur",
                     "c4a:id": "http://registry.gpii.net/application/com.microsoft.windows.cursors/SizeAll",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "no name specified",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/cursorSize"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:hasDescription": "Customize theme/icon for \"hand writing\"",
                     "c4a:hasValueSpace": "%SystemRoot%\\\\cursors\\\\aero_pen.cur; %SystemRoot%\\\\cursors\\\\aero_pen_l.cur; %SystemRoot%\\\\cursors\\\\aero_pen_xl.cur",
                     "c4a:id": "http://registry.gpii.net/application/com.microsoft.windows.cursors/NWPen",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "no name specified",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/cursorSize"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:hasValueSpace": "%SystemRoot%\\\\cursors\\\\aero_ns.cur; %SystemRoot%\\\\cursors\\\\aero_ns_l.cur; %SystemRoot%\\\\cursors\\\\aero_ns_xl.cur",
                     "c4a:id": "http://registry.gpii.net/application/com.microsoft.windows.cursors/SizeNS",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "no name specified",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/cursorSize"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:hasDescription": "Customize theme/icon for \"arrow\"",
                     "c4a:hasValueSpace": "%SystemRoot%\\\\cursors\\\\aero_arrow.cur; %SystemRoot%\\\\cursors\\\\aero_arrow_l.cur; %SystemRoot%\\\\cursors\\\\aero_arrow_xl.cur",
                     "c4a:id": "http://registry.gpii.net/application/com.microsoft.windows.cursors/Arrow",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "no name specified",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/cursorSize"
+                    "c4a:primitive_type": "string"
                 }
             ]
         },
@@ -4964,7 +4926,7 @@
                 "@ontClassName": "eKiosks",
                 "@type": "...unknown..."
             }],
-            "c4a:id": "eKiosk.eKiosk",
+            "c4a:id": "http://registry.gpii.net/applications/eKiosk.eKiosk",
             "c4a:name": "eKiosk.eKiosk",
             "c4a:settings": [
                 {
@@ -5037,7 +4999,7 @@
                 "@ontClassName": "ScreenReaderSoftware",
                 "@type": "c4a:AssistiveTechnology"
             }],
-            "c4a:id": "ISO24751.screenReader",
+            "c4a:id": "http://registry.gpii.net/applications/ISO24751.screenReader",
             "c4a:name": "ISO24751.screenReader",
             "c4a:settings": [
                 {
@@ -5138,7 +5100,7 @@
                 "@ontClassName": "ScreenReaderSoftware",
                 "@type": "c4a:AssistiveTechnology"
             }],
-            "c4a:id": "org.gnome.orca",
+            "c4a:id": "http://registry.gpii.net/applications/org.gnome.orca",
             "c4a:name": "org.gnome.orca",
             "c4a:settings": [
                 {
@@ -5237,10 +5199,8 @@
                     "c4a:hasDescription": "The Punctuation Level radio button group is used to adjust the amount of punctuation spoken by the synthesizer. The available levels are None, Some, Most, and All.",
                     "c4a:hasValueSpace": "0, 2, 3 (0 = all; 2 = some; 3 = none; no value = most)",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.orca/verbalizePunctuationStyle",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Punctuation level",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/punctuationVerbosity"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -5324,10 +5284,8 @@
                     "c4a:hasDescription": "Default speech rate",
                     "c4a:hasValueSpace": "0.0 ... 100.0",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.orca/voices\\\\.default\\\\.rate",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Speech rate",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/speechRate"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -5352,10 +5310,8 @@
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "If the Speak tutorial messages checkbox is checked, as you move amongst objects in an interface, Orca will provide additional information, such as how to interact with the currently-focused object.",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.orca/enableTutorialMessages",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Tutorial messages",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/speakTutorialMessages"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -5416,10 +5372,8 @@
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "Checking the Enable echo by word checkbox causes Orca to echo the word you just typed.",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.orca/enableEchoByWord",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Echo by word",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/wordEcho"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -5486,10 +5440,8 @@
                     "c4a:hasDescription": "The \"person\" or \"speaker\" that should be used with the selected voice. For instance, you might wish to have David speak by default, but have hyperlinks spoken by Alice. Note that what you find in the Person combo box will depend on which speech synthesizers you have installed. Note: typically the choice is not between \"voices\" but between languages.",
                     "c4a:hasValueSpace": "(Depends on the speech synthesizers installed on the system. However, for speech dispatcher, see the table at http://wiki.gpii.net/index.php/File:ScreenReader_LanguageTags_2013-01-21.ods.)",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.orca/voices\\\\.default\\\\.family",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Person or speech language",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/auditoryOutLanguage"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -5514,10 +5466,8 @@
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "Enabling this option causes Orca to echo the character you just typed. This is not the same as \"key echo\".",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.orca/enableEchoByCharacter",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Echo by character",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/keyEcho"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -5540,18 +5490,14 @@
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "true",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "general_enableSpeech",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/screenReaderTTSEnabled"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "true",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "general_enableKeyEcho",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/keyEcho"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -5579,10 +5525,8 @@
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "general_enableEchoByWord",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/wordEcho"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -5720,38 +5664,30 @@
                     "c4a:hasDescription": "The pitch of the voice",
                     "c4a:hasValueSpace": "0.0 ... 10.0",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.orca/voices\\\\.default\\\\.average-pitch",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Pitch",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/pitch"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "This check box toggles whether or not Orca will make use of a braille display. If BrlTTY is not running, Orca will recover gracefully and will not communicate with the braille display.",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.orca/enableBraille",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Enable Braille support",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/screenReaderBrailleOutput"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "true",
                     "c4a:hasDescription": "The Enable speech check box controls whether or not Orca will make use of a speech synthesizer. Braille-only users will likely want to uncheck this checkbox.",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.orca/enableSpeech",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Enable speech",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/screenReaderTTSEnabled"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "50",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "profiles_default_voices_default_rate",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/speechRate"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -5768,10 +5704,8 @@
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "general_enableBraille",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/screenReaderBrailleOutput"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -5788,10 +5722,8 @@
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "general_enableTutorialMessages",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/speakTutorialMessages"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -5887,10 +5819,8 @@
                     "c4a:hasDescription": "The volume of the voice",
                     "c4a:hasValueSpace": "0.0 ... 10.0",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.orca/voices\\\\.default\\\\.gain",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Volume",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/volumeTTS"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -5907,10 +5837,8 @@
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "1",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "general_speechVerbosityLevel",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/punctuationVerbosity"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -6090,10 +6018,8 @@
                     "c4a:hasDescription": "The Say All By combo box allows you to specify whether Orca speaks a sentence at a time or a line at a time when doing a \"Say All\" of a document.",
                     "c4a:hasValueSpace": "0, 1 (0 = Line; 1 = Sentence)",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.orca/sayAllStyle",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Say All By",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/readingUnit"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -6140,7 +6066,7 @@
                 "@ontClassName": "ScreenReaderSoftware",
                 "@type": "c4a:AssistiveTechnology"
             }],
-            "c4a:id": "com.android.talkback",
+            "c4a:id": "http://registry.gpii.net/applications/com.android.talkback",
             "c4a:name": "com.android.talkback",
             "c4a:settings": [
                 {
@@ -6155,10 +6081,8 @@
                     "c4a:hasDescription": "Voice pitch for all TTS engines installed",
                     "c4a:hasValueSpace": "0-500",
                     "c4a:id": "http://registry.gpii.net/application/com.android.talkback/pitch",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "pitch",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/pitch"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -6166,20 +6090,16 @@
                     "c4a:hasDescription": "Voice rate for all TTS engines installed. In the UI you have: very slow (60), slow (80), normal (100), fast (150) and very fast (200), but the engine should support values until 500",
                     "c4a:hasValueSpace": "0-500",
                     "c4a:id": "http://registry.gpii.net/application/com.android.talkback/speechRate",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "speech rate",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/speechRate"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:hasDescription": "Voice language of the TTS.",
                     "c4a:hasValueSpace": "missing (depends on the available languages installed on the device)",
                     "c4a:id": "http://registry.gpii.net/application/com.android.talkback/language",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "language",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/auditoryOutLanguage"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -6187,10 +6107,8 @@
                     "c4a:hasDescription": "To change the volume settings for TalkBack.",
                     "c4a:hasValueSpace": "0-7",
                     "c4a:id": "http://registry.gpii.net/application/com.android.talkback/volume",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "volume",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/volumeTTS"
+                    "c4a:primitive_type": "int"
                 }
             ]
         },
@@ -6202,7 +6120,7 @@
                 "@ontClassName": "ScreenReaderSoftware",
                 "@type": "c4a:AssistiveTechnology"
             }],
-            "c4a:id": "com.freedomscientific.jaws",
+            "c4a:id": "http://registry.gpii.net/applications/com.freedomscientific.jaws",
             "c4a:name": "com.freedomscientific.jaws",
             "c4a:settings": [
                 {
@@ -6859,7 +6777,7 @@
                 "@ontClassName": "ScreenReaderSoftware",
                 "@type": "c4a:AssistiveTechnology"
             }],
-            "c4a:id": "webinsight.webAnywhere.windows",
+            "c4a:id": "http://registry.gpii.net/applications/webinsight.webAnywhere.windows",
             "c4a:name": "webinsight.webAnywhere.windows",
             "c4a:settings": [
                 {
@@ -6884,7 +6802,7 @@
                 "@ontClassName": "ScreenReaderSoftware",
                 "@type": "c4a:AssistiveTechnology"
             }],
-            "c4a:id": "org.nvda-project",
+            "c4a:id": "http://registry.gpii.net/applications/org.nvda-project",
             "c4a:name": "org.nvda-project",
             "c4a:settings": [
                 {
@@ -6898,10 +6816,8 @@
                     "c4a:defaultValue": "true",
                     "c4a:hasDescription": "When enabled, NVDA will announce all characters you type on the keyboard.",
                     "c4a:id": "http://registry.gpii.net/application/org.nvda-project/keyboard\\\\.speakTypedCharacters",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Speak typed characters",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/keyEcho"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -7010,10 +6926,8 @@
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "When enabled, the review cursor will follow the mouse as it moves.",
                     "c4a:id": "http://registry.gpii.net/application/org.nvda-project/reviewCursor\\\\.followMouse",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Follow mouse cursor",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/trackingTTS"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -7102,10 +7016,8 @@
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "true",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Mouse_enableMouseTracking",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/tracking"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -7130,10 +7042,8 @@
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "When checked, NVDA will say the word \"cap\" before any capital letter when spoken as an individual character such as when spelling. Usually, NVDA raises the pitch slightly for any capital letter, but some synthesizers may not support this well, so perhaps this option may be of use.",
                     "c4a:id": "http://registry.gpii.net/application/org.nvda-project/speech\\\\.espeak\\\\.sayCapForCapitals",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Say 'cap' before capitals",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/announceCapitals"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -7146,10 +7056,8 @@
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "This option toggles the automatic reading of a page after it loads in browse mode.\nThis option is enabled by default.",
                     "c4a:id": "http://registry.gpii.net/application/org.nvda-project/virtualBuffers\\\\.autoSayAllOnPageLoad",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Automatic Say All on page load",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/readingUnit"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -7169,20 +7077,16 @@
                     "c4a:hasDescription": "The voice, including different languages, used for synthetic speech.",
                     "c4a:hasValueSpace": "See http://wiki.gpii.net/index.php/File:ScreenReader_LanguageTags_2013-01-21.ods",
                     "c4a:id": "http://registry.gpii.net/application/org.nvda-project/speech\\\\.espeak\\\\.voice",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Voice (language)",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/auditoryOutLanguage"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "true",
                     "c4a:hasDescription": "When enabled, The review cursor will always be placed in the same object as the current system focus as it changes.",
                     "c4a:id": "http://registry.gpii.net/application/org.nvda-project/reviewCursor\\\\.followFocus",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Follow keyboard focus",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/trackingTTS"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -7196,10 +7100,8 @@
                     "c4a:hasConstraints": "Only applies when eSpeak is used as TTS. The setting triples the calculated speech rate in words per minutes, not the value for \"speech rate\" in the settings.",
                     "c4a:hasDescription": "Boost the rate of the voice.",
                     "c4a:id": "http://registry.gpii.net/application/org.nvda-project/speech\\\\.espeak\\\\.rateBoost",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Rate boost",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/speechRate"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -7234,10 +7136,8 @@
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "true",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Presentation_reportHelpBalloons",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/speakTutorialMessages"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -7281,10 +7181,8 @@
                     "c4a:hasDescription": "The speech synthesizer used by NVDA. In addtion to espeak, NVDA also supports SAPI 4, SAPI 5, Microsoft Speech Platform, Audiologic Tts3, Newfon and Nuance Vocalizer for NVDA. See http://community.nvda-project.org/documentation/userGuide.html#SupportedSpeechSynths.",
                     "c4a:hasValueSpace": "unknown",
                     "c4a:id": "http://registry.gpii.net/application/org.nvda-project/speech\\\\.synth",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Speech synthesizer",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/screenReaderTTSEnabled"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -7321,10 +7219,8 @@
                     "c4a:defaultValue": "true",
                     "c4a:hasDescription": "When enabled, the review cursor will automatically be moved to the position of the System caret each time it moves.",
                     "c4a:id": "http://registry.gpii.net/application/org.nvda-project/reviewCursor\\\\.followCaret",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Follow system caret",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/trackingTTS"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -7332,10 +7228,8 @@
                     "c4a:hasDescription": "This allows you to choose the amount of punctuation and other symbols that should be spoken as words. For example, when set to all, all symbols will be spoken as words. This option applies to all synthesizers, not just the currently active synthesizer.",
                     "c4a:hasValueSpace": "0, 100, 200, 200 (0 = none; 100 = some; 200 = most; 300 = all)",
                     "c4a:id": "http://registry.gpii.net/application/org.nvda-project/speech\\\\.symbolLevel",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Punctuation/symbol level",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/punctuationVerbosity"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -7358,10 +7252,8 @@
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "Windows",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "General_language",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/auditoryOutLanguage"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -7381,10 +7273,8 @@
                     "c4a:hasDescription": "This option allows you to choose the sound card that NVDA should instruct the selected synthesizer to speak through.",
                     "c4a:hasValueSpace": "unknown",
                     "c4a:id": "http://registry.gpii.net/application/org.nvda-project/speech\\\\.outputDevice",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Output device",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/screenReaderTTSEnabled"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -7401,10 +7291,8 @@
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Speech_eSpeak_sayCapForCapitals",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/announceCapitals"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -7465,10 +7353,8 @@
                     "c4a:defaultValue": "true",
                     "c4a:hasDescription": "Tells NVDA to report Help balloons as they appear. Help Balloons are like tool tips, but are usually larger in size, and are associated with system events such as a network cable being unplugged, or perhaps to alert you about Windows security issues.",
                     "c4a:id": "http://registry.gpii.net/application/org.nvda-project/presentation\\\\.reportHelpBalloons",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Report help balloons",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/speakTutorialMessages"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -7539,10 +7425,8 @@
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "noBraille",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Braille_display",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/screenReaderBrailleOutput"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -7550,10 +7434,8 @@
                     "c4a:hasDescription": "The rate of the voice.",
                     "c4a:hasValueSpace": "0 .. 100",
                     "c4a:id": "http://registry.gpii.net/application/org.nvda-project/speech\\\\.espeak\\\\.rate",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Speech rate",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/speechRate"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -7570,10 +7452,8 @@
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "30",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Speech_eSpeak_rate",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/speechRate"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -7592,10 +7472,8 @@
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "When enabled, NVDA will announce all words you type on the keyboard.",
                     "c4a:id": "http://registry.gpii.net/application/org.nvda-project/keyboard\\\\.speakTypedWords",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Speak typed words",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/wordEcho"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -7613,7 +7491,7 @@
                 "@ontClassName": "MagnifyingSoftware",
                 "@type": "c4a:AccessibilitySolution"
             }],
-            "c4a:id": "org.chrome.cloud4chrome",
+            "c4a:id": "http://registry.gpii.net/applications/org.chrome.cloud4chrome",
             "c4a:name": "org.chrome.cloud4chrome",
             "c4a:settings": [
                 {
@@ -7627,20 +7505,16 @@
                     "c4a:hasDescription": "unknown",
                     "c4a:hasValueSpace": "black-white, white-black, yellow-black, black-yellow",
                     "c4a:id": "http://registry.gpii.net/application/org.chrome.cloud4chrome/highContrastTheme",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "unknown",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/highContrastTheme"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "Activate / Deactivate the default Chrome TTS (ChromeVox)",
                     "c4a:id": "http://registry.gpii.net/application/org.chrome.cloud4chrome/screenReaderTTSEnabled",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "screenReaderTTSEnabled",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/screenReaderTTSEnabled"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -7648,10 +7522,8 @@
                     "c4a:hasDescription": "unknown",
                     "c4a:hasValueSpace": "medium, large, x-large",
                     "c4a:id": "http://registry.gpii.net/application/org.chrome.cloud4chrome/fontSize",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Font Size",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/fontSize"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -7659,40 +7531,32 @@
                     "c4a:hasDescription": "unknown",
                     "c4a:hasValueSpace": "1 (100%), 2 (200%), 3 (300%)",
                     "c4a:id": "http://registry.gpii.net/application/org.chrome.cloud4chrome/magnification",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Magnification level",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/magnification"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "unknown",
                     "c4a:id": "http://registry.gpii.net/application/org.chrome.cloud4chrome/magnifierEnabled",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Magnification",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/magnifierEnabled"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "unknown",
                     "c4a:id": "http://registry.gpii.net/application/org.chrome.cloud4chrome/highContrastEnabled",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "unknown",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/highContrastEnabled"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "unknown",
                     "c4a:id": "http://registry.gpii.net/application/org.chrome.cloud4chrome/invertColours",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "invertColours",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/invertColours"
+                    "c4a:primitive_type": "boolean"
                 }
             ]
         },
@@ -7704,7 +7568,7 @@
                 "@ontClassName": "ScreenReaderSoftware",
                 "@type": "c4a:AssistiveTechnology"
             }],
-            "c4a:id": "Win7BuiltInNarrator.screenReader",
+            "c4a:id": "http://registry.gpii.net/applications/Win7BuiltInNarrator.screenReader",
             "c4a:name": "Win7BuiltInNarrator.screenReader",
             "c4a:settings": [
                 {
@@ -7776,7 +7640,7 @@
                 "@ontClassName": "ScreenReaderSoftware",
                 "@type": "c4a:AssistiveTechnology"
             }],
-            "c4a:id": "com.serotek.satogo",
+            "c4a:id": "http://registry.gpii.net/applications/com.serotek.satogo",
             "c4a:name": "com.serotek.satogo",
             "c4a:settings": [
                 {
@@ -7921,7 +7785,7 @@
                 "@ontClassName": "ScreenReaderSoftware",
                 "@type": "c4a:AssistiveTechnology"
             }],
-            "c4a:id": "webinsight.webAnywhere.linux",
+            "c4a:id": "http://registry.gpii.net/applications/webinsight.webAnywhere.linux",
             "c4a:name": "webinsight.webAnywhere.linux",
             "c4a:settings": [
                 {
@@ -7946,7 +7810,7 @@
                 "@ontClassName": "OnScreenKeyboard",
                 "@type": "c4a:AccessibilitySetting"
             }],
-            "c4a:id": "org.gnome.desktop.a11y.keyboard",
+            "c4a:id": "http://registry.gpii.net/applications/org.gnome.desktop.a11y.keyboard",
             "c4a:name": "org.gnome.desktop.a11y.keyboard",
             "c4a:settings": [
                 {
@@ -7955,10 +7819,8 @@
                     "c4a:hasDescription": "Do not accept a key as being pressed unless held for this many milliseconds.",
                     "c4a:hasValueSpace": "-2147483648 .. 2147483647",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.desktop.a11y.keyboard/slowkeys-delay",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Slow keys minimum interval",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/slowKeysInterval"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -7966,10 +7828,8 @@
                     "c4a:hasDescription": "How many milliseconds to wait before mouse movement keys start to operate.",
                     "c4a:hasValueSpace": "-2147483648 .. 2147483647",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.desktop.a11y.keyboard/mousekeys-init-delay",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Mouse keys initial delay in milliseconds",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/initDelay"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -7985,20 +7845,16 @@
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "Whether the bounce keys accessibility feature is turned on.",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.desktop.a11y.keyboard/bouncekeys-enable",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Enable bounce keys",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/debounceKeysEnable"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "Whether the slow keys accessibility feature is turned on.",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.desktop.a11y.keyboard/slowkeys-enable",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Enable slow keys",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/slowKeysEnable"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -8006,30 +7862,24 @@
                     "c4a:hasDescription": "Ignore multiple presses of the same key within this many milliseconds.",
                     "c4a:hasValueSpace": "-2147483648 .. 2147483647",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.desktop.a11y.keyboard/bouncekeys-delay",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Bounce keys minimum interval",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/debounceKeysInterval"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "Whether the sticky keys accessibility feature is turned on.",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.desktop.a11y.keyboard/stickykeys-enable",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Enable sticky keys",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/stickyKeys"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "Whether the mouse keys accessibility feature is turned on.",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.desktop.a11y.keyboard/mousekeys-enable",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Enable mouse keys",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/mouseEmulationEnabled"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -8050,7 +7900,7 @@
                 "@ontClassName": "OnScreenKeyboard",
                 "@type": "c4a:AccessibilitySetting"
             }],
-            "c4a:id": "com.microsoft.windows.onscreenKeyboard",
+            "c4a:id": "http://registry.gpii.net/applications/com.microsoft.windows.onscreenKeyboard",
             "c4a:name": "com.microsoft.windows.onscreenKeyboard",
             "c4a:settings": [{
                 "@type": "c4a:Setting",
@@ -8067,7 +7917,7 @@
                 "@ontClassName": "OnScreenKeyboard",
                 "@type": "c4a:AccessibilitySetting"
             }],
-            "c4a:id": "org.gnome.desktop.a11y.caribou-keyboard",
+            "c4a:id": "http://registry.gpii.net/applications/org.gnome.desktop.a11y.caribou-keyboard",
             "c4a:name": "org.gnome.desktop.a11y.caribou-keyboard",
             "c4a:settings": []
         },
@@ -8079,7 +7929,7 @@
                 "@ontClassName": "OnScreenKeyboard",
                 "@type": "c4a:AccessibilitySetting"
             }],
-            "c4a:id": "org.gnome.desktop.a11y.applications.onscreen-keyboard",
+            "c4a:id": "http://registry.gpii.net/applications/org.gnome.desktop.a11y.applications.onscreen-keyboard",
             "c4a:name": "org.gnome.desktop.a11y.applications.onscreen-keyboard",
             "c4a:settings": []
         },
@@ -8091,7 +7941,7 @@
                 "@ontClassName": "DigitalDocumentsReader",
                 "@type": "...unknown..."
             }],
-            "c4a:id": "WebAnywhere.digitalDocumentsReader",
+            "c4a:id": "http://registry.gpii.net/applications/WebAnywhere.digitalDocumentsReader",
             "c4a:name": "WebAnywhere.digitalDocumentsReader",
             "c4a:settings": []
         },
@@ -8103,7 +7953,7 @@
                 "@ontClassName": "DigitalDocumentsReader",
                 "@type": "...unknown..."
             }],
-            "c4a:id": "SpeechStreamTextHelp.digitalDocumentsReader",
+            "c4a:id": "http://registry.gpii.net/applications/SpeechStreamTextHelp.digitalDocumentsReader",
             "c4a:name": "SpeechStreamTextHelp.digitalDocumentsReader",
             "c4a:settings": []
         },
@@ -8115,7 +7965,7 @@
                 "@ontClassName": "DigitalDocumentsReader",
                 "@type": "...unknown..."
             }],
-            "c4a:id": "SATOGo.digitalDocumentsReader",
+            "c4a:id": "http://registry.gpii.net/applications/SATOGo.digitalDocumentsReader",
             "c4a:name": "SATOGo.digitalDocumentsReader",
             "c4a:settings": []
         },
@@ -8127,7 +7977,7 @@
                 "@ontClassName": "EnvironmentalControlSoftware",
                 "@type": "...unknown..."
             }],
-            "c4a:id": "net.gpii.smarthouses",
+            "c4a:id": "http://registry.gpii.net/applications/net.gpii.smarthouses",
             "c4a:name": "net.gpii.smarthouses",
             "c4a:settings": []
         },
@@ -8139,7 +7989,7 @@
                 "@ontClassName": "EnvironmentalControlSoftware",
                 "@type": "...unknown..."
             }],
-            "c4a:id": "smartHouse.environmentalControl",
+            "c4a:id": "http://registry.gpii.net/applications/smartHouse.environmentalControl",
             "c4a:name": "smartHouse.environmentalControl",
             "c4a:settings": [
                 {
@@ -8149,10 +7999,8 @@
                     "c4a:hasDescription": "Font face for the multimedia system's UI and for closed captions in video.",
                     "c4a:hasValueSpace": "??? (any font name or only the generic families from the CSS spec? I.e. \"serif\", \"sans-serif\", \"cursive\", \"fantasy\" and \"monospace\"?)",
                     "c4a:id": "http://registry.gpii.net/application/smartHouse.environmentalControl/FontFace",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Font face",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/fontName"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -8160,20 +8008,16 @@
                     "c4a:hasDescription": "Foreground colour of the multimedia system's UI. (This can be used together with background colour to define a high-contrast theme.)",
                     "c4a:hasValueSpace": "#000000 .. #FFFFFF",
                     "c4a:id": "http://registry.gpii.net/application/smartHouse.environmentalControl/ForegroundColour",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Foreground colour",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/foregroundColour"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "true",
                     "c4a:hasDescription": "preference to use dictation with a voice recognition system [from ISO 24751]",
                     "c4a:id": "http://registry.gpii.net/application/smartHouse.environmentalControl/Dictation",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Dictation",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/dictation"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -8181,19 +8025,15 @@
                     "c4a:hasDescription": "Sensitivity of a microphone [from ISO 24751]",
                     "c4a:hasValueSpace": "0.0 ... 1.0",
                     "c4a:id": "http://registry.gpii.net/application/smartHouse.environmentalControl/MicrophoneGain",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Microphone gain",
-                    "c4a:primitive_type": "float",
-                    "c4a:refersTo": "http://registry.gpii.net/common/microphoneGain"
+                    "c4a:primitive_type": "float"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "true",
                     "c4a:id": "http://registry.gpii.net/application/smartHouse.environmentalControl/EnableSpeechRecogniton",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Enable speech recogniton",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/speechRecognitionOn"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -8202,10 +8042,8 @@
                     "c4a:hasDescription": "Option to turn on audio descriptions for video content rendered by the multimedia system. Other adaptation types are not supported in the smart house.",
                     "c4a:hasValueSpace": "audio description (the other ISO 24751 values are not supported: audio representation, tactile representation, text representation, visual representation, caption, e-book, sign language)",
                     "c4a:id": "http://registry.gpii.net/application/smartHouse.environmentalControl/AdaptationType",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Type of adaptation",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/adaptationType"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -8213,20 +8051,16 @@
                     "c4a:hasDescription": "Background colour of the multimedia system's UI. (This can be used together with foreground colour to define a high-contrast theme.)",
                     "c4a:hasValueSpace": "#000000 .. #FFFFFF",
                     "c4a:id": "http://registry.gpii.net/application/smartHouse.environmentalControl/BackgroundColour",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Background colour",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/backgroundColour"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "50",
                     "c4a:hasValueSpace": "??? (which values represent strong brightness or low brighntess; relationship to lumens?)",
                     "c4a:id": "http://registry.gpii.net/application/smartHouse.environmentalControl/Brightness",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Brightness",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/brightness"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -8234,10 +8068,8 @@
                     "c4a:hasDescription": "Volume of audio in the multimedia system.",
                     "c4a:hasValueSpace": "0 .. 100 (0 = lowest supported level; 100 = highest; relationship with decibels has not been defined",
                     "c4a:id": "http://registry.gpii.net/application/smartHouse.environmentalControl/Volume",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Volume",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/volume"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -8245,40 +8077,32 @@
                     "c4a:hasDescription": "User interface language",
                     "c4a:hasValueSpace": "IETF BCP 47 language code",
                     "c4a:id": "http://registry.gpii.net/application/smartHouse.environmentalControl/Language",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Language",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/language"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "50",
                     "c4a:hasValueSpace": "0 .. 100, havent't established which values represent high contrast or low contrast yet",
                     "c4a:id": "http://registry.gpii.net/application/smartHouse.environmentalControl/ContrastLevel",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Contrast level",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/contrast"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "true",
                     "c4a:hasDescription": "Preference for a voice recognition system to provide auditory confirmation feedback for recognized commands [from ISO 24751]",
                     "c4a:id": "http://registry.gpii.net/application/smartHouse.environmentalControl/Confirmation feedback",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Confirmation feedback",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/voiceRecognition.confirmationFeedback"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "18.0",
                     "c4a:hasValueSpace": "0 .. 70 (in pixels)",
                     "c4a:id": "http://registry.gpii.net/application/smartHouse.environmentalControl/FontSize",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Font size",
-                    "c4a:primitive_type": "float",
-                    "c4a:refersTo": "http://registry.gpii.net/common/fontSize"
+                    "c4a:primitive_type": "float"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -8286,10 +8110,8 @@
                     "c4a:hasDescription": "Type of voice recognition system vocabulary to use [from ISO 24751]",
                     "c4a:hasValueSpace": "???",
                     "c4a:id": "http://registry.gpii.net/application/smartHouse.environmentalControl/Vocabulary",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Vocabulary",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/voiceRecognition.commandAndControl.vocabulary"
+                    "c4a:primitive_type": "string"
                 }
             ]
         },
@@ -8301,7 +8123,7 @@
                 "@ontClassName": "ScreenReaderSoftware",
                 "@type": "c4a:AssistiveTechnology"
             }],
-            "c4a:id": "es.codefactory.android.app.ma",
+            "c4a:id": "http://registry.gpii.net/applications/es.codefactory.android.app.ma",
             "c4a:name": "es.codefactory.android.app.ma",
             "c4a:settings": [
                 {
@@ -8316,30 +8138,24 @@
                     "c4a:hasDescription": "Pitch of the voice.",
                     "c4a:hasValueSpace": "0 to 10",
                     "c4a:id": "http://registry.gpii.net/application/es.codefactory.android.app.ma/access_commonprefs_speechpitch",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Speech pitch",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/pitch"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "MA announces the current item number and total of items of a list when the user is navigating its elements. Advanced users can turn this information off if they want.",
                     "c4a:id": "http://registry.gpii.net/application/es.codefactory.android.app.ma/access_commonprefs_turnofflistnumbering",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Turn off list numbering",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/Dummy"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "How the characters of a word will be spelled: (0) character names: a, b, c, d... (1) using NATO phonetic alphabet: Alpha, Bravo, Charlie, Delta...",
                     "c4a:id": "http://registry.gpii.net/application/es.codefactory.android.app.ma/access_commonprefs_spellphonetically",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Spell phonetically",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/Dummy"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -8347,20 +8163,16 @@
                     "c4a:hasDescription": "Indicates how many punctuation symbols will be spoken when reading text. This is very common between different screen reader solutions. Punctuation characters will take effect on the spoken text, so commas, dots etcetera will produce pauses and so. Anyways, some users will prefer to hear the name of the punctuation symbol when it appears. This is commonly needed for non advanced users of when they need to read carefully. Possible values are:\n(0) None: No punctuation symbols are spoken.\n(1) Some: Only some non common punctuation symbols are spoken.\n(2) Most: Most of punctuation symbols are spoken but not the most common ones such as dot, comma, etc.\n(3) All: All punctuation symbols are spoken.",
                     "c4a:hasValueSpace": "0 to 3",
                     "c4a:id": "http://registry.gpii.net/application/es.codefactory.android.app.ma/access_commonprefs_punctuation",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Punctuation verbosity",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/punctuationVerbosity"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "For incoming calls and also while in a call, volume keys can keep its default behavior and allow to adjust the volume or, if the user prefers, it can be used to accept the call (volume up), reject the call or hang up the current one (volume down). This setting allows the user to choose how he wants to use volume keys in this scenario.",
                     "c4a:id": "http://registry.gpii.net/application/es.codefactory.android.app.ma/settings_phone_usevolumekeysforcalls",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Use volume keys for call management",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/Dummy"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -8368,10 +8180,8 @@
                     "c4a:hasDescription": "Allows to determine what keyboard echo to get while typing text in password fields:\n(0) Say Star: TTS says \"star\" for each character.\n(1) Speak characters: TTS speaks the introduced character (the field will still look like a password field visually, this only affects text output).\n(2) Silent: no speech output while typing on password fields.",
                     "c4a:hasValueSpace": "0 to 2",
                     "c4a:id": "http://registry.gpii.net/application/es.codefactory.android.app.ma/access_commonprefs_editingsecretmode",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Editing secret mode (echo on password fields)",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/Dummy"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -8379,30 +8189,24 @@
                     "c4a:hasDescription": "Rate of the voice.",
                     "c4a:hasValueSpace": "0 to 10",
                     "c4a:id": "http://registry.gpii.net/application/es.codefactory.android.app.ma/access_commonprefs_speechrate",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Speech rate",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/speechRate"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "Mobile Accessibility allows to control the phone from a UI specially designed for blind users. So people don't need to deal with Android's default UI and can rely completely on the alternative offered by MA. Anyway, incoming SMS, emails, etc. will generate system notifications that are not produced by MA but the OS itself. When a SMS comes in, Android will notify it. Here we're asking if the user wants to hear system notifications when it come in or if he/she prefers to go to the SMS app and look for new messages manually, but not being interrupted with speech output reading the new message as soon it comes in.",
                     "c4a:id": "http://registry.gpii.net/application/es.codefactory.android.app.ma/access_commonprefs_srspeaksystemnotifications",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Speak system notifications",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/Dummy"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "true",
                     "c4a:hasDescription": "Allows to turn on/off the character echo for deleted characters while editing text.",
                     "c4a:id": "http://registry.gpii.net/application/es.codefactory.android.app.ma/access_commonprefs_editingspeakdelchar",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Speak deleted character",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/Dummy"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -8410,20 +8214,16 @@
                     "c4a:hasDescription": "Keyboard echo while typing text:\n(0) None\n(1) Characters\n(2) Words\n(3) Characters and words",
                     "c4a:hasValueSpace": "0 to 3",
                     "c4a:id": "http://registry.gpii.net/application/es.codefactory.android.app.ma/access_commonprefs_editingkeyboardecho",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Keyboard echo",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/keyEcho"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "Mobile Accessibilty provides its own screen for incoming/outgoing call management. We allow the user to choose which calling screen to use, Android's default one of the screen provided by MA.",
                     "c4a:id": "http://registry.gpii.net/application/es.codefactory.android.app.ma/settings_phone_usesystemcallscreens",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Use system call screen or MA specific one",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/Dummy"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -8431,20 +8231,16 @@
                     "c4a:hasDescription": "Indicates how long numbers are spoken by the TTS. Values can be:\nNone(0): Read the entire number.\nSingle(1): Read the number by digits.\nPairs(2): Read the number by pairs of digits.\nTriplets(3): Read the number by triplets of digits.",
                     "c4a:hasValueSpace": "0 to 3",
                     "c4a:id": "http://registry.gpii.net/application/es.codefactory.android.app.ma/access_commonprefs_numberprocessing",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Number processing",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/Dummy"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "true",
                     "c4a:hasDescription": "Allows the user to determine whether or not capitalization should be announced when characters are spoken:\ntrue: Capitalization should be spoken.\nfalse: Ignore capitalization, just speak character names regardless its upper or lower case condition.",
                     "c4a:id": "http://registry.gpii.net/application/es.codefactory.android.app.ma/access_commonprefs_capitalization",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Capitalization verbosity",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/announceCapitals"
+                    "c4a:primitive_type": "boolean"
                 }
             ]
         },
@@ -8456,7 +8252,7 @@
                 "@ontClassName": "SoftwareInterfacesForComputersAndMobileDevices",
                 "@type": "c4a:AccessibilitySetting"
             }],
-            "c4a:id": "iphone.softwareInterface",
+            "c4a:id": "http://registry.gpii.net/applications/iphone.softwareInterface",
             "c4a:name": "iphone.softwareInterface",
             "c4a:settings": [
                 {
@@ -9243,7 +9039,7 @@
                 "@ontClassName": "SoftwareInterfacesForComputersAndMobileDevices",
                 "@type": "c4a:AccessibilitySetting"
             }],
-            "c4a:id": "org.gnome.shell.overrides",
+            "c4a:id": "http://registry.gpii.net/applications/org.gnome.shell.overrides",
             "c4a:name": "org.gnome.shell.overrides",
             "c4a:settings": []
         },
@@ -9255,7 +9051,7 @@
                 "@ontClassName": "SoftwareInterfacesForComputersAndMobileDevices",
                 "@type": "c4a:AccessibilitySetting"
             }],
-            "c4a:id": "org.gnome.desktop.wm.preferences",
+            "c4a:id": "http://registry.gpii.net/applications/org.gnome.desktop.wm.preferences",
             "c4a:name": "org.gnome.desktop.wm.preferences",
             "c4a:settings": []
         },
@@ -9267,7 +9063,7 @@
                 "@ontClassName": "SoftwareInterfacesForComputersAndMobileDevices",
                 "@type": "c4a:AccessibilitySetting"
             }],
-            "c4a:id": "com.android.audioManager",
+            "c4a:id": "http://registry.gpii.net/applications/com.android.audioManager",
             "c4a:name": "com.android.audioManager",
             "c4a:settings": [
                 {
@@ -9276,10 +9072,8 @@
                     "c4a:hasDescription": "To change the volume settings for TalkBack.",
                     "c4a:hasValueSpace": "0-15",
                     "c4a:id": "http://registry.gpii.net/application/com.android.audioManager/STREAM_MUSIC",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "volume",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/volumeTTS"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -9287,10 +9081,8 @@
                     "c4a:hasDescription": "To change the system's volume",
                     "c4a:hasValueSpace": "0-15",
                     "c4a:id": "http://registry.gpii.net/application/com.android.audioManager/STREAM_SYSTEM",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "volume",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/volume"
+                    "c4a:primitive_type": "int"
                 }
             ]
         },
@@ -9302,7 +9094,7 @@
                 "@ontClassName": "SoftwareInterfacesForComputersAndMobileDevices",
                 "@type": "c4a:AccessibilitySetting"
             }],
-            "c4a:id": "windowsPhone.softwareInterface",
+            "c4a:id": "http://registry.gpii.net/applications/windowsPhone.softwareInterface",
             "c4a:name": "windowsPhone.softwareInterface",
             "c4a:settings": [
                 {
@@ -9921,7 +9713,7 @@
                 "@ontClassName": "SoftwareInterfacesForComputersAndMobileDevices",
                 "@type": "c4a:AccessibilitySetting"
             }],
-            "c4a:id": "com.android.settings.secure",
+            "c4a:id": "http://registry.gpii.net/applications/com.android.settings.secure",
             "c4a:name": "com.android.settings.secure",
             "c4a:settings": [
                 {
@@ -9930,10 +9722,8 @@
                     "c4a:hasDescription": "Voice rate for all TTS engines installed. In the UI you have: very slow (60), slow (80), normal (100), fast (150) and very fast (200), but the engine should support values until 500",
                     "c4a:hasValueSpace": "0-500",
                     "c4a:id": "http://registry.gpii.net/application/com.android.settings.secure/tts_default_rate",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "speech rate",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/speechRate"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -9941,10 +9731,8 @@
                     "c4a:hasDescription": "Voice pitch for all TTS engines installed.",
                     "c4a:hasValueSpace": "0-500",
                     "c4a:id": "http://registry.gpii.net/application/com.android.settings.secure/tts_default_pitch",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "pitch",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/pitch"
+                    "c4a:primitive_type": "int"
                 }
             ]
         },
@@ -9956,7 +9744,7 @@
                 "@ontClassName": "SoftwareInterfacesForComputersAndMobileDevices",
                 "@type": "c4a:AccessibilitySetting"
             }],
-            "c4a:id": "nokiaS40.softwareInterface",
+            "c4a:id": "http://registry.gpii.net/applications/nokiaS40.softwareInterface",
             "c4a:name": "nokiaS40.softwareInterface",
             "c4a:settings": [
                 {
@@ -10467,7 +10255,7 @@
                 "@ontClassName": "SoftwareInterfacesForComputersAndMobileDevices",
                 "@type": "c4a:AccessibilitySetting"
             }],
-            "c4a:id": "trace.easyOne.communicator.windows",
+            "c4a:id": "http://registry.gpii.net/applications/trace.easyOne.communicator.windows",
             "c4a:name": "trace.easyOne.communicator.windows",
             "c4a:settings": [
                 {
@@ -10558,7 +10346,7 @@
                 "@ontClassName": "SoftwareInterfacesForComputersAndMobileDevices",
                 "@type": "c4a:AccessibilitySetting"
             }],
-            "c4a:id": "trace.easyOne.communicator.linux",
+            "c4a:id": "http://registry.gpii.net/applications/trace.easyOne.communicator.linux",
             "c4a:name": "trace.easyOne.communicator.linux",
             "c4a:settings": []
         },
@@ -10570,7 +10358,7 @@
                 "@ontClassName": "SoftwareInterfacesForComputersAndMobileDevices",
                 "@type": "c4a:AccessibilitySetting"
             }],
-            "c4a:id": "eu.singularlogic.pixelsense.sociable",
+            "c4a:id": "http://registry.gpii.net/applications/eu.singularlogic.pixelsense.sociable",
             "c4a:name": "eu.singularlogic.pixelsense.sociable",
             "c4a:settings": [
                 {
@@ -10578,20 +10366,16 @@
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "Voice and language used for synthetic speech. Used for reading out the free text on a screen without user intervention and for reading the labels in the UI when the user touches them.",
                     "c4a:id": "http://registry.gpii.net/application/eu.singularlogic.pixelsense.sociable/voice",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Voice (text to speech)",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/auditoryOutLanguage"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "Enable high contrast in the application.",
                     "c4a:id": "http://registry.gpii.net/application/eu.singularlogic.pixelsense.sociable/highContrastTheme",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "High-contrast theme",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/highContrast"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -10599,10 +10383,8 @@
                     "c4a:hasDescription": "Font size used in the application",
                     "c4a:hasValueSpace": "Normal / Large",
                     "c4a:id": "http://registry.gpii.net/application/eu.singularlogic.pixelsense.sociable/fontSize",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Font size",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/fontSize"
+                    "c4a:primitive_type": "string"
                 }
             ]
         },
@@ -10614,7 +10396,7 @@
                 "@ontClassName": "SoftwareInterfacesForComputersAndMobileDevices",
                 "@type": "c4a:AccessibilitySetting"
             }],
-            "c4a:id": "org.gnome.desktop.interface",
+            "c4a:id": "http://registry.gpii.net/applications/org.gnome.desktop.interface",
             "c4a:name": "org.gnome.desktop.interface",
             "c4a:settings": [
                 {
@@ -10635,10 +10417,8 @@
                     "c4a:hasDescription": "How many milliseconds to wait before mouse movement keys start to operate.",
                     "c4a:hasValueSpace": "-2147483648 .. 2147483647",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.desktop.interface/org.gnome.desktop.a11y.keyboard.mousekeys-init-delay",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Mouse keys initial delay in milliseconds",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/initDelay"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -11426,10 +11206,8 @@
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "proportional",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "org.gnome.desktop.a11y.magnifier.mouse-tracking",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/tracking"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -11628,10 +11406,8 @@
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "Whether the on-screen keyboard is turned on.",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.desktop.interface/org.gnome.desktop.a11y.applications.screen-keyboard-enabled",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "On-screen keyboard",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/Dummy"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -11704,10 +11480,8 @@
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "Whether the bounce keys accessibility feature is turned on.",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.desktop.interface/org.gnome.desktop.a11y.keyboard.bouncekeys-enable",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Enable bounce keys",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/debounceKeysEnable"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -11730,18 +11504,14 @@
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": " ",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "org.gnome.libgnomekbd.indicator.foreground-color",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/foregroundColour"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "org.gnome.desktop.a11y.applications.screen-reader-enabled",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/screenReaderTTSEnabled"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -11812,10 +11582,8 @@
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "errors",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "org.freedesktop.Tracker.Extract.verbosity",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/punctuationVerbosity"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -12290,10 +12058,8 @@
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "Whether the mouse keys accessibility feature is turned on.",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.desktop.interface/org.gnome.desktop.a11y.keyboard.mousekeys-enable",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Enable mouse keys",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/mouseEmulationEnabled"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -12576,10 +12342,8 @@
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "Whether the screen reader is turned on.",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.desktop.interface/org.gnome.desktop.a11y.applications.screen-reader-enabled",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Screen reader",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/Dummy"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -12986,10 +12750,8 @@
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "24",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "org.gnome.desktop.interface.cursor-size",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/cursorSize"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -13027,10 +12789,8 @@
                     "c4a:hasDescription": "The font_description used for the icons on the desktop",
                     "c4a:hasValueSpace": "unknown",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.desktop.interface/org.gnome.nautilus.desktop.font",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Desktop font",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/fontName"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -13065,10 +12825,8 @@
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "org.gnome.desktop.a11y.applications.screen-magnifier-enabled",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/magnifierEnabled"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -13289,10 +13047,8 @@
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "#023c88",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "org.gnome.desktop.background.primary-color",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/backgroundColour"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -14238,10 +13994,8 @@
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "10",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "org.gnome.libgnomekbd.indicator.font-size",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/fontSize"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -14303,10 +14057,8 @@
                     "c4a:hasDescription": "Factor used to enlarge or reduce text display, without changing font size.",
                     "c4a:hasValueSpace": "0.5 - 3.0 (in steps of 0.1)",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.desktop.interface/text-scaling-factor",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Text scaling factor",
-                    "c4a:primitive_type": "float",
-                    "c4a:refersTo": "http://registry.gpii.net/common/fontSize"
+                    "c4a:primitive_type": "float"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -15169,10 +14921,8 @@
                     "c4a:hasDescription": "Do not accept a key as being pressed unless held for this many milliseconds.",
                     "c4a:hasValueSpace": "-2147483648 .. 2147483647",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.desktop.interface/org.gnome.desktop.a11y.keyboard.slowkeys-delay",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Slow keys minimum interval",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/slowKeysInterval"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -15234,10 +14984,8 @@
                     "c4a:hasDescription": "Size of the cursor used as cursor theme.",
                     "c4a:hasValueSpace": "-2147483648 .. 2147483647; however, only the following ranges are important: values below 0 (\"small\"), values from 0 - 28 (including 28; \"normal\"), values from 29 -40 (including 29 and 40, \"large\"), values higher than 40 (\"extra-large\")",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.desktop.interface/cursor-size",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Cursor size",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/cursorSize"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -15311,10 +15059,8 @@
                     "c4a:hasDescription": "Ignore multiple presses of the same key within this many milliseconds.",
                     "c4a:hasValueSpace": "-2147483648 .. 2147483647",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.desktop.interface/org.gnome.desktop.a11y.keyboard.bouncekeys-delay",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Bounce keys minimum interval",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/debounceKeysInterval"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -15633,10 +15379,8 @@
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "Whether the slow keys accessibility feature is turned on.",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.desktop.interface/org.gnome.desktop.a11y.keyboard.slowkeys-enable",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Enable slow keys",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/slowKeysEnable"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -16497,10 +16241,8 @@
                     "c4a:hasDescription": "Icon theme to use for the panel, nautilus etc.",
                     "c4a:hasValueSpace": "BlueCurve, Fedora, Gnome, Hicolor, HighContrast, Locolor, Oxygen",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.desktop.interface/icon-theme",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Icon Theme",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/highContrast"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -17199,20 +16941,16 @@
                     "c4a:hasDescription": "Basename of the default theme used by gtk+.",
                     "c4a:hasValueSpace": "Adwaita, HighContrast",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.desktop.interface/gtk-theme",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "GTK+ Theme",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/highContrast"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "Whether the sticky keys accessibility feature is turned on.",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.desktop.interface/org.gnome.desktop.a11y.keyboard.stickykeys-enable",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Enable sticky keys",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/stickyKeys"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -18616,10 +18354,8 @@
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "Whether the screen reader is turned on.",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.desktop.interface/screen-reader-enabled",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Screen reader",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/Dummy"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -18828,10 +18564,8 @@
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "Whether the on-screen keyboard is turned on.",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.desktop.interface/screen-keyboard-enabled",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "On-screen keyboard",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/onScreenKeyboardEnabled"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -19070,7 +18804,7 @@
                 "@ontClassName": "SoftwareInterfacesForComputersAndMobileDevices",
                 "@type": "c4a:AccessibilitySetting"
             }],
-            "c4a:id": "socialNetworkApp.softwareInterface",
+            "c4a:id": "http://registry.gpii.net/applications/socialNetworkApp.softwareInterface",
             "c4a:name": "socialNetworkApp.softwareInterface",
             "c4a:settings": [
                 {
@@ -19131,7 +18865,7 @@
                 "@ontClassName": "SoftwareInterfacesForComputersAndMobileDevices",
                 "@type": "c4a:AccessibilitySetting"
             }],
-            "c4a:id": "org.gnome.nautilus",
+            "c4a:id": "http://registry.gpii.net/applications/org.gnome.nautilus",
             "c4a:name": "org.gnome.nautilus",
             "c4a:settings": []
         },
@@ -19143,7 +18877,7 @@
                 "@ontClassName": "SoftwareInterfacesForComputersAndMobileDevices",
                 "@type": "c4a:AccessibilitySetting"
             }],
-            "c4a:id": "Maavis.softwareInterface",
+            "c4a:id": "http://registry.gpii.net/applications/Maavis.softwareInterface",
             "c4a:name": "Maavis.softwareInterface",
             "c4a:settings": [
                 {
@@ -19162,20 +18896,16 @@
                     "c4a:defaultValue": "true",
                     "c4a:hasDescription": "Speak screen title when displayed",
                     "c4a:id": "http://registry.gpii.net/application/Maavis.softwareInterface/speakTitles",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Speak Titles",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/selfVoicingApplicationTTSEnabled"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "true",
                     "c4a:hasDescription": "Speak button labels when selected",
                     "c4a:id": "http://registry.gpii.net/application/Maavis.softwareInterface/speakLabels",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Speak Labels",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/selfVoicingApplicationTTSEnabled"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -19187,10 +18917,8 @@
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "Speak a button's title when activated",
                     "c4a:id": "http://registry.gpii.net/application/Maavis.softwareInterface/speakOnActivate",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Speak On Activate",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/selfVoicingApplicationTTSEnabled"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -19198,10 +18926,8 @@
                     "c4a:hasDescription": "1 or 2 switches and if auto moves to next selection and if autostarts.\nSee http://maavis.fullmeasure.co.uk/quick-quide#TOC-User-Settings",
                     "c4a:hasValueSpace": "\"USER1SWITCH\", \"USER2SWITCH\", \"AUTO1SWITCH\", \"AUTO2SWITCH\",\n\"AUTO1SWITCHAUTOSTART\", \"AUTO2SWITCHAUTOSTART\"",
                     "c4a:id": "http://registry.gpii.net/application/Maavis.softwareInterface/scanMode",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Scan Mode",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/Dummy"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -19215,10 +18941,8 @@
                     "c4a:hasDescription": "rate of scan selection change  in milliseconds",
                     "c4a:hasValueSpace": "2500",
                     "c4a:id": "http://registry.gpii.net/application/Maavis.softwareInterface/scanRate",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Scan Rate",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/Dummy"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -19226,10 +18950,8 @@
                     "c4a:hasDescription": "Rows-x-Columns - suggest ignore",
                     "c4a:hasValueSpace": "\"RxC\"",
                     "c4a:id": "http://registry.gpii.net/application/Maavis.softwareInterface/buttonGridSize",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Button Grid Size",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/Dummy"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -19248,10 +18970,8 @@
                     "c4a:defaultValue": "true",
                     "c4a:hasDescription": "Display button label text",
                     "c4a:id": "http://registry.gpii.net/application/Maavis.softwareInterface/showLabels",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Show Labels",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/Dummy"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -19264,20 +18984,16 @@
                     "c4a:hasDescription": "Names the colour theme to apply. BW = black and white high contrast.",
                     "c4a:hasValueSpace": "\"bw\",\"colour\"",
                     "c4a:id": "http://registry.gpii.net/application/Maavis.softwareInterface/theme",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Theme",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/highContrast"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "true",
                     "c4a:hasDescription": "Display button image",
                     "c4a:id": "http://registry.gpii.net/application/Maavis.softwareInterface/showImages",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Show Images",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/Dummy"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -19308,20 +19024,16 @@
                     "c4a:hasDescription": "Does the user want automatic scanning or will they use touch/pointer",
                     "c4a:hasValueSpace": "\"scan\", \"touch\"",
                     "c4a:id": "http://registry.gpii.net/application/Maavis.softwareInterface/userType (interaction mode)",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "User Type (interaction mode)",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/Dummy"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "true",
                     "c4a:hasDescription": "play a startup sound milliseconds",
                     "c4a:id": "http://registry.gpii.net/application/Maavis.softwareInterface/playStartSound",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Play Start Sound",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/Dummy"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -19338,7 +19050,7 @@
                 "@ontClassName": "SoftwareInterfacesForComputersAndMobileDevices",
                 "@type": "c4a:AccessibilitySetting"
             }],
-            "c4a:id": "com.android.settings.system",
+            "c4a:id": "http://registry.gpii.net/applications/com.android.settings.system",
             "c4a:name": "com.android.settings.system",
             "c4a:settings": [
                 {
@@ -19346,20 +19058,16 @@
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "Before a android device turn off the screen, this can darken for a little time.",
                     "c4a:id": "http://registry.gpii.net/application/com.android.settings.system/dim_screen",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "dim_screen",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/screenDim"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "To make the screen rotate automatically when you move the Element horizontally or vertically",
                     "c4a:id": "http://registry.gpii.net/application/com.android.settings.system/accelerometer_rotation",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "auto_rotation",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/screenRotation"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -19367,30 +19075,24 @@
                     "c4a:hasDescription": "Time of inactivity after which the screen turns off.",
                     "c4a:hasValueSpace": "0-n (seconds)",
                     "c4a:id": "http://registry.gpii.net/application/com.android.settings.system/screen_time_off",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "screen_time_off",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/screenOffTime"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:hasDescription": "unknown",
                     "c4a:hasValueSpace": "0(0�), 1(90�), 2(180�), 3(270�)",
                     "c4a:id": "http://registry.gpii.net/application/com.android.settings.system/user_rotation",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "default_rotation",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/screenDefaultRotation"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "Vibration of the device when you touch softkeys and certain UI interactions.",
                     "c4a:id": "http://registry.gpii.net/application/com.android.settings.system/haptic_feedback_enabled",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "haptic_feedback",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/hapticFeedback"
+                    "c4a:primitive_type": "boolean"
                 }
             ]
         },
@@ -19402,7 +19104,7 @@
                 "@ontClassName": "SoftwareInterfacesForComputersAndMobileDevices",
                 "@type": "c4a:AccessibilitySetting"
             }],
-            "c4a:id": "com.android.persistentConfiguration",
+            "c4a:id": "http://registry.gpii.net/applications/com.android.persistentConfiguration",
             "c4a:name": "com.android.persistentConfiguration",
             "c4a:settings": [
                 {
@@ -19411,10 +19113,8 @@
                     "c4a:hasDescription": "Language of the UI.",
                     "c4a:hasValueSpace": "ISO 639-1 code with optional ISO 3066 code (depends on the available languages installed on the device). For more information about standard values for system language \nparameter, see \nhttp://developer.android.com/reference/java/util/Locale.html",
                     "c4a:id": "http://registry.gpii.net/application/com.android.persistentConfiguration/language",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "language",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/language"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -19423,10 +19123,8 @@
                     "c4a:hasDescription": "Font size of UI elements.",
                     "c4a:hasValueSpace": "0.5-2.0",
                     "c4a:id": "http://registry.gpii.net/application/com.android.persistentConfiguration/fontScale",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "font_scale",
-                    "c4a:primitive_type": "float",
-                    "c4a:refersTo": "http://registry.gpii.net/common/fontSize"
+                    "c4a:primitive_type": "float"
                 }
             ]
         },
@@ -19438,7 +19136,7 @@
                 "@ontClassName": "SoftwareInterfacesForComputersAndMobileDevices",
                 "@type": "c4a:AccessibilitySetting"
             }],
-            "c4a:id": "nokiaS60.softwareInterface",
+            "c4a:id": "http://registry.gpii.net/applications/nokiaS60.softwareInterface",
             "c4a:name": "nokiaS60.softwareInterface",
             "c4a:settings": [
                 {
@@ -19949,7 +19647,7 @@
                 "@ontClassName": "SoftwareInterfacesForComputersAndMobileDevices",
                 "@type": "c4a:AccessibilitySetting"
             }],
-            "c4a:id": "dtv.softwareInterface",
+            "c4a:id": "http://registry.gpii.net/applications/dtv.softwareInterface",
             "c4a:name": "dtv.softwareInterface",
             "c4a:settings": [
                 {
@@ -20052,7 +19750,7 @@
                 "@ontClassName": "SoftwareInterfacesForComputersAndMobileDevices",
                 "@type": "c4a:AccessibilitySetting"
             }],
-            "c4a:id": "android.softwareInterface",
+            "c4a:id": "http://registry.gpii.net/applications/android.softwareInterface",
             "c4a:name": "android.softwareInterface",
             "c4a:settings": [
                 {
@@ -21205,7 +20903,7 @@
                 "@ontClassName": "SoftwareInterfacesForComputersAndMobileDevices",
                 "@type": "c4a:AccessibilitySetting"
             }],
-            "c4a:id": "org.gnome.desktop.a11y.applications",
+            "c4a:id": "http://registry.gpii.net/applications/org.gnome.desktop.a11y.applications",
             "c4a:name": "org.gnome.desktop.a11y.applications",
             "c4a:settings": [
                 {
@@ -21213,20 +20911,16 @@
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "Whether the screen reader is turned on.",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.desktop.a11y.applications/screen-reader-enabled",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Screen reader",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/Dummy"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "Whether the on-screen keyboard is turned on.",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.desktop.a11y.applications/screen-keyboard-enabled",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "On-screen keyboard",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/Dummy"
+                    "c4a:primitive_type": "boolean"
                 }
             ]
         },
@@ -21238,7 +20932,7 @@
                 "@ontClassName": "SoftwareInterfacesForComputersAndMobileDevices",
                 "@type": "c4a:AccessibilitySetting"
             }],
-            "c4a:id": "org.alsa-project",
+            "c4a:id": "http://registry.gpii.net/applications/org.alsa-project",
             "c4a:name": "org.alsa-project",
             "c4a:settings": [{
                 "@type": "c4a:Setting",
@@ -21246,10 +20940,8 @@
                 "c4a:hasDescription": "The master volume of the system",
                 "c4a:hasValueSpace": "0.0 ... 100.0",
                 "c4a:id": "http://registry.gpii.net/application/org.alsa-project/masterVolume",
-                "c4a:isExactMatching": true,
                 "c4a:name": "Volume",
-                "c4a:primitive_type": "int",
-                "c4a:refersTo": "http://registry.gpii.net/common/volume"
+                "c4a:primitive_type": "int"
             }]
         },
         {
@@ -21260,7 +20952,7 @@
                 "@ontClassName": "SoftwareInterfacesForComputersAndMobileDevices",
                 "@type": "c4a:AccessibilitySetting"
             }],
-            "c4a:id": "info.cloud4all.JME",
+            "c4a:id": "http://registry.gpii.net/applications/info.cloud4all.JME",
             "c4a:name": "info.cloud4all.JME",
             "c4a:settings": [
                 {
@@ -21269,10 +20961,8 @@
                     "c4a:hasDescription": "Changes the UI font size",
                     "c4a:hasValueSpace": "huge, veryLarge, large, medium, small",
                     "c4a:id": "http://registry.gpii.net/application/info.cloud4all.JME/fontSize",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Font",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/fontSize"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -21280,10 +20970,8 @@
                     "c4a:hasDescription": "Sets the volume value",
                     "c4a:hasValueSpace": "1-100",
                     "c4a:id": "http://registry.gpii.net/application/info.cloud4all.JME/volume",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Volume",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/volume"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -21291,10 +20979,8 @@
                     "c4a:hasDescription": "Changes the UI Look&Feel",
                     "c4a:hasValueSpace": "Black-White, White-Black, Yellow-Black, Leather",
                     "c4a:id": "http://registry.gpii.net/application/info.cloud4all.JME/theme",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Theme",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/highContrastTheme"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -21302,10 +20988,8 @@
                     "c4a:hasDescription": "Sets the UI language",
                     "c4a:hasValueSpace": "English, German, Greek, Spanish",
                     "c4a:id": "http://registry.gpii.net/application/info.cloud4all.JME/language",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Language",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/language"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -21313,10 +20997,8 @@
                     "c4a:hasDescription": "Sets the device's vibration level",
                     "c4a:hasValueSpace": "0 (None), 1 (Level1), 2 (Level2)",
                     "c4a:id": "http://registry.gpii.net/application/info.cloud4all.JME/vibrationMode",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Vibration",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/vibration"
+                    "c4a:primitive_type": "int"
                 }
             ]
         },
@@ -21328,7 +21010,7 @@
                 "@ontClassName": "FaceToFaceCommunicationSoftware",
                 "@type": "...unknown..."
             }],
-            "c4a:id": "SocialNetworkApp.faceToFaceCommunication",
+            "c4a:id": "http://registry.gpii.net/applications/SocialNetworkApp.faceToFaceCommunication",
             "c4a:name": "SocialNetworkApp.faceToFaceCommunication",
             "c4a:settings": []
         },
@@ -21340,7 +21022,7 @@
                 "@ontClassName": "FaceToFaceCommunicationSoftware",
                 "@type": "...unknown..."
             }],
-            "c4a:id": "EasyOneCommunicator.faceToFaceCommunication",
+            "c4a:id": "http://registry.gpii.net/applications/EasyOneCommunicator.faceToFaceCommunication",
             "c4a:name": "EasyOneCommunicator.faceToFaceCommunication",
             "c4a:settings": []
         },
@@ -21352,7 +21034,7 @@
                 "@ontClassName": "MagnifyingSoftware",
                 "@type": "c4a:AssistiveTechnology"
             }],
-            "c4a:id": "org.gnome.desktop.a11y.magnifier",
+            "c4a:id": "http://registry.gpii.net/applications/org.gnome.desktop.a11y.magnifier",
             "c4a:name": "org.gnome.desktop.a11y.magnifier",
             "c4a:settings": [
                 {
@@ -21367,10 +21049,8 @@
                     "c4a:hasDescription": "The power of the magnification. A value of 1.0 means no magnification. A value of 2.0 doubles the size.",
                     "c4a:hasValueSpace": "1 - 32",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.desktop.a11y.magnifier/mag-factor",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Magnification factor",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/magnification"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -21380,10 +21060,8 @@
                 },
                 {
                     "@type": "c4a:Setting",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "org.gnome.desktop.a11y.magnifier.screen-position",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/magnificationPosition"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -21415,10 +21093,8 @@
                 },
                 {
                     "@type": "c4a:Setting",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "org.gnome.desktop.a11y.magnifier.mouse-tracking",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/tracking"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -21444,10 +21120,8 @@
                     "c4a:hasDescription": "Position of the magnified view.",
                     "c4a:hasValueSpace": "full-screen, left-half, right-half, top-half, bottom-half",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.desktop.a11y.magnifier/screen-position",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Magnifier position",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/magnificationPosition"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -21461,20 +21135,16 @@
                     "c4a:hasDescription": "Determines the position of the magnified mouse image within the magnified view and how it reacts to system mouse movement. The values are: - none: no mouse tracking; - centered: the mouse image is displayed at the center of the zoom region (which also represents the point under the system mouse) and the magnified contents are scrolled as the system mouse moves; - proportional: the position of the magnified mouse in the zoom region is proportionally the same as the position of the system mouse on screen; - push: when the magnified mouse intersects a boundary of the zoom region, the contents are scrolled into view.",
                     "c4a:hasValueSpace": "none, centered, proportional, push",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.desktop.a11y.magnifier/mouse-tracking",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Mouse tracking",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/tracking"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "Enables or disables display of crosshairs centered on the magnified mouse sprite.",
                     "c4a:id": "http://registry.gpii.net/application/org.gnome.desktop.a11y.magnifier/show-cross-hairs",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Show crosshairs",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/showCrosshairs"
+                    "c4a:primitive_type": "boolean"
                 }
             ]
         },
@@ -21486,7 +21156,7 @@
                 "@ontClassName": "MagnifyingSoftware",
                 "@type": "c4a:AssistiveTechnology"
             }],
-            "c4a:id": "ISO24751.screenMagnifier",
+            "c4a:id": "http://registry.gpii.net/applications/ISO24751.screenMagnifier",
             "c4a:name": "ISO24751.screenMagnifier",
             "c4a:settings": [
                 {
@@ -21517,7 +21187,7 @@
                 "@ontClassName": "MagnifyingSoftware",
                 "@type": "c4a:AssistiveTechnology"
             }],
-            "c4a:id": "com.microsoft.windows.magnifier",
+            "c4a:id": "http://registry.gpii.net/applications/com.microsoft.windows.magnifier",
             "c4a:name": "com.microsoft.windows.magnifier",
             "c4a:settings": [
                 {
@@ -21538,20 +21208,16 @@
                     "c4a:hasDescription": "Change the zoom level.",
                     "c4a:hasValueSpace": "100-1600",
                     "c4a:id": "http://registry.gpii.net/application/com.microsoft.windows.magnifier/Magnification",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Magnification",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/magnification"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "Turning on color inversion increases the contrast between items on your screen, which can help make your screen easier to see.",
                     "c4a:id": "http://registry.gpii.net/application/com.microsoft.windows.magnifier/Invert",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Colour inversion",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/invertImages"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -21564,10 +21230,8 @@
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "Displays the area around the text that you're typing.",
                     "c4a:id": "http://registry.gpii.net/application/com.microsoft.windows.magnifier/FollowCaret",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Follow caret",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/tracking"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -21580,10 +21244,8 @@
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "Displays the area around the pointer when you press the Tab or arrow keys.",
                     "c4a:id": "http://registry.gpii.net/application/com.microsoft.windows.magnifier/FollowFocus",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Follow focus",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/tracking"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -21594,20 +21256,16 @@
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "true",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "FollowMouse",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/tracking"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "Displays the area around the mouse pointer in the Magnifier window. When you select this option, you can choose to have the Magnifier window move when the mouse pointer approaches or when the mouse pointer hits the edge of the Magnifier window.",
                     "c4a:id": "http://registry.gpii.net/application/com.microsoft.windows.magnifier/FollowMouse",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Follow mouse pointer",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/tracking"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -21615,10 +21273,8 @@
                     "c4a:hasDescription": "There are three Magnifier modes. In full-screen mode, your entire screen is magnified. In lens mode, the area around the mouse pointer is magnified.In docked mode, only a portion of the screen is magnified, leaving the rest of your desktop unchanged.",
                     "c4a:hasValueSpace": "1 (dock), 2 (fullscreen), 3 (lens)",
                     "c4a:id": "http://registry.gpii.net/application/com.microsoft.windows.magnifier/MagnificationMode",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Magnifier mode",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/magnificationPosition"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -21643,7 +21299,7 @@
                     "@type": "c4a:AssistiveTechnology"
                 }
             ],
-            "c4a:id": "com.yourdolphin.supernova-as",
+            "c4a:id": "http://registry.gpii.net/applications/com.yourdolphin.supernova-as",
             "c4a:name": "com.yourdolphin.supernova-as",
             "c4a:settings": [
                 {
@@ -21663,10 +21319,8 @@
                     "c4a:defaultValue": "true",
                     "c4a:hasDescription": "regarding keys that can produce visible characters (i.e. keys like \"A\" but not like \"Down-Arrow\"). In SuperNova UI this setting's value depends on two choices of the \"Character echo\" setting",
                     "c4a:id": "http://registry.gpii.net/application/com.yourdolphin.supernova-as/keyEcho",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "key echo (see options in Character echo)",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/keyEcho"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -21674,10 +21328,8 @@
                     "c4a:hasDescription": "2 = 2x = 200%",
                     "c4a:hasValueSpace": "1.2 - 60",
                     "c4a:id": "http://registry.gpii.net/application/com.yourdolphin.supernova-as/magnification",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "magnification factor",
-                    "c4a:primitive_type": "float",
-                    "c4a:refersTo": "http://registry.gpii.net/common/magnification"
+                    "c4a:primitive_type": "float"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -21685,30 +21337,24 @@
                     "c4a:hasDescription": "0,1,2,3 correspond to minimum, low, medium, high. Almost no punctuation is spoken if you choose minimum and all punctuation is spoken if you choose high",
                     "c4a:hasValueSpace": "0,1,2,3",
                     "c4a:id": "http://registry.gpii.net/application/com.yourdolphin.supernova-as/punctuationVerbosity",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "speech verbosity regarding punctuation",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/punctuationVerbosity"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "true",
                     "c4a:hasDescription": "whether to have each word spoken after being typed in full. In SuperNova UI this setting's value depends on two choices of the \"Character echo\" setting",
                     "c4a:id": "http://registry.gpii.net/application/com.yourdolphin.supernova-as/wordEcho",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "word echo (see options in Character echo)",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/wordEcho"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "true",
                     "c4a:hasDescription": "description missing",
                     "c4a:id": "http://registry.gpii.net/application/com.yourdolphin.supernova-as/magnifierEnabled",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "magnification on/off",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/magnifierEnabled"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -21716,20 +21362,16 @@
                     "c4a:hasDescription": "what part of the screen gets magnified. In SuperNova UI this setting corresponds to a subset of the options of \"Magnifier View\"",
                     "c4a:hasValueSpace": "FullScreen, LeftHalf, RightHalf, TopHalf, BottomHalf",
                     "c4a:id": "http://registry.gpii.net/application/com.yourdolphin.supernova-as/magnificationPosition",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "what part of the screen will be magnified (see options of \"Magnifier View\")\n",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/magnificationPosition"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "description missing",
                     "c4a:id": "http://registry.gpii.net/application/com.yourdolphin.supernova-as/BrailleOutput",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Output to Braille display on/off",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/screenReaderBrailleOutput"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -21738,30 +21380,24 @@
                     "c4a:hasDescription": "description missing",
                     "c4a:hasValueSpace": "0-100",
                     "c4a:id": "http://registry.gpii.net/application/com.yourdolphin.supernova-as/speechRate",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "speed of speech",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/speechRate"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "the exact way that capitals are announced is TTS dependent (e.g. change the pitch of the voice or make a beep etc)",
                     "c4a:id": "http://registry.gpii.net/application/com.yourdolphin.supernova-as/announceCapitals",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "audible announcement of capital letters",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/announceCapitals"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "true",
                     "c4a:hasDescription": "description missing",
                     "c4a:id": "http://registry.gpii.net/application/com.yourdolphin.supernova-as/ttsEnabled",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Voice on/off",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/screenReaderTTSEnabled"
+                    "c4a:primitive_type": "boolean"
                 }
             ]
         },
@@ -21773,7 +21409,7 @@
                 "@ontClassName": "MagnifyingSoftware",
                 "@type": "c4a:AccessibilitySolution"
             }],
-            "c4a:id": "org.chrome.cloud4chrome",
+            "c4a:id": "http://registry.gpii.net/applications/org.chrome.cloud4chrome",
             "c4a:name": "org.chrome.cloud4chrome",
             "c4a:settings": [
                 {
@@ -21787,20 +21423,16 @@
                     "c4a:hasDescription": "unknown",
                     "c4a:hasValueSpace": "black-white, white-black, yellow-black, black-yellow",
                     "c4a:id": "http://registry.gpii.net/application/org.chrome.cloud4chrome/highContrastTheme",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "unknown",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/highContrastTheme"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "Activate / Deactivate the default Chrome TTS (ChromeVox)",
                     "c4a:id": "http://registry.gpii.net/application/org.chrome.cloud4chrome/screenReaderTTSEnabled",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "screenReaderTTSEnabled",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/screenReaderTTSEnabled"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -21808,10 +21440,8 @@
                     "c4a:hasDescription": "unknown",
                     "c4a:hasValueSpace": "medium, large, x-large",
                     "c4a:id": "http://registry.gpii.net/application/org.chrome.cloud4chrome/fontSize",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Font Size",
-                    "c4a:primitive_type": "string",
-                    "c4a:refersTo": "http://registry.gpii.net/common/fontSize"
+                    "c4a:primitive_type": "string"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -21819,40 +21449,32 @@
                     "c4a:hasDescription": "unknown",
                     "c4a:hasValueSpace": "1 (100%), 2 (200%), 3 (300%)",
                     "c4a:id": "http://registry.gpii.net/application/org.chrome.cloud4chrome/magnification",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Magnification level",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/magnification"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "unknown",
                     "c4a:id": "http://registry.gpii.net/application/org.chrome.cloud4chrome/magnifierEnabled",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Magnification",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/magnifierEnabled"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "unknown",
                     "c4a:id": "http://registry.gpii.net/application/org.chrome.cloud4chrome/highContrastEnabled",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "unknown",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/highContrastEnabled"
+                    "c4a:primitive_type": "boolean"
                 },
                 {
                     "@type": "c4a:Setting",
                     "c4a:defaultValue": "false",
                     "c4a:hasDescription": "unknown",
                     "c4a:id": "http://registry.gpii.net/application/org.chrome.cloud4chrome/invertColours",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "invertColours",
-                    "c4a:primitive_type": "boolean",
-                    "c4a:refersTo": "http://registry.gpii.net/common/invertColours"
+                    "c4a:primitive_type": "boolean"
                 }
             ]
         },
@@ -21864,7 +21486,7 @@
                 "@ontClassName": "MagnifyingSoftware",
                 "@type": "c4a:AssistiveTechnology"
             }],
-            "c4a:id": "ZoomText.screenMagnifier",
+            "c4a:id": "http://registry.gpii.net/applications/ZoomText.screenMagnifier",
             "c4a:name": "ZoomText.screenMagnifier",
             "c4a:settings": [
                 {
@@ -22851,7 +22473,7 @@
                 "@ontClassName": "SoftwareForAdjustingColorCombinationAndTextSize",
                 "@type": "c4a:AccessibilitySetting"
             }],
-            "c4a:id": "com.microsoft.windows.nonClientMetrics",
+            "c4a:id": "http://registry.gpii.net/applications/com.microsoft.windows.nonClientMetrics",
             "c4a:name": "com.microsoft.windows.nonClientMetrics",
             "c4a:settings": [
                 {
@@ -22860,10 +22482,8 @@
                     "c4a:hasDescription": "Point size for the menu font.",
                     "c4a:hasValueSpace": "8-127 (points)",
                     "c4a:id": "http://registry.gpii.net/application/com.microsoft.windows.nonClientMetrics/MenuFontHeight",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Menu font size",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/fontSize"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -22871,10 +22491,8 @@
                     "c4a:hasDescription": "Point size for the caption bar font.",
                     "c4a:hasValueSpace": "8-127 (points)",
                     "c4a:id": "http://registry.gpii.net/application/com.microsoft.windows.nonClientMetrics/CaptionFontHeight",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Caption font size",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/fontSize"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -22882,10 +22500,8 @@
                     "c4a:hasDescription": "Height of the caption bar buttons",
                     "c4a:hasValueSpace": "true/false",
                     "c4a:id": "http://registry.gpii.net/application/com.microsoft.windows.nonClientMetrics/CaptionHeight",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Caption Height",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/fontSize"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -22893,10 +22509,8 @@
                     "c4a:hasDescription": "Point size for the small caption bart buttons.",
                     "c4a:hasValueSpace": "8-127 (points)",
                     "c4a:id": "http://registry.gpii.net/application/com.microsoft.windows.nonClientMetrics/SmallCaptionFontHeight",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Small caption font height",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/fontSize"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -22904,10 +22518,8 @@
                     "c4a:hasDescription": "Height of menu bar buttons.",
                     "c4a:hasValueSpace": "? pixel",
                     "c4a:id": "http://registry.gpii.net/application/com.microsoft.windows.nonClientMetrics/MenuHeight",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Menu height",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/fontSize"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -22915,10 +22527,8 @@
                     "c4a:hasDescription": "Point size for the message box font.",
                     "c4a:hasValueSpace": "8-127 (points)",
                     "c4a:id": "http://registry.gpii.net/application/com.microsoft.windows.nonClientMetrics/MessageFontHeight",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Message font height",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/fontSize"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -22926,10 +22536,8 @@
                     "c4a:hasDescription": "Height for the small caption height.",
                     "c4a:hasValueSpace": "? pixel",
                     "c4a:id": "http://registry.gpii.net/application/com.microsoft.windows.nonClientMetrics/SmallCaptionHeight",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Small caption height",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/fontSize"
+                    "c4a:primitive_type": "int"
                 },
                 {
                     "@type": "c4a:Setting",
@@ -22937,10 +22545,8 @@
                     "c4a:hasDescription": "Point size for the status bar font.",
                     "c4a:hasValueSpace": "8-127 (points)",
                     "c4a:id": "http://registry.gpii.net/application/com.microsoft.windows.nonClientMetrics/StatusFontHeight",
-                    "c4a:isExactMatching": true,
                     "c4a:name": "Status font height",
-                    "c4a:primitive_type": "int",
-                    "c4a:refersTo": "http://registry.gpii.net/common/fontSize"
+                    "c4a:primitive_type": "int"
                 }
             ]
         },
@@ -22952,17 +22558,15 @@
                 "@ontClassName": "SoftwareForAdjustingColorCombinationAndTextSize",
                 "@type": "c4a:AccessibilitySetting"
             }],
-            "c4a:id": "com.microsoft.windows.highContrast",
+            "c4a:id": "http://registry.gpii.net/applications/com.microsoft.windows.highContrast",
             "c4a:name": "com.microsoft.windows.highContrast",
             "c4a:settings": [{
                 "@type": "c4a:Setting",
                 "c4a:defaultValue": "false",
                 "c4a:hasDescription": "High Contrast is a feature that heightens the color contrast of some text and images on your computer screen, making those items more distinct and easier to identify.",
                 "c4a:id": "http://registry.gpii.net/application/com.microsoft.windows.highContrast/HighContrastOn",
-                "c4a:isExactMatching": true,
                 "c4a:name": "High contrast",
-                "c4a:primitive_type": "boolean",
-                "c4a:refersTo": "http://registry.gpii.net/common/highContrastEnabled"
+                "c4a:primitive_type": "boolean"
             }]
         },
         {
