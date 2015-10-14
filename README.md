@@ -23,7 +23,7 @@ If you are encountering problems with test failures, please ensure that the enco
 
 OR 
 
-just simply set [PERFORM_INTEGRATION_TESTS=false](https://github.com/NickKaklanis/RuleBasedMatchMaker_RESTful_WS_Maven/blob/review3/src/main/webapp/WEB-INF/config.properties#L1)
+just simply set [PERFORM_INTEGRATION_TESTS=false](https://github.com/NickKaklanis/RuleBasedMatchMaker_RESTful_WS_Maven/blob/review4/src/main/webapp/WEB-INF/config.properties#L1)
 	
 ### Funding Acknowledgement
 
