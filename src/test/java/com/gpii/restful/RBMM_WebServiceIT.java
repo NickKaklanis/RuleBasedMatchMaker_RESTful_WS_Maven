@@ -183,7 +183,7 @@ public class RBMM_WebServiceIT extends TestCase {
 			e.printStackTrace();
 		}
 
-		boolean outputIsSimilarToOneOfTheExpected = true;
+		boolean outputIsSimilarToOneOfTheExpected = false;
 		if (actualOutputStr.equals(expectedOutputJsonStr1))
 			outputIsSimilarToOneOfTheExpected = true;
 		else {
