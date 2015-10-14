@@ -1,0 +1,286 @@
+{
+  "inferredConfiguration" : {
+    "gpii-default" : {
+      "applications" : {
+        "com.certh.service-synthesis" : [ {
+          "active" : true,
+          "settings" : {
+            "http://registry.gpii.net/applications/com.certh.service-synthesis" : {
+              "serviceInput" : {
+                "inputUrl" : "URL_TO_BE_REPLACED",
+                "targetLanguage" : "en"
+              },
+              "serviceName" : "Translatewebpage"
+            }
+          }
+        } ],
+        "com.microsoft.windows.displaySettings" : {
+          "active" : true,
+          "settings" : {
+            "http://registry.gpii.net/common/screenResolution" : "low"
+          }
+        },
+        "com.microsoft.windows.highContrast" : {
+          "active" : true,
+          "settings" : {
+            "http://registry.gpii.net/common/highContrastEnabled" : true
+          }
+        },
+        "com.texthelp.readWriteGold" : {
+          "active" : false,
+          "settings" : {
+            "http://registry.gpii.net/common/auditoryOutLanguage" : "en",
+            "http://registry.gpii.net/common/screenReaderTTSEnabled" : true,
+            "http://registry.gpii.net/common/speechRate" : 350.0,
+            "http://registry.gpii.net/common/volumeTTS" : 0.6
+          }
+        },
+        "com.yourdolphin.supernova-as" : {
+          "active" : false,
+          "settings" : {
+            "http://registry.gpii.net/common/screenReaderTTSEnabled" : true,
+            "http://registry.gpii.net/common/speechRate" : 350.0
+          }
+        },
+        "eu.gpii.olb" : {
+          "active" : true,
+          "settings" : {
+            "http://registry.gpii.net/common/simplifiedUiEnabled" : true
+          }
+        },
+        "org.chrome.cloud4chrome" : {
+          "active" : false,
+          "settings" : {
+            "http://registry.gpii.net/common/highContrastEnabled" : true,
+            "http://registry.gpii.net/common/highContrastTheme" : "white-black"
+          }
+        },
+        "org.nvda-project" : {
+          "active" : true,
+          "settings" : {
+            "http://registry.gpii.net/common/auditoryOutLanguage" : "en",
+            "http://registry.gpii.net/common/screenReaderTTSEnabled" : true,
+            "http://registry.gpii.net/common/speechRate" : 350.0,
+            "http://registry.gpii.net/common/volumeTTS" : 0.6
+          }
+        }
+      },
+      "metadata" : [ {
+        "message" : {
+          "de" : {
+            "message" : "Der bevorzugte ScreenReader ist auf diesem Gerät nicht verfügbar. Wir haben NVDA für dich gestartet."
+          },
+          "en" : {
+            "learnMore" : "http://wwwpub.zih.tu-dresden.de/~loitsch/review/nvdaTutorial.html",
+            "message" : "Your preferred ScreenReader is not available on the device. We have launched NVDA for you."
+          }
+        },
+        "scope" : [ "org.nvda-project" ],
+        "type" : "helpMessage"
+      } ]
+    },
+    "ifnps-luminance" : {
+      "applications" : {
+        "com.certh.service-synthesis" : [ {
+          "active" : true,
+          "settings" : {
+            "http://registry.gpii.net/applications/com.certh.service-synthesis" : {
+              "serviceInput" : {
+                "inputUrl" : "URL_TO_BE_REPLACED",
+                "targetLanguage" : "en"
+              },
+              "serviceName" : "Translatewebpage"
+            }
+          }
+        } ],
+        "com.microsoft.windows.displaySettings" : {
+          "active" : true,
+          "settings" : {
+            "http://registry.gpii.net/common/screenResolution" : "very low"
+          }
+        },
+        "com.microsoft.windows.highContrast" : {
+          "active" : true,
+          "settings" : {
+            "http://registry.gpii.net/common/highContrastEnabled" : false
+          }
+        },
+        "com.texthelp.readWriteGold" : {
+          "active" : false,
+          "settings" : {
+            "http://registry.gpii.net/common/auditoryOutLanguage" : "en",
+            "http://registry.gpii.net/common/screenReaderTTSEnabled" : true,
+            "http://registry.gpii.net/common/speechRate" : 350.0,
+            "http://registry.gpii.net/common/volumeTTS" : 0.6
+          }
+        },
+        "com.yourdolphin.supernova-as" : {
+          "active" : false,
+          "settings" : {
+            "http://registry.gpii.net/common/screenReaderTTSEnabled" : true,
+            "http://registry.gpii.net/common/speechRate" : 350.0
+          }
+        },
+        "eu.gpii.olb" : {
+          "active" : true,
+          "settings" : {
+            "http://registry.gpii.net/common/simplifiedUiEnabled" : true
+          }
+        },
+        "org.chrome.cloud4chrome" : {
+          "active" : false,
+          "settings" : {
+            "http://registry.gpii.net/common/highContrastEnabled" : false,
+            "http://registry.gpii.net/common/highContrastTheme" : "white-black"
+          }
+        },
+        "org.nvda-project" : {
+          "active" : true,
+          "settings" : {
+            "http://registry.gpii.net/common/auditoryOutLanguage" : "en",
+            "http://registry.gpii.net/common/screenReaderTTSEnabled" : true,
+            "http://registry.gpii.net/common/speechRate" : 350.0,
+            "http://registry.gpii.net/common/volumeTTS" : 0.6
+          }
+        }
+      },
+      "conditions" : [ {
+        "inputPath" : "http://registry\\.gpii\\.net/common/environment/visual\\.luminance",
+        "max" : 123.0,
+        "min" : 456.0,
+        "type" : "http://registry.gpii.net/conditions/inRange"
+      } ],
+      "metadata" : [ {
+        "message" : {
+          "de" : {
+            "message" : "Basierend auf Deinen Präferenzen haben wir eingestellt, die Darstellung zu vergrößern und hohen Kontrast zu deaktivieren wenn es in der Umgebung heller wird."
+          },
+          "en" : {
+            "message" : "Basierend auf Deinen Präferenzen haben wir eingestellt, die Darstellung zu vergrößern und hohen Kontrast zu deaktivieren wenn es in der Umgebung heller wird."
+          }
+        },
+        "scope" : [ "http://registry.gpii.net/common/highContrastEnabled" ],
+        "type" : "infoMessage"
+      }, {
+        "message" : {
+          "de" : {
+            "message" : "Basierend auf Deinen Präferenzen haben wir eingestellt, die Darstellung zu vergrößern und hohen Kontrast zu deaktivieren wenn es in der Umgebung heller wird."
+          },
+          "en" : {
+            "message" : "Basierend auf Deinen Präferenzen haben wir eingestellt, die Darstellung zu vergrößern und hohen Kontrast zu deaktivieren wenn es in der Umgebung heller wird."
+          }
+        },
+        "scope" : [ "http://registry.gpii.net/common/screenResolution" ],
+        "type" : "infoMessage"
+      }, {
+        "message" : {
+          "de" : {
+            "message" : "Der bevorzugte ScreenReader ist auf diesem Gerät nicht verfügbar. Wir haben NVDA für dich gestartet."
+          },
+          "en" : {
+            "learnMore" : "http://wwwpub.zih.tu-dresden.de/~loitsch/review/nvdaTutorial.html",
+            "message" : "Your preferred ScreenReader is not available on the device. We have launched NVDA for you."
+          }
+        },
+        "scope" : [ "org.nvda-project" ],
+        "type" : "helpMessage"
+      } ]
+    },
+    "ifnps-noise" : {
+      "applications" : {
+        "com.certh.service-synthesis" : [ {
+          "active" : true,
+          "settings" : {
+            "http://registry.gpii.net/applications/com.certh.service-synthesis" : {
+              "serviceInput" : {
+                "inputUrl" : "URL_TO_BE_REPLACED",
+                "targetLanguage" : "en"
+              },
+              "serviceName" : "Translatewebpage"
+            }
+          }
+        } ],
+        "com.microsoft.windows.displaySettings" : {
+          "active" : true,
+          "settings" : {
+            "http://registry.gpii.net/common/screenResolution" : "low"
+          }
+        },
+        "com.microsoft.windows.highContrast" : {
+          "active" : true,
+          "settings" : {
+            "http://registry.gpii.net/common/highContrastEnabled" : true
+          }
+        },
+        "com.texthelp.readWriteGold" : {
+          "active" : false,
+          "settings" : {
+            "http://registry.gpii.net/common/auditoryOutLanguage" : "en",
+            "http://registry.gpii.net/common/screenReaderTTSEnabled" : true,
+            "http://registry.gpii.net/common/speechRate" : 350.0,
+            "http://registry.gpii.net/common/volumeTTS" : 0.8
+          }
+        },
+        "com.yourdolphin.supernova-as" : {
+          "active" : false,
+          "settings" : {
+            "http://registry.gpii.net/common/screenReaderTTSEnabled" : true,
+            "http://registry.gpii.net/common/speechRate" : 350.0
+          }
+        },
+        "eu.gpii.olb" : {
+          "active" : true,
+          "settings" : {
+            "http://registry.gpii.net/common/simplifiedUiEnabled" : true
+          }
+        },
+        "org.chrome.cloud4chrome" : {
+          "active" : false,
+          "settings" : {
+            "http://registry.gpii.net/common/highContrastEnabled" : true,
+            "http://registry.gpii.net/common/highContrastTheme" : "white-black"
+          }
+        },
+        "org.nvda-project" : {
+          "active" : true,
+          "settings" : {
+            "http://registry.gpii.net/common/auditoryOutLanguage" : "en",
+            "http://registry.gpii.net/common/screenReaderTTSEnabled" : true,
+            "http://registry.gpii.net/common/speechRate" : 350.0,
+            "http://registry.gpii.net/common/volumeTTS" : 0.8
+          }
+        }
+      },
+      "conditions" : [ {
+        "inputPath" : "http://registry\\.gpii\\.net/common/environment/auditory\\.noise",
+        "max" : 400000.0,
+        "min" : 400.0,
+        "type" : "http://registry.gpii.net/conditions/inRange"
+      } ],
+      "metadata" : [ {
+        "message" : {
+          "de" : {
+            "message" : "Basierend auf Deinen Präferenzen haben wir eingestellt dass sich die Lautstärke erhöt wenn es in der Umgebung lauter wird."
+          },
+          "en" : {
+            "message" : "Basierend auf Deinen Präferenzen haben wir eingestellt dass sich die Lautstärke erhöt wenn es in der Umgebung lauter wird."
+          }
+        },
+        "scope" : [ "http://registry.gpii.net/common/volumeTTS" ],
+        "type" : "infoMessage"
+      }, {
+        "message" : {
+          "de" : {
+            "message" : "Der bevorzugte ScreenReader ist auf diesem Gerät nicht verfügbar. Wir haben NVDA für dich gestartet."
+          },
+          "en" : {
+            "learnMore" : "http://wwwpub.zih.tu-dresden.de/~loitsch/review/nvdaTutorial.html",
+            "message" : "Your preferred ScreenReader is not available on the device. We have launched NVDA for you."
+          }
+        },
+        "scope" : [ "org.nvda-project" ],
+        "type" : "helpMessage"
+      } ]
+    }
+  }
+}
