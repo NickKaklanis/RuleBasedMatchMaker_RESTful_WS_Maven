@@ -1,9 +1,6 @@
 @prefix c4a: <http://rbmm.org/schemas/cloud4all/0.1/>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 
-	@prefix c4a: <http://rbmm.org/schemas/cloud4all/0.1/>.
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
-
 	// Trigger for Matching a Service: noValue(?pref c4a:status "matched") 
 	// TODO: matches all services, may trigger multiple service conflicts ???
 	[MatchSingleService:
@@ -31,9 +28,7 @@
 	makeSkolem(?newConfig, ?pref, ?if)
 	makeSkolem(?newServiceSetting, ?service)
 	makeSkolem(?newSetting, ?set)
-	
 	->
-	
 	(?if c4a:refersTo ?newConfig)
 	(?newConfig rdf:type c4a:Configuration)
 	(?newConfig c4a:refersTo ?ssynth)

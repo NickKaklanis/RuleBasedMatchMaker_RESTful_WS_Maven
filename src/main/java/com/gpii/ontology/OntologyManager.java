@@ -1,6 +1,5 @@
 package com.gpii.ontology;
 
-
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
@@ -16,65 +15,63 @@ import com.hp.hpl.jena.ontology.impl.IndividualImpl;
 import com.hp.hpl.jena.rdf.model.*;
 import com.hp.hpl.jena.rdf.model.impl.StatementImpl;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Properties;
 
 /**
- *
+ * 
  * @author nkak
  * @author Claudia Loitsch
  * 
  */
-public class OntologyManager
-{
-    private static OntologyManager instance = null;
-    
-    //model initialized from solutions ontology (semanticFrameworkOfContentAndSolutions.owl)
-    public OntModel model;
-    public static final String SOURCE = "http://www.cloud4all.eu/SemanticFrameworkForContentAndSolutions.owl";
-    public static final String NS = SOURCE + "#";
-    //ArrayList containing all the solutions as defined in the ontology
-    public ArrayList<Solution> allSolutions;
-    public ArrayList<Solution> allServices;
-    
-    // default model automatically initialized with data from JSON-LD  	
-    public static Model _dmodel;
-    
-    boolean printDebugInfo;
-    public String debug;
-    
-    private OntologyManager() 
-    {
-        debug = "";
-        printDebugInfo = false;
-        allSolutions = new ArrayList<Solution>();
-        allServices = new ArrayList<Solution>();
-        
-        // create an empty model
-        model = ModelFactory.createOntologyModel();
-        
-        // JenaJSONLD must be initialized so that the readers and writers are registered with Jena.
-        JenaJSONLD.init();
-    }
-    
-    public static OntologyManager getInstance() 
-    {
-        if(instance == null) 
-            instance = new OntologyManager();
-        return instance;
-    }
- //   test the transformation
-    public static void main(String args[]) {
+public class OntologyManager {
+	private static OntologyManager instance = null;
+
+	// model initialized from solutions ontology
+	// (semanticFrameworkOfContentAndSolutions.owl)
+	public OntModel model;
+	public static final String SOURCE = "http://www.cloud4all.eu/SemanticFrameworkForContentAndSolutions.owl";
+	public static final String NS = SOURCE + "#";
+	// ArrayList containing all the solutions as defined in the ontology
+	public ArrayList<Solution> allSolutions;
+	public ArrayList<Solution> allServices;
+
+	// default model automatically initialized with data from JSON-LD
+	public static Model _dmodel;
+
+	boolean printDebugInfo;
+	public String debug;
+
+	private OntologyManager() {
+		debug = "";
+		printDebugInfo = false;
+		allSolutions = new ArrayList<Solution>();
+		allServices = new ArrayList<Solution>();
+
+		// create an empty model
+		model = ModelFactory.createOntologyModel();
+
+		// JenaJSONLD must be initialized so that the readers and writers are
+		// registered with Jena.
+		JenaJSONLD.init();
+	}
+
+	public static OntologyManager getInstance() {
+		if (instance == null)
+			instance = new OntologyManager();
+		return instance;
+	}
+
+	// test the transformation
+	public static void main(String args[]) {
 		// OntologyManager.getInstance().loadOntology();
 		TransformerManager.getInstance().transformOwlToJSONLD();
 	}
-    
-    public void loadOntology()
-    {
-    	String owlPathStr = JsonLDManager.getInstance().solutionsOntology;
+
+	public void loadOntology() {
+		String owlPathStr = JsonLDManager.getInstance().solutionsOntology;
 		InputStream in = null;
 
 		try {
@@ -237,35 +234,31 @@ public class OntologyManager
 													.println("Exception! THIS TYPE IS NOT INCLUDED! -> "
 															+ tmpStatement
 																	.getObject());
+									}
+								} else // object property
+								{
+									// System.out.println("subject: " +
+									// tmpStatement.getSubject());
+									// System.out.println("predicate: " +
+									// tmpStatement.getPredicate());
+									// System.out.println("object: " +
+									// tmpStatement.getObject());
 
-									} else // object property
-									{
-										// System.out.println("subject: " +
-										// tmpStatement.getSubject());
-										// System.out.println("predicate: " +
-										// tmpStatement.getPredicate());
-										// System.out.println("object: " +
-										// tmpStatement.getObject());
+									// TODO: include also other
+									// ObjectProperties
 
-										// TODO: include also other
-										// ObjectProperties
-
-										if (tmpStatement.getPredicate()
-												.toString()
-												.endsWith("_isMappedToRegTerm")) {
-											// get mapped common term
-											Individual tmpRegTermInstance = model
-													.getIndividual(tmpStatement
-															.getObject()
-															.toString());
-											tmpSetting.isMappedToRegTerm = tmpRegTermInstance
-													.getPropertyValue(
-															model.getProperty(
-																	NS,
-																	"RegistryTerm_hasID"))
-													.asLiteral().getValue()
-													.toString();
-										}
+									if (tmpStatement.getPredicate().toString()
+											.endsWith("_isMappedToRegTerm")) {
+										// get mapped common term
+										Individual tmpRegTermInstance = model
+												.getIndividual(tmpStatement
+														.getObject().toString());
+										tmpSetting.isMappedToRegTerm = tmpRegTermInstance
+												.getPropertyValue(
+														model.getProperty(NS,
+																"RegistryTerm_hasID"))
+												.asLiteral().getValue()
+												.toString();
 									}
 								}
 
@@ -277,8 +270,8 @@ public class OntologyManager
 									// tmpSetting.process();
 									tmpSolution.settings.add(tmpSetting);
 								}
-
 							}
+
 						}
 
 						allSolutions.add(tmpSolution);
@@ -317,8 +310,7 @@ public class OntologyManager
 								.getObjectProperty(NS
 										+ "parameterIsMappedToTerm");
 						DatatypeProperty RegistryTerm_hasID = model
-								.getDatatypeProperty(NS
-										+ "RegistryTerm_hasID");
+								.getDatatypeProperty(NS + "RegistryTerm_hasID");
 
 						if (tmpInstance.getPropertyResourceValue(hasInput) != null) {
 
@@ -359,7 +351,7 @@ public class OntologyManager
 									}
 
 								}
-                                tmpSetting.hasCommentsForMapping =  "input";
+								tmpSetting.hasCommentsForMapping = "input";
 								tmpSetting.hasValueSpace = "string";
 								tmpSetting.ignoreSetting = false;
 
@@ -369,7 +361,7 @@ public class OntologyManager
 								tmpSolution.settings.add(tmpSetting);
 							}
 						}
-						
+
 						if (tmpInstance.getPropertyResourceValue(hasOutput) != null) {
 
 							StmtIterator it2 = tmpInstance
@@ -409,7 +401,7 @@ public class OntologyManager
 									}
 
 								}
-                                tmpSetting.hasCommentsForMapping =  "output";
+								tmpSetting.hasCommentsForMapping = "output";
 								tmpSetting.hasValueSpace = "string";
 								tmpSetting.ignoreSetting = false;
 
@@ -427,107 +419,105 @@ public class OntologyManager
 
 		System.out.println(allServices.size());
 		System.out.println(allSolutions.size());
-        
-    }
-    
-    public void processSolutionSettings()
-    {
-        for(int i=0; i<allSolutions.size(); i++)
-        {
-            Solution tmpSolution = allSolutions.get(i);
-            //System.out.println("SOLUTION name: " + tmpSolution.name + ", id: " + tmpSolution.id);
-            
-            ArrayList<Setting> allSettings = tmpSolution.settings;
-            for(int j=0; j<allSettings.size(); j++)
-            {
-                Setting tmpSetting = allSettings.get(j);
-                
-                if( tmpSetting.instanceName.endsWith("_hasID")
-                        || tmpSetting.instanceName.endsWith("_hasName")
-                        || tmpSetting.instanceName.endsWith("_hasDescription")
-                        || tmpSetting.instanceName.endsWith("_hasValueSpace")
-                        || tmpSetting.instanceName.endsWith("_hasConstraints")
-                        || tmpSetting.instanceName.endsWith("_isMappedToRegTerm")
-                        || tmpSetting.instanceName.endsWith("_isExactMatching")
-                        || tmpSetting.instanceName.endsWith("_hasCommentsForMapping") )
-                {
-                    tmpSetting.ignoreSetting = true;
-                    
-                    String originalSettingName = tmpSetting.instanceName.substring(0, tmpSetting.instanceName.lastIndexOf("_"));
-                    Setting originalSetting = getSetting(tmpSolution.name, originalSettingName);
-                    
-                    if(originalSetting != null)
-                    {
-                        if(tmpSetting.instanceName.endsWith("_hasID"))
-                            originalSetting.hasID = tmpSetting.value;
-                        if(tmpSetting.instanceName.endsWith("_hasName"))
-                            originalSetting.hasName = tmpSetting.value;
-                        if(tmpSetting.instanceName.endsWith("_hasDescription"))
-                            originalSetting.hasDescription = tmpSetting.value;
-                        if(tmpSetting.instanceName.endsWith("_hasValueSpace"))
-                            originalSetting.hasValueSpace = tmpSetting.value;
-                        if(tmpSetting.instanceName.endsWith("_hasConstraints"))
-                            originalSetting.hasConstraints = tmpSetting.value;
-                        if(tmpSetting.instanceName.endsWith("_isMappedToRegTerm"))
-                            originalSetting.isMappedToRegTerm = tmpSetting.isMappedToRegTerm;
-                        if(tmpSetting.instanceName.endsWith("_isExactMatching"))
-                            originalSetting.isExactMatching = Boolean.parseBoolean(tmpSetting.value);
-                        if(tmpSetting.instanceName.endsWith("_hasCommentsForMapping"))
-                            originalSetting.hasCommentsForMapping = tmpSetting.value;     
-                    }
-                }
-                //System.out.println("\t" + tmpSetting.toString());
-            }
-        }
-    }
-    
-    public Setting getSetting(String solutionName, String settingName)
-    {
-        for(int i=0; i<allSolutions.size(); i++)
-        {
-            Solution tmpSolution = allSolutions.get(i);
-            if(tmpSolution.name.equals(solutionName))
-            {
-                ArrayList<Setting> allSettings = tmpSolution.settings;
-                for(int j=0; j<allSettings.size(); j++)
-                {
-                    Setting tmpSetting = allSettings.get(j);
-                    if(tmpSetting.instanceName.equals(settingName))
-                        return tmpSetting;
-                }
-            }
-        }
-        return null;
-    }
-    
-    public void printAllSolutionsAndSettings()
-    {
-        for(int i=0; i<allSolutions.size(); i++)
-        {
-            Solution tmpSolution = allSolutions.get(i);
-            System.out.println("-SOLUTION- name: " + tmpSolution.name + ", id: " + tmpSolution.id);
-            
-            ArrayList<Setting> allSettings = tmpSolution.settings;
-            for(int j=0; j<allSettings.size(); j++)
-            {
-                Setting tmpSetting = allSettings.get(j);                
-                System.out.println("\t" + tmpSetting.toString());
-            }
-        }
-    }
-    
-    public void populateJSONLDInput(String transIn, String[] uris)
-    {
-    	InputStream is = new ByteArrayInputStream( transIn.getBytes() );
-        _dmodel = ModelFactory.createOntologyModel().read(is, null, "JSON-LD");
 
-        for (int i=0; i < uris.length; i++)
-            _dmodel.read(System.getProperty("user.dir") + JsonLDManager.getInstance().WEBINF_PATH + uris[i]);
-    }
-    
-    public String testHello(String tmpName)
-    {
-        return "Hello " + tmpName + "!";
-    }
-    
+	}
+
+	public void processSolutionSettings() {
+		for (int i = 0; i < allSolutions.size(); i++) {
+			Solution tmpSolution = allSolutions.get(i);
+			// System.out.println("SOLUTION name: " + tmpSolution.name +
+			// ", id: " + tmpSolution.id);
+
+			ArrayList<Setting> allSettings = tmpSolution.settings;
+			for (int j = 0; j < allSettings.size(); j++) {
+				Setting tmpSetting = allSettings.get(j);
+
+				if (tmpSetting.instanceName.endsWith("_hasID")
+						|| tmpSetting.instanceName.endsWith("_hasName")
+						|| tmpSetting.instanceName.endsWith("_hasDescription")
+						|| tmpSetting.instanceName.endsWith("_hasValueSpace")
+						|| tmpSetting.instanceName.endsWith("_hasConstraints")
+						|| tmpSetting.instanceName
+								.endsWith("_isMappedToRegTerm")
+						|| tmpSetting.instanceName.endsWith("_isExactMatching")
+						|| tmpSetting.instanceName
+								.endsWith("_hasCommentsForMapping")) {
+					tmpSetting.ignoreSetting = true;
+
+					String originalSettingName = tmpSetting.instanceName
+							.substring(0,
+									tmpSetting.instanceName.lastIndexOf("_"));
+					Setting originalSetting = getSetting(tmpSolution.name,
+							originalSettingName);
+
+					if (originalSetting != null) {
+						if (tmpSetting.instanceName.endsWith("_hasID"))
+							originalSetting.hasID = tmpSetting.value;
+						if (tmpSetting.instanceName.endsWith("_hasName"))
+							originalSetting.hasName = tmpSetting.value;
+						if (tmpSetting.instanceName.endsWith("_hasDescription"))
+							originalSetting.hasDescription = tmpSetting.value;
+						if (tmpSetting.instanceName.endsWith("_hasValueSpace"))
+							originalSetting.hasValueSpace = tmpSetting.value;
+						if (tmpSetting.instanceName.endsWith("_hasConstraints"))
+							originalSetting.hasConstraints = tmpSetting.value;
+						if (tmpSetting.instanceName
+								.endsWith("_isMappedToRegTerm"))
+							originalSetting.isMappedToRegTerm = tmpSetting.isMappedToRegTerm;
+						if (tmpSetting.instanceName
+								.endsWith("_isExactMatching"))
+							originalSetting.isExactMatching = Boolean
+									.parseBoolean(tmpSetting.value);
+						if (tmpSetting.instanceName
+								.endsWith("_hasCommentsForMapping"))
+							originalSetting.hasCommentsForMapping = tmpSetting.value;
+					}
+				}
+				// System.out.println("\t" + tmpSetting.toString());
+			}
+		}
+	}
+
+	public Setting getSetting(String solutionName, String settingName) {
+		for (int i = 0; i < allSolutions.size(); i++) {
+			Solution tmpSolution = allSolutions.get(i);
+			if (tmpSolution.name.equals(solutionName)) {
+				ArrayList<Setting> allSettings = tmpSolution.settings;
+				for (int j = 0; j < allSettings.size(); j++) {
+					Setting tmpSetting = allSettings.get(j);
+					if (tmpSetting.instanceName.equals(settingName))
+						return tmpSetting;
+				}
+			}
+		}
+		return null;
+	}
+
+	public void printAllSolutionsAndSettings() {
+		for (int i = 0; i < allSolutions.size(); i++) {
+			Solution tmpSolution = allSolutions.get(i);
+			System.out.println("-SOLUTION- name: " + tmpSolution.name
+					+ ", id: " + tmpSolution.id);
+
+			ArrayList<Setting> allSettings = tmpSolution.settings;
+			for (int j = 0; j < allSettings.size(); j++) {
+				Setting tmpSetting = allSettings.get(j);
+				System.out.println("\t" + tmpSetting.toString());
+			}
+		}
+	}
+
+	public void populateJSONLDInput(String transIn, String[] uris) {
+		InputStream is = new ByteArrayInputStream(transIn.getBytes());
+		_dmodel = ModelFactory.createOntologyModel().read(is, null, "JSON-LD");
+
+		for (int i = 0; i < uris.length; i++)
+			_dmodel.read(System.getProperty("user.dir")
+					+ JsonLDManager.getInstance().WEBINF_PATH + uris[i]);
+	}
+
+	public String testHello(String tmpName) {
+		return "Hello " + tmpName + "!";
+	}
+
 }

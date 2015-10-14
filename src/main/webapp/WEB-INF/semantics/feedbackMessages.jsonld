@@ -5,21 +5,72 @@
     },
     "@graph": [
         {
+            "@type": "c4a:Message",
+            "c4a:id": "ifnps-noise",
+            "c4a:messageType": "infoMessage",
+            "c4a:messages": [
+                {
+                    "c4a:language": "en",
+                    "c4a:text": "Based on your preferences we have configured to increase volume when it gets noisy.",
+                    "c4a:learnMore": ""
+                },
+                {
+                    "c4a:language": "de",
+                    "c4a:text": "Basierend auf Deinen Präferenzen haben wir eingestellt dass sich die Lautstärke erhöt wenn es in der Umgebung lauter wird.",
+                    "c4a:learnMore": ""
+                }
+            ]
+        },
+        {
+            "@type": "c4a:Message",
+            "c4a:id": "ifnps-luminance",
+            "c4a:messageType": "infoMessage",
+            "c4a:messages": [
+                {
+                    "c4a:language": "en",
+                    "c4a:text": "Based on your preferences we have configured to enlarge everything and disable highContrasr when it gets bright.",
+                    "c4a:learnMore": ""
+                },
+                {
+                    "c4a:language": "de",
+                    "c4a:text": "Basierend auf Deinen Präferenzen haben wir eingestellt, die Darstellung zu vergrößern und hohen Kontrast zu deaktivieren wenn es in der Umgebung heller wird.",
+                    "c4a:learnMore": ""
+                }
+            ]
+        },        
+        {
             "@id": "c4a:NoPreferredAT",
             "@type": "c4a:Message",
             "c4a:messageType": "helpMessage",
             "c4a:messages": [
                 {
                     "c4a:language": "en",
-                    "c4a:text": "Your preferred CLASS_TO_BE_REPLACED is not available on the device. We have launched SOLUTION_TO_BE_REPLACED for you.",
-					"c4a:learnMore": "LINK_TO_BE_REPLACED"
+                    "c4a:text": "Your preferred ADDITION_TO_BE_REPLACED is not available on the device. We have launched SOLUTION_TO_BE_REPLACED for you.",
+                    "c4a:learnMore": "LINK_TO_BE_REPLACED"
                 },
                 {
                     "c4a:language": "de",
-                    "c4a:text": "Der bevorzugte CLASS_TO_BE_REPLACED ist auf diesem Gerät nicht verfügbar. Wir haben SOLUTION_TO_BE_REPLACED für dich gestartet.",
-					"c4a:learnMore": "LINK_TO_BE_REPLACED"
+                    "c4a:text": "Der bevorzugte ADDITION_TO_BE_REPLACED ist auf diesem Gerät nicht verfügbar. Wir haben SOLUTION_TO_BE_REPLACED für dich gestartet.",
+                    "c4a:learnMore": "LINK_TO_BE_REPLACED"
                 }
             ]
-        }
+        },
+        {
+            "@type": "c4a:Message",
+			"c4a:id": "spdv-individualRes",            
+            "c4a:messageType": "infoMessage",
+            "c4a:messages": [
+                {
+                    "c4a:language": "en",
+                    "c4a:text": "Multiple users are logged in. We have configured the system to suit the needs of all users. However, multiple users prefer different SOLUTION_TO_BE_REPLACED and we have configured it to ADDITION_TO_BE_REPLACED.",
+                    "c4a:learnMore": ""
+                },
+                {
+                    "c4a:language": "de",
+                    "c4a:text": "Mehrere Nutzer sind eingelogt. Wir haben das System bestmöglich konfiguriert um die Bedürfnissen aller Benutzer zu erfüllen. Allerdings bevorzugen mehrere Nutzer unterschiedliche SOLUTION_TO_BE_REPLACED. Wir haben die SOLUTION_TO_BE_REPLACED auf ADDITION_TO_BE_REPLACED eingestellt.",
+                    "c4a:learnMore": ""
+                }
+            ]
+        }        
     ]
 }

@@ -191,6 +191,7 @@
 	(?conflict rdf:type c4a:Conflict)
 	(?conflict c4a:refersTo ?config_a)
 	(?conflict c4a:refersTo ?config_b)
+	(?conflict c4a:affects ?aff_set)
 	(?config_a c4a:isActive "true")
 	(?config_b c4a:isActive "true")
 	(?config_a c4a:refersTo ?sol_a)
@@ -202,29 +203,39 @@
 	(?if c4a:refersTo ?config_a)
 	(?if c4a:refersTo ?config_b)
 	
-	(?class c4a:ranking ?r)
+	(?at c4a:ranking ?r)
+	(?at c4a:refersTo ?l)
+	listContains(?l, ?aff_set) 
+	
 	(?r ?sol_a ?r_a)
 	(?r ?sol_b ?r_b)
 	greaterThan(?r_a, ?r_b)
 	notEqual(?config_a, ?config_b)
 	->
-	drop(4)
+	drop(5)
 	(?config_b c4a:isActive "false")
 	print('****************************')
 	print('**** MATC_Res_ATRanking ****')
+	print('affects MSC for: ' ?aff_set)
 	print('Configuration activated: ' ?sol_a)
 	print('Configuration deactivated: ' ?sol_b)	
 	print('****************************')	
 ]
-
+ 
 [MATC_Res_ATLayer:
 	(?conflict rdf:type c4a:Conflict)
 	(?conflict c4a:refersTo ?config_a)
 	(?conflict c4a:refersTo ?config_b)
+	(?conflict c4a:affects ?aff_set)
 	(?config_a c4a:isActive "true")
 	(?config_b c4a:isActive "true")
 	(?config_a c4a:refersTo ?sol_a)
 	(?config_b c4a:refersTo ?sol_b)
+	(?config_b c4a:settings ?config_b_set)
+	(?config_b_set rdf:type c4a:Setting)
+	(?config_b_set c4a:id ?aff_set)
+	(?config_b_set c4a:name ?x)
+	(?config_b_set c4a:value ?y)
 	
 	(?if rdf:type c4a:InferredConfiguration)
 	noValue(?if c4a:solPreferred)
@@ -239,10 +250,13 @@
 	equal(?class_a,c4a:at)
 	equal(?class_b,c4a:browser)
 	notEqual(?config_a, ?config_b)
+	notEqual(?sol_a, ?sol_b)	
 	->
-	drop(4)
-	(?config_b c4a:isActive "false")	
+	drop(5,8,9,10,11,12)
+	(?config_b c4a:isActive "false")
 	print('**** MATC_Res_ATLayer ************')
+	print('affects MSC for: ' ?aff_set)
+	print('Configuration activated: ' ?sol_a)	
 	print('Configuration deactivated: ' ?sol_b)
 	print('**********************************')	
 ]
@@ -251,6 +265,7 @@
 	(?conflict rdf:type c4a:Conflict)
 	(?conflict c4a:refersTo ?config_a)
 	(?conflict c4a:refersTo ?config_b)
+	(?conflict c4a:affects ?aff_set)	
 	(?config_a c4a:isActive "true")
 	(?config_b c4a:isActive "true")
 	(?config_a c4a:refersTo ?sol_a)
@@ -270,9 +285,11 @@
 	equal(?class_b,c4a:task)
 	notEqual(?config_a, ?config_b)
 	->
-	drop(4)
+	drop(5)
 	(?config_b c4a:isActive "false")
 	print('**** MATC_Res_ATContext **********')
+	print('affects MSC for: ' ?aff_set)
+	print('Configuration activated: ' ?sol_a)	
 	print('Configuration deactivated: ' ?sol_b)
 	print('**********************************')	
 ]

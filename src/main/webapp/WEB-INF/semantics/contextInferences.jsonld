@@ -1,0 +1,46 @@
+{
+    "@context": {
+        "c4a": "http://rbmm.org/schemas/cloud4all/0.1/",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+    },
+    "@graph": [
+        {
+            "@id": "c4a:noise",
+            "@type": "c4a:ContextInference",
+            "c4a:id": "ifnps-noise",
+            "c4a:name": "inferred preference set for noise",
+            "c4a:affects": {
+                "@list": [
+                    "http://registry.gpii.net/common/volume",
+                    "http://registry.gpii.net/common/volumeTTS"
+                ]
+            },
+            "c4a:condition": {
+                "@type": "c4a:Condition",
+                "c4a:type": "http://registry.gpii.net/conditions/inRange",
+                "c4a:max": "400000",
+                "c4a:min": "400",
+                "c4a:inputPath": "http://registry\\.gpii\\.net/common/environment/auditory\\.noise"
+            }
+        },
+        {
+            "@id": "c4a:luminance",
+            "@type": "c4a:ContextInference",
+            "c4a:id": "ifnps-luminance",
+            "c4a:name": "inferred preference set for luminance",
+            "c4a:affects": {
+                "@list": [
+                    "http://registry.gpii.net/common/highContrastEnabled",
+                    "http://registry.gpii.net/common/screenResolution"
+                ]
+            },
+            "c4a:condition": {
+                "@type": "c4a:Condition",
+                "c4a:type": "http://registry.gpii.net/conditions/inRange",
+                "c4a:max": "123",
+                "c4a:min": "456",
+                "c4a:inputPath": "http://registry\\.gpii\\.net/common/environment/visual\\.luminance"
+            }
+        }
+    ]
+}

@@ -32,7 +32,7 @@
 	(?newMetaData c4a:messages ?newMessage)
 	(?newScope c4a:id ?s_id)
 	(?newScope c4a:name ?s_name)
-	(?newScope c4a:class ?c_name)	
+	(?newScope c4a:addition ?c_name)	
 	(?newMessage c4a:language ?lang)
 	(?newMessage c4a:text ?txt)
 	(?newMessage c4a:learnMore ?learnMore)
@@ -62,3 +62,52 @@
 	drop(7)
 	(?msg c4a:learnMore ?link)
 ]
+
+// Add feedback that a new NPS has been inferred
+[NewNPS:
+	(?if rdf:type c4a:InferredConfiguration)
+	(?if c4a:id ?inf_if_id)
+	
+	// that has been inferred for a context
+	(?c_inf rdf:type c4a:ContextInference)
+	(?c_inf c4a:id ?inf_if_id)
+	(?c_inf c4a:affects ?inf_aff_prefs)
+
+	// And a user has a preferences ...
+	(?if c4a:hasPrefs ?p)
+	(?p c4a:type ?p_type)
+	(?p c4a:id ?p_id)
+	(?p c4a:id ?p_name)
+	(?p c4a:value ?p_value)
+		
+	// And p is not an affected preference by the context inference
+	listContains(?inf_aff_prefs, ?p_id)		
+	
+	// and there is a feedback message available
+	(?feed rdf:type c4a:Message)
+	(?feed c4a:id ?inf_if_id)	
+	(?feed c4a:messageType ?msg_type)
+	(?feed c4a:messages ?msg)
+	(?msg c4a:language ?lang)
+	(?msg c4a:text ?txt)
+	(?msg c4a:learnMore ?learnMore)	
+
+	// than add a feedback to the metadata
+	makeSkolem(?newMetaData, ?if)
+	makeSkolem(?newScope, ?newMetaData, ?if)
+	makeSkolem(?newMessage, ?newScope, ?newMetaData, ?if)
+	->
+	(?if c4a:hasMetadata ?newMetaData)
+	(?newMetaData rdf:type c4a:Metadata)
+	(?newMetaData c4a:messageType ?msg_type)
+	(?newMetaData c4a:scope ?newScope)
+	(?newMetaData c4a:messages ?newMessage)
+	(?newScope c4a:id ?p_id)
+	(?newScope c4a:name ?p_name)
+	(?newScope c4a:addition ?p_type)	
+	(?newMessage c4a:language ?lang)
+	(?newMessage c4a:text ?txt)
+	(?newMessage c4a:learnMore ?learnMore)
+
+]
+ 

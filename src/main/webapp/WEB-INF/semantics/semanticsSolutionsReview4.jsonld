@@ -4,7 +4,29 @@
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
     },
     "@graph": [
-	{
+        {
+            "@id": "http://registry.gpii.net/applications/eu.gpii.olb",
+            "@type": "c4a:Solution",
+            "c4a:id": "eu.gpii.olb",
+            "c4a:name": "Online Banking App",
+            "c4a:class": [
+                {
+                    "@id": "c4a:task"
+                },
+                {
+                    "@id": "c4a:website"
+                }
+            ],
+            "c4a:settings": [
+                {
+                    "@type": "c4a:Setting",
+                    "c4a:id": "simplification",
+                    "c4a:refersTo": "http://registry.gpii.net/common/simplifiedUiEnabled",
+                    "c4a:name": "simplification"
+                }
+            ]
+        }, 
+        {
             "@id": "http://registry.gpii.net/applications/com.certh.service-synthesis",
             "@type": "c4a:Solution",
             "c4a:id": "com.certh.service-synthesis",
@@ -625,9 +647,6 @@
             "c4a:name": "Cloud4chrome",
             "c4a:class": [
                 {
-                    "@id": "c4a:screenreader"
-                },
-                {
                     "@id": "c4a:task"
                 },
                 {
@@ -676,7 +695,7 @@
                     "c4a:id": "invertColours",
                     "c4a:name": "invertColours",
                     "c4a:refersTo": "http://registry.gpii.net/common/invertColours"
-                }                
+                }
             ]
         },
         {
@@ -723,6 +742,97 @@
             ]
         },
         {
+            "@id": "http://registry.gpii.net/applications/org.gnome.orca",
+            "@type": "c4a:Solution",
+            "c4a:id": "org.gnome.orca",
+            "c4a:name": "ORCA",
+            "c4a:class": [
+                {
+                    "@id": "c4a:screenreader"
+                },
+                {
+                    "@id": "c4a:output"
+                },
+                {
+                    "@id": "c4a:at"
+                }
+            ],
+            "c4a:settings": [
+                {
+                    "@type": "c4a:Setting",
+                    "c4a:id": "enableTutorialMessages",
+                    "c4a:refersTo": "http://registry.gpii.net/common/speakTutorialMessage",
+                    "c4a:name": "enableTutorialMessages"
+                },
+                {
+                    "@type": "c4a:Setting",
+                    "c4a:id": "enableEchoByCharacter",
+                    "c4a:refersTo": "http://registry.gpii.net/common/keyEcho",
+                    "c4a:name": "enableEchoByCharacter"
+                },
+                {
+                    "@type": "c4a:Setting",
+                    "c4a:id": "enableEchoByWord",
+                    "c4a:refersTo": "http://registry.gpii.net/common/wordEcho",
+                    "c4a:name": "enableEchoByWord"
+                },
+                {
+                    "@type": "c4a:Setting",
+                    "c4a:id": "enableBraille",
+                    "c4a:refersTo": "http://registry.gpii.net/common/screenReaderBrailleOutput",
+                    "c4a:name": "enableBraille"
+                },
+                {
+                    "@type": "c4a:Setting",
+                    "c4a:id": "enableSpeech",
+                    "c4a:refersTo": "http://registry.gpii.net/common/screenReaderTTSEnabled",
+                    "c4a:name": "enableSpeech"
+                },
+                {
+                    "@type": "c4a:Setting",
+                    "c4a:id": "sayAllStyle",
+                    "c4a:refersTo": "http://registry.gpii.net/common/readingUnit",
+                    "c4a:name": "sayAllStyle"
+                },
+                {
+                    "@type": "c4a:Setting",
+                    "c4a:id": "voices\\.default\\.rate",
+                    "c4a:refersTo": "http://registry.gpii.net/common/speechRate",
+                    "c4a:name": "rate"
+                },
+                {
+                    "@type": "c4a:Setting",
+                    "c4a:id": "voices\\.default\\.average-pitch",
+                    "c4a:refersTo": "http://registry.gpii.net/common/pitch",
+                    "c4a:name": "average-pitch"
+                },
+                {
+                    "@type": "c4a:Setting",
+                    "c4a:id": "speech\\.espeak\\.rate",
+                    "c4a:refersTo": "http://registry.gpii.net/common/speechRate",
+                    "c4a:name": "rate"
+                },
+                {
+                    "@type": "c4a:Setting",
+                    "c4a:id": "verbalizePunctuationStyle",
+                    "c4a:refersTo": "http://registry.gpii.net/common/punctuationVerbosity",
+                    "c4a:name": "punctuationstyle"
+                },
+                {
+                    "@type": "c4a:Setting",
+                    "c4a:id": "voices\\.default\\.family",
+                    "c4a:refersTo": "http://registry.gpii.net/common/auditoryOutLanguage",
+                    "c4a:name": "voice"
+                },
+                {
+                    "@type": "c4a:Setting",
+                    "c4a:id": "voices\\.default\\.gain",
+                    "c4a:refersTo": "http://registry.gpii.net/common/volumeTTS",
+                    "c4a:name": "volume"
+                }
+            ]
+        },
+        {
             "@id": "http://registry.gpii.net/applications/org.nvda-project",
             "@type": "c4a:Solution",
             "c4a:id": "org.nvda-project",
@@ -739,10 +849,10 @@
                 }
             ],
             "c4a:tutorial": [
-            	{
-            	"c4a:language" : "en",
-            	"c4a:link" : "http://wwwpub.zih.tu-dresden.de/~loitsch/review/nvdaTutorial.html"
-            	}
+                {
+                    "c4a:language": "en",
+                    "c4a:link": "http://wwwpub.zih.tu-dresden.de/~loitsch/review/nvdaTutorial.html"
+                }
             ],
             "c4a:settings": [
                 {
@@ -754,7 +864,7 @@
                 {
                     "@type": "c4a:Setting",
                     "c4a:id": "speech\\.espeak\\.volume",
-                    "c4a:refersTo": "volumeTTS",
+                    "c4a:refersTo": "http://registry.gpii.net/common/volumeTTS",
                     "c4a:name": "volume"
                 },
                 {
@@ -823,7 +933,7 @@
             "@id": "http://registry.gpii.net/applications/com.microsoft.windows.highContrast",
             "@type": "c4a:Solution",
             "c4a:id": "com.microsoft.windows.highContrast",
-            "c4a:name": "Windows HighContrast",
+            "c4a:name": "WindowsHighContrast",
             "c4a:class": [
                 {
                     "@id": "c4a:output"
@@ -845,7 +955,7 @@
             "@id": "http://registry.gpii.net/applications/com.microsoft.windows.onscreenKeyboard",
             "@type": "c4a:Solution",
             "c4a:id": "com.microsoft.windows.onscreenKeyboard",
-            "c4a:name": "Windows On-Screen-Keyboard",
+            "c4a:name": "WindowsOn-Screen-Keyboard",
             "c4a:class": [
                 {
                     "@id": "c4a:onscreenkeyboard"
@@ -870,7 +980,7 @@
             "@id": "http://registry.gpii.net/applications/org.gnome.desktop.a11y.magnifier",
             "@type": "c4a:Solution",
             "c4a:id": "org.gnome.desktop.a11y.magnifier",
-            "c4a:name": "Gnome Magnifier",
+            "c4a:name": "GnomeMagnifier",
             "c4a:class": [
                 {
                     "@id": "c4a:magnifier"
@@ -919,7 +1029,7 @@
             "@id": "http://registry.gpii.net/applications/org.gnome.desktop.a11y.applications.onscreen-keyboard",
             "@type": "c4a:Solution",
             "c4a:id": "org.gnome.desktop.a11y.applications.onscreen-keyboard",
-            "c4a:name": "Gnome On-Screen-Keyboard",
+            "c4a:name": "GnomeOn-Screen-Keyboard",
             "c4a:class": [
                 {
                     "@id": "c4a:onscreenkeyboard"
@@ -1017,7 +1127,7 @@
             "@id": "http://registry.gpii.net/applications/com.microsoft.windows.mouseTrailing",
             "@type": "c4a:Solution",
             "c4a:id": "com.microsoft.windows.mouseTrailing",
-            "c4a:name": "Windows Mouse Trailing",
+            "c4a:name": "WindowsMouseTrailing",
             "c4a:class": [
                 {
                     "@id": "c4a:output"
@@ -1039,7 +1149,7 @@
             "@id": "http://registry.gpii.net/applications/com.microsoft.windows.cursors",
             "@type": "c4a:Solution",
             "c4a:id": "com.microsoft.windows.cursors",
-            "c4a:name": "Windows Cursors",
+            "c4a:name": "WindowsCursors",
             "c4a:class": [
                 {
                     "@id": "c4a:output"
@@ -1385,14 +1495,35 @@
             ]
         },
         {
+            "@id": "c4a:suite",
+            "@type": "c4a:AccessibilitySolution",
+            "c4a:name": "Access Suite",
+            "c4a:refersTo": {
+                "@list": [
+                    "http://registry.gpii.net/common/screenReaderTTSEnabled",
+                    "http://registry.gpii.net/common/magnifierEnabled"
+                ]
+            }
+        },
+        {
             "@id": "c4a:screenreader",
             "@type": "c4a:AccessibilitySolution",
-            "c4a:name": "ScreenReader"
+            "c4a:name": "ScreenReader",
+            "c4a:refersTo": {
+                "@list": [
+                    "http://registry.gpii.net/common/screenReaderTTSEnabled"
+                ]
+            }
         },
         {
             "@id": "c4a:magnifier",
             "@type": "c4a:AccessibilitySolution",
-            "c4a:name": "Magnifier"
+            "c4a:name": "Magnifier",
+            "c4a:refersTo": {
+                "@list": [
+                    "http://registry.gpii.net/common/magnifierEnabled"
+                ]
+            }
         },
         {
             "@id": "c4a:input",
