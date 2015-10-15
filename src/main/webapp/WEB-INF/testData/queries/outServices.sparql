@@ -1,4 +1,4 @@
-# Querry all applications and settings to contextualized preferences 
+# Querry all services and settings to contextualized preferences 
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX c4a:  <http://rbmm.org/schemas/cloud4all/0.1/>
@@ -36,4 +36,4 @@ WHERE
 	OPTIONAL{?metadata c4a:fromVariableName ?fromVar}.
 	OPTIONAL{?metadata c4a:toServiceName ?toServ}.
 	OPTIONAL{?metadata c4a:toVariableName ?toVar}.
-} ORDER BY DESC(?service_priority)	
+} ORDER BY DESC(?service_priority)

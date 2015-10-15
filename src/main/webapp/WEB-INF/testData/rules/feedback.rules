@@ -109,5 +109,4 @@
 	(?newMessage c4a:text ?txt)
 	(?newMessage c4a:learnMore ?learnMore)
 
-]
- 
+] 

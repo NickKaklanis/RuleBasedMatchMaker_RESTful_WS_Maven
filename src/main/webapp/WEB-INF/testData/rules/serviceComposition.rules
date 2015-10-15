@@ -118,7 +118,4 @@
 	(?newMetaData c4a:fromVariableName ?set_nameA)
 	(?newMetaData c4a:toServiceName ?s_idB)
 	(?newMetaData c4a:toVariableName ?set_nameB)
-	
-	
 	]
-	

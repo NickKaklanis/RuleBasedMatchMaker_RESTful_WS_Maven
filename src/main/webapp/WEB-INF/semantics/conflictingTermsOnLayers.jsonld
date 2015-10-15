@@ -8,8 +8,8 @@
             "@id": "c4a:conflict",
             "@type": "c4a:SolutionConflict",
             "c4a:refersTo": [
-                "http://registry.gpii.net/common/screenReaderTTSEnabled", 
-				"http://registry.gpii.net/common/magnifierEnabled",                
+                "http://registry.gpii.net/common/screenReaderTTSEnabled",
+                "http://registry.gpii.net/common/magnifierEnabled",
                 "http://registry.gpii.net/common/highContrastEnabled"
             ]
         }
