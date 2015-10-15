@@ -7,26 +7,26 @@ import javax.annotation.Resource;
 import javax.ws.rs.core.Application;
 
 /**
- *
+ * 
  * @author nkak
  */
 
 public class RBMM_WebService_Config extends Application {
 
-    private static final Set<Class<?>> CLASSES;
+  private static final Set<Class<?>> CLASSES;
 
-    static {
-        HashSet<Class<?>> tmp = new HashSet<Class<?>>();
-        tmp.add(Resource.class);
+  static {
+    HashSet<Class<?>> tmp = new HashSet<Class<?>>();
+    tmp.add(Resource.class);
 
-        CLASSES = Collections.unmodifiableSet(tmp);
-    }
+    CLASSES = Collections.unmodifiableSet(tmp);
+  }
 
-    @Override
-    public Set<Class<?>> getClasses(){
+  @Override
+  public Set<Class<?>> getClasses() {
 
-       return  CLASSES;
-    }    
+    return CLASSES;
+  }
 
 
 }

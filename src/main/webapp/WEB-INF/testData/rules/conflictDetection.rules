@@ -101,5 +101,4 @@
 	print('AFFECTS: ' ?aff_set)
 	print('REFERS TO: ' ?s1)
 	print('REFERS TO: ' ?s2)	 
-	]	
-	
+	]		
