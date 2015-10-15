@@ -1,6 +1,6 @@
 {
   "inferredConfiguration" : {
-    "ifnps-multi-users-merged" : {
+    "gpii-default" : {
       "applications" : {
         "com.certh.service-synthesis" : [ {
           "active" : true,
@@ -10,6 +10,14 @@
                 "input" : [ {
                   "serviceInput" : {
                     "inputUrl" : "URL_TO_BE_REPLACED",
+                    "targetBackground" : "blue",
+                    "targetColor" : "red",
+                    "targetFontFamily" : "Arial",
+                    "targetFontSize" : "18.0"
+                  },
+                  "serviceName" : "FontConverter"
+                }, {
+                  "serviceInput" : {
                     "targetLanguage" : "en"
                   },
                   "serviceName" : "Translatewebpage"
@@ -17,6 +25,11 @@
                   "serviceName" : "CallWebAnywhere"
                 } ],
                 "mappedVariables" : [ {
+                  "fromServiceName" : "FontConverter",
+                  "fromVariableName" : "finalUrl",
+                  "toServiceName" : "Translatewebpage",
+                  "toVariableName" : "inputUrl"
+                }, {
                   "fromServiceName" : "Translatewebpage",
                   "fromVariableName" : "finalUrl",
                   "toServiceName" : "CallWebAnywhere",
@@ -32,25 +45,13 @@
             }
           }
         } ],
-        "com.microsoft.windows.displaySettings" : {
+        "com.microsoft.windows.highContrast" : {
           "active" : true,
           "settings" : {
-            "http://registry.gpii.net/common/screenResolution" : "low"
+            "http://registry.gpii.net/common/highContrastEnabled" : true
           }
         }
-      },
-      "metadata" : [ {
-        "message" : {
-          "de" : {
-            "message" : "Mehrere Nutzer sind eingelogt. Wir haben das System bestmöglich konfiguriert um die Bedürfnissen aller Benutzer zu erfüllen. Allerdings bevorzugen mehrere Nutzer unterschiedliche screenResolution. Wir haben die screenResolution auf low eingestellt."
-          },
-          "en" : {
-            "message" : "Multiple users are logged in. We have configured the system to suit the needs of all users. However, multiple users prefer different screenResolution and we have configured it to low."
-          }
-        },
-        "scope" : [ "http://registry.gpii.net/common/screenResolution" ],
-        "type" : "infoMessage"
-      } ]
+      }
     }
   }
 }

@@ -37,7 +37,7 @@
                     "c4a:learnMore": ""
                 }
             ]
-        },        
+        },
         {
             "@id": "c4a:NoPreferredAT",
             "@type": "c4a:Message",
@@ -57,7 +57,7 @@
         },
         {
             "@type": "c4a:Message",
-			"c4a:id": "spdv-individualRes",            
+            "c4a:id": "spdv-individualRes",
             "c4a:messageType": "infoMessage",
             "c4a:messages": [
                 {
@@ -71,6 +71,6 @@
                     "c4a:learnMore": ""
                 }
             ]
-        }        
+        }
     ]
 }

@@ -8,28 +8,24 @@ import junit.framework.TestSuite;
 /**
  * Unit test for simple App.
  */
-public class OntologyManagerTest extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public OntologyManagerTest( String testName )
-    {
-        super( testName );
-    }
+public class OntologyManagerTest extends TestCase {
+  /**
+   * Create the test case
+   * 
+   * @param testName name of the test case
+   */
+  public OntologyManagerTest(String testName) {
+    super(testName);
+  }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( OntologyManagerTest.class );
-    }
+  /**
+   * @return the suite of tests being tested
+   */
+  public static Test suite() {
+    return new TestSuite(OntologyManagerTest.class);
+  }
 
-    public void testOntologyManager()
-    {
-         Assert.assertEquals(OntologyManager.getInstance().testHello("guest"), "Hello guest!");
-    }
+  public void testOntologyManager() {
+    Assert.assertEquals(OntologyManager.getInstance().testHello("guest"), "Hello guest!");
+  }
 }
