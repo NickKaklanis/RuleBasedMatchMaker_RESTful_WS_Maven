@@ -18,8 +18,8 @@
             "c4a:condition": {
                 "@type": "c4a:Condition",
                 "c4a:type": "http://registry.gpii.net/conditions/inRange",
-                "c4a:max": "400000",
-                "c4a:min": "400",
+                "c4a:max": "unbounded",
+                "c4a:min": "1",
                 "c4a:inputPath": "http://registry\\.gpii\\.net/common/environment/auditory\\.noise"
             }
         },
@@ -37,8 +37,8 @@
             "c4a:condition": {
                 "@type": "c4a:Condition",
                 "c4a:type": "http://registry.gpii.net/conditions/inRange",
-                "c4a:max": "123",
-                "c4a:min": "456",
+                "c4a:max": "unbounded",
+                "c4a:min": "600",
                 "c4a:inputPath": "http://registry\\.gpii\\.net/common/environment/visual\\.luminance"
             }
         }
