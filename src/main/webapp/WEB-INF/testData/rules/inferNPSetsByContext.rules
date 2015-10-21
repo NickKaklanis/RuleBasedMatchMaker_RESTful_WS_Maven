@@ -9,12 +9,7 @@
 	// And a user has a preference volumeTTS in the their default preference set
 	(?ps c4a:hasPrefs ?p)
 	(?p c4a:id "http://registry.gpii.net/common/volumeTTS")
-	(?p c4a:name ?p_name)
-	(?p c4a:value ?p_value)
-	
-	//calculate new value for volume
-	sum(?p_value, 0.2, ?p_new_value)
-	
+
 	// create a new NPSet context
 	makeSkolem(?newPS, c4a:ifnps-noise)
 	makeSkolem(?newP, ?newPS) 
@@ -26,19 +21,17 @@
 	
 	(?newP rdf:type c4a:Preference)
 	(?newP c4a:type "common")
-	(?newP c4a:id "http://registry.gpii.net/common/volumeTTS")
-	(?newP c4a:name ?p_name)
-	(?newP c4a:value ?p_new_value)
+	(?newP c4a:id "http://registry.gpii.net/common/captionsEnabled")
+	(?newP c4a:name "captionsEnabled")
+	(?newP c4a:value "true")
 	
 	print('********** NEW NPS inferred **************')
 	print('CONTEXT: ifnps-noise')
-	print('AFFECTS PREF: http://registry.gpii.net/common/volumeTTS')
-	print('OLD VALUE: ' ?p_value)
-	print('NEW VALUE: ' ?p_new_value)
+	print('AFFECTS PREF: captionsEnabled')
 ]
 
 
-// Infer NPS for luminance 
+// Infer new conditional preference set for context "luminance" 
 [InferPrefSetsForLum:
 	// If there is a default preference set ... 
 	(?ps rdf:type c4a:PreferenceSet)

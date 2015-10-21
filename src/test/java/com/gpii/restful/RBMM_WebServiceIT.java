@@ -14,8 +14,8 @@ public class RBMM_WebServiceIT extends TestCase {
     if (JsonLDManager.getInstance().PERFORM_INTEGRATION_TESTS) {
 
       _Alicia();
-      _CombinedScenario1();
-      _CombinedScenario2();
+      //_CombinedScenario1();
+      //_CombinedScenario2();
       _AliciaSz2();
       _LiaAndManuel();
 

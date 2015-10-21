@@ -5,6 +5,50 @@
     },
     "@graph": [
         {
+            "@id": "http://registry.gpii.net/applications/www.cloud4all.info",
+            "@type": "c4a:Solution",
+            "c4a:id": "www.cloud4all.info",
+            "c4a:name": "Cloud4all.info",
+            "c4a:class": [
+                {
+                    "@id": "c4a:task"
+                },
+                {
+                    "@id": "c4a:website"
+                }
+            ],
+            "c4a:settings": [
+                {
+                    "@type": "c4a:Setting",
+                    "c4a:id": "screen resolution",
+                    "c4a:refersTo": "http://registry.gpii.net/common/captionsEnabled",
+                    "c4a:name": "captions"
+                }
+            ]
+        },
+        {
+            "@id": "http://registry.gpii.net/applications/org.freedesktop.xrandr",
+            "@type": "c4a:Solution",
+            "c4a:id": "org.freedesktop.xrandr",
+            "c4a:name": "Screen Resolution on Linux ",
+            "c4a:class": [
+                {
+                    "@id": "c4a:output"
+                },
+                {
+                    "@id": "c4a:os"
+                }
+            ],
+            "c4a:settings": [
+                {
+                    "@type": "c4a:Setting",
+                    "c4a:id": "screen resolution",
+                    "c4a:refersTo": "http://registry.gpii.net/common/screenResolution",
+                    "c4a:name": "screen resolution"
+                }
+            ]
+        },    
+        {
             "@id": "http://registry.gpii.net/applications/eu.gpii.olb",
             "@type": "c4a:Solution",
             "c4a:id": "eu.gpii.olb",
