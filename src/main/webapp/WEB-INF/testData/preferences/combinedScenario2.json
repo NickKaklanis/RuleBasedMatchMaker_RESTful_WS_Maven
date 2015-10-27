@@ -23,7 +23,7 @@
             }
         }
     },
-    "deviceReporter": {
+    "deviceContext": {
         "OS": {
             "id": "android",
             "version": "3.0.31-693204"

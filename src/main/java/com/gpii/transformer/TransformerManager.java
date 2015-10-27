@@ -487,8 +487,8 @@ public class TransformerManager {
       }
     }
 
-    if (mmIn.has("deviceReporter")) {
-      JSONObject inDevice = mmIn.getJSONObject("deviceReporter");
+    if (mmIn.has("deviceContext")) {
+      JSONObject inDevice = mmIn.getJSONObject("deviceContext");
 
       /**
        * Translate operating system; IN: "OS": { "id": "win32", "version": "5.0.0" }, GOAL: { "@id":
